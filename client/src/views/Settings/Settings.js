@@ -1,8 +1,19 @@
 import { Container, Row, Col } from "react-bootstrap";
 import BackButton from '../common/BackButton';
 import { RiDeleteBin2Line, RiEdit2Line } from "react-icons/ri";
+import { APP_DATABASE_URL } from "../../constant/constant";
+import axios from 'axios';
+import React, { useState, useEffect } from "react";
 
 const Admin = () => {
+    const [match, setMatch] = useState([])
+
+     useEffect(() => {
+            axios.get(`${APP_DATABASE_URL}/matches`)
+            .then(response => setMatch(response.data))
+            .catch(error => console.error('Error fetching data:', error));
+            }, []);
+
     const tdRight={
         textAlign:'right'
     };
@@ -60,8 +71,9 @@ const Admin = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>2025mil_flm1</td>
+                            {match.map(match => (
+                                <tr key={match.id}> 
+                                <td>{match.matchKey}</td>
                                 <td style={tdRight}>
                                     <button className="btn btn-primary" ><RiEdit2Line /> </button>
                                 </td>
@@ -69,6 +81,7 @@ const Admin = () => {
                                     <button className="btn btn-danger" ><RiDeleteBin2Line /> </button>
                                 </td>
                             </tr>
+                            ))}
                         </tbody>
                     </table>
                 </Col>
