@@ -1,4 +1,4 @@
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Modal } from "react-bootstrap";
 import BackButton from '../common/BackButton';
 import { RiDeleteBin2Line, RiEdit2Line } from "react-icons/ri";
 import { APP_DATABASE_URL } from "../../constant/constant";
@@ -7,6 +7,12 @@ import React, { useState, useEffect } from "react";
 
 const Admin = () => {
     const [match, setMatch] = useState([])
+
+    const [showDelete, setShowDelete] = useState(false);
+
+    const handleShowDelete = () => setShowDelete(true);
+
+    const handleCloseDelete = () => setShowDelete(false)
 
      useEffect(() => {
             axios.get(`${APP_DATABASE_URL}/matches`)
@@ -60,6 +66,23 @@ const Admin = () => {
                     <hr></hr>
                 </Col>
                 <Col md={4}>
+                <Modal
+                show={showDelete}
+                onHide={handleCloseDelete}
+                backdrop="static"
+                keyboard={false}
+                >
+                    <Modal.Header>
+                        <Modal.Title>Warning</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        By pressing "Delete" this match will be irreversible destroyed. If you don't want to do this, press cancel. 
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <button className="btn btn-primary" onClick={handleCloseDelete}> Cancel </button>
+                        <button className="btn btn-danger" >Delete <RiDeleteBin2Line /> </button>
+                    </Modal.Footer>
+                </Modal>
                     <h3>Matches</h3>
                     <hr></hr>
                     <table classname="table">
@@ -78,7 +101,7 @@ const Admin = () => {
                                     <button className="btn btn-primary" ><RiEdit2Line /> </button>
                                 </td>
                                 <td style={tdRight}>
-                                    <button className="btn btn-danger" ><RiDeleteBin2Line /> </button>
+                                    <button className="btn btn-danger" onClick={() => handleShowDelete(true)}><RiDeleteBin2Line /> </button>
                                 </td>
                             </tr>
                             ))}
