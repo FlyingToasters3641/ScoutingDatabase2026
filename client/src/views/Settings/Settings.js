@@ -76,7 +76,7 @@ const Admin = () => {
                         <Modal.Title>Warning</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        By pressing "Delete" this match will be irreversible destroyed. If you don't want to do this, press cancel. 
+                        By pressing "Delete" the match {match.matchKey} will be irreversible destroyed. If you don't want to do this, press cancel. 
                     </Modal.Body>
                     <Modal.Footer>
                         <button className="btn btn-primary" onClick={handleCloseDelete}> Cancel </button>
