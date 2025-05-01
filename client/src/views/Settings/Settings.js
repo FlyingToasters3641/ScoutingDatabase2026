@@ -10,24 +10,14 @@ const Admin = () => {
 
     const [showDelete, setShowDelete] = useState(false);
 
-    const [matchToDelete, setMatchToDelete] = useState([]);
-
     const handleShowDelete = () => setShowDelete(true);
 
-    const handleCloseDelete = () => setShowDelete(false);
-
-    const handleMatchDelete = async () => {
-        alert(matchToDelete.id);
-        await axios.delete(`${APP_DATABASE_URL}/match/${matchToDelete.id}`)
-        .then(responce => setMatchToDelete(responce.data), setShowDelete(false))
-        .catch(error => console.error('Error fetching data:', error))
-    }
+    const handleCloseDelete = () => setShowDelete(false)
 
      useEffect(() => {
             axios.get(`${APP_DATABASE_URL}/matches`)
             .then(response => setMatch(response.data))
             .catch(error => console.error('Error fetching data:', error));
-
             }, []);
 
     const tdRight={
@@ -86,11 +76,11 @@ const Admin = () => {
                         <Modal.Title>Warning</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        By pressing "Delete" the match {matchToDelete.matchKey} will be irreversible destroyed. If you don't want to do this, press cancel. 
+                        By pressing "Delete" the match {match.matchKey} will be irreversible destroyed. If you don't want to do this, press cancel. 
                     </Modal.Body>
                     <Modal.Footer>
                         <button className="btn btn-primary" onClick={handleCloseDelete}> Cancel </button>
-                        <button className="btn btn-danger" onClick={handleMatchDelete}>Delete <RiDeleteBin2Line /> </button>
+                        <button className="btn btn-danger" >Delete <RiDeleteBin2Line /> </button>
                     </Modal.Footer>
                 </Modal>
                     <h3>Matches</h3>
@@ -111,7 +101,7 @@ const Admin = () => {
                                     <button className="btn btn-primary" ><RiEdit2Line /> </button>
                                 </td>
                                 <td style={tdRight}>
-                                    <button className="btn btn-danger" onClick={() => {setMatchToDelete(match); handleShowDelete(true);}}><RiDeleteBin2Line /> </button>
+                                    <button className="btn btn-danger" onClick={() => handleShowDelete(true)}><RiDeleteBin2Line /> </button>
                                 </td>
                             </tr>
                             ))}
