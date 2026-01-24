@@ -51,6 +51,102 @@ const Eventdata = () => {
         textAlign: 'right'
     };
 
+    //dictates what data to render based on year
+    const renderDataByYear = (year) => {
+        if (year === '2026') {
+            // Data to render for 2026
+            return <DataTable
+                    data={teamAverage}
+                    options={{
+                        columns: [
+                            { data: 'teamNumber' },
+                            { data: 'matchCount' },
+                            { data: 'n/a' }
+                        ],
+                        responsive: false,
+                    }}
+                >
+                    <thead>
+                        <tr>
+                            <th>Team Number</th>
+                            <th>Total Matches</th>
+                            <th>!!Data Not Available for 2026!!</th>
+                        </tr>
+                    </thead>
+                </DataTable>;
+        }
+        else if (year === '2025') {
+            // Data to render for 2025
+            return <DataTable
+                    data={teamAverage}
+                    options={{
+                        columns: [
+                            { data: 'teamNumber' },
+                            { data: 'matchCount' },
+                            { data: 'avgTotalReef', searchable: false, },
+                            { data: 'totalProcessorScored', searchable: false, },
+                            { data: 'totalNetScored', searchable: false, },
+                            { data: 'avgTotalAlgeaRemoved', searchable: false, },
+                            { data: 'catBargeZonLocation' },
+                            { data: 'avgAutonReefLevel1Total', searchable: false, },
+                            { data: 'avgAutonReefLevel4Total', searchable: false, },
+                            { data: 'avgAutonReefTotal', searchable: false, },
+                            { data: 'avgAutonNetScored', searchable: false, },
+                            { data: 'avgTeleopReefLevel1Total', searchable: false, },
+                            { data: 'avgTeleopReefLevel3Total', searchable: false, },
+                            { data: 'avgTeleopReefLevel4Total', searchable: false, },
+                            { data: 'avgTeleopReefTotal', searchable: false, },
+                            { data: 'avgTeleopNetScored', searchable: false, }
+                        ],
+                        responsive: false,
+                    }}
+                >
+                    <thead>
+                        <tr>
+                            <th>Team Number</th>
+                            <th>Total Matches</th>
+                            <th>Total Coral</th>
+                            <th>Total Processor</th>
+                            <th>Total Net</th>
+                            <th>Total Alage Removed</th>
+                            <th>Climb Position</th>
+                            <th>Auton Coral L1</th>
+                            <th>Auton Coral L4</th>
+                            <th>Auton Coral</th>
+                            <th>Auton Net</th>
+                            <th>TeleOp Coral L1</th>
+                            <th>TeleOp Coral L3</th>
+                            <th>TeleOp Coral L4</th>
+                            <th>TeleOp Coral</th>
+                            <th>TeleOp Net</th>
+                        </tr>
+                    </thead>
+                </DataTable>;
+        }
+        else {
+            // Filler case for invalid years
+            return <DataTable
+                    data={teamAverage}
+                    options={{
+                        columns: [
+                            { data: 'teamNumber' },
+                            { data: 'matchCount' },
+                            { data: 'n/a' }
+                        ],
+                        responsive: false,
+                    }}
+                >
+                    <thead>
+                        <tr>
+                            <th>Team Number</th>
+                            <th>Total Matches</th>
+                            <th>!!Invalid Year!!</th>
+                        </tr>
+                    </thead>
+                </DataTable>;;
+        }
+    };
+
     return (
         <Container fluid>
             <Row>
@@ -95,6 +191,9 @@ const Eventdata = () => {
                 </Col>
             </Row>
             <Row>
+                {renderDataByYear(`${appData.currentEventYear}`)}
+            </Row>
+            {/* <Row>
                 <DataTable
                     data={teamAverage}
                     options={{
@@ -140,7 +239,7 @@ const Eventdata = () => {
                         </tr>
                     </thead>
                 </DataTable>
-            </Row>
+            </Row> */}
         </Container>
     );
 }
