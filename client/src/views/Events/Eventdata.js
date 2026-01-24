@@ -61,7 +61,7 @@ const Eventdata = () => {
                         columns: [
                             { data: 'teamNumber' },
                             { data: 'matchCount' },
-                            { data: 'n/a' }
+                            { data: ` '' ` }
                         ],
                         responsive: false,
                     }}
@@ -131,7 +131,7 @@ const Eventdata = () => {
                         columns: [
                             { data: 'teamNumber' },
                             { data: 'matchCount' },
-                            { data: 'n/a' }
+                            { data: ` '' ` }
                         ],
                         responsive: false,
                     }}

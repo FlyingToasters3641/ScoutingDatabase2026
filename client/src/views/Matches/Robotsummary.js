@@ -65,43 +65,108 @@ const Robotsummary = () => {
         }
     }, [match]);
 
-    return (
-        <Container>
-            <Row>
-                <Col md={1}><BackButton /></Col>
-                <Col md={11}><h1> Match {match.matchNumber} Robot Summary</h1></Col>
-            </Row>
-            <Row><hr></hr><p>Event Year: {appData.currentEventYear}; Event Key: {appData.currentEventKey}; Event Id (serverDV): {appData.currentEventID}; <em><b>{appData.name}</b></em></p>
-            </Row>
-            <Row>
-                <Col>
-                    <table className="table table-bordered">
+    const renderDataByYear = (year) => {
+            if (year === '2026') {
+                // Data to render for 2026
+                return <p>
+                    <Row>
+                        <Col>
+                        <table className="table"> 
                         <thead>
                             <tr>
-                                <th>Blue 1</th>
-                                <th>Blue 2</th>
-                                <th>Blue 3</th>
-                                <th>Red 1</th>
-                                <th>Red 2</th>
-                                <th>Red 3</th>
+                                <th>Team Number</th>
+                                <th>Match Cnt</th>
+                                <th>!!2026 Data Needs to Be Added!!</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td className="bg-primary bg-opacity-10"><Link to={`/team/?teamId=${arrayLookup(match.blueOneTeamNumber, team, "teamNumber", "id")}`}>{match.blueOneTeamNumber}</Link></td>
-                                <td className="bg-primary bg-opacity-10"><Link to={`/team/?teamId=${arrayLookup(match.blueTwoTeamNumber, team, "teamNumber", "id")}`}>{match.blueTwoTeamNumber}</Link></td>
-                                <td className="bg-primary bg-opacity-10"><Link to={`/team/?teamId=${arrayLookup(match.blueThreeTeamNumber, team, "teamNumber", "id")}`}>{match.blueThreeTeamNumber}</Link></td>
-                                <td className="bg-danger bg-opacity-10"><Link to={`/team/?teamId=${arrayLookup(match.redOneTeamNumber, team, "teamNumber", "id")}`}>{match.redOneTeamNumber}</Link></td>
-                                <td className="bg-danger bg-opacity-10"><Link to={`/team/?teamId=${arrayLookup(match.redTwoTeamNumber, team, "teamNumber", "id")}`}>{match.redTwoTeamNumber}</Link></td>
-                                <td className="bg-danger bg-opacity-10"><Link to={`/team/?teamId=${arrayLookup(match.redThreeTeamNumber, team, "teamNumber", "id")}`}>{match.redThreeTeamNumber}</Link></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </Col>
-            </Row>
-            <Row>
-                <Col>
-                    <table className="table"> 
+                                <tr className="bg-primary bg-opacity-10">
+                                    <td>{match.blueOneTeamNumber}</td>
+                                    <td>{teamAverageBlueOne[0].matchCount}</td>
+                                    <td> '' </td>
+                                </tr>
+                                <tr className="bg-primary bg-opacity-10">
+                                    <td>{match.blueTwoTeamNumber}</td>
+                                    <td>{teamAverageBlueTwo[0].matchCount}</td>
+                                    <td> '' </td>
+                                </tr>
+                                <tr className="bg-primary bg-opacity-10">
+                                    <td>{match.blueThreeTeamNumber}</td>
+                                    <td>{teamAverageBlueThree[0].matchCount}</td>
+                                    <td> '' </td>
+                                </tr>
+                                <tr className="bg-danger bg-opacity-10">
+                                    <td>{match.redOneTeamNumber}</td>
+                                    <td>{teamAverageRedOne[0].matchCount}</td>
+                                    <td> '' </td>
+                                </tr>
+                                <tr className="bg-danger bg-opacity-10">
+                                    <td>{match.redTwoTeamNumber}</td>
+                                    <td>{teamAverageRedTwo[0].matchCount}</td>
+                                    <td> '' </td>
+                                </tr>
+                                <tr className="bg-danger bg-opacity-10">
+                                    <td>{match.redThreeTeamNumber}</td>
+                                    <td>{teamAverageRedThree[0].matchCount}</td>
+                                    <td> '' </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <table className="table"> 
+                                <thead>
+                                    <tr>
+                                        <th>Team Number</th>
+                                        <th>Match Cnt</th>
+                                        <th>!!2026 Data Needs to Be Added!!</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr className="bg-primary bg-opacity-10">
+                                        <td>{match.blueOneTeamNumber}</td>
+                                        <td >{teamAverageBlueOne[0].matchCount}</td>
+                                        <td> '' </td>
+                                    </tr>
+                                    <tr className="bg-primary bg-opacity-10">
+                                        <td>{match.blueTwoTeamNumber}</td>
+                                        <td>{teamAverageBlueTwo[0].matchCount}</td>
+                                        <td> '' </td>
+                                    </tr>
+                                    <tr className="bg-primary bg-opacity-10">
+                                        <td>{match.blueThreeTeamNumber}</td>
+                                        <td>{teamAverageBlueThree[0].matchCount}</td>
+                                        <td> '' </td>
+                                    </tr>
+                                    <tr className="bg-danger bg-opacity-10">
+                                        <td>{match.redOneTeamNumber}</td>
+                                        <td>{teamAverageRedOne[0].matchCount}</td>
+                                        <td> '' </td>
+                                    </tr>
+                                    <tr className="bg-danger bg-opacity-10">
+                                        <td>{match.redTwoTeamNumber}</td>
+                                        <td>{teamAverageRedTwo[0].matchCount}</td>
+                                        <td> '' </td>
+                                    </tr>
+                                    <tr className="bg-danger bg-opacity-10">
+                                        <td>{match.redThreeTeamNumber}</td>
+                                        <td>{teamAverageRedThree[0].matchCount}</td>
+                                        <td> '' </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </Col>
+                    </Row>
+                </p>;
+            }
+            else if (year === '2025') {
+                // Data to render for 2025
+                return <p>
+                    <Row>
+                        <Col>
+                        <table className="table"> 
                         <thead>
                             <tr>
                                 <th>Team Number</th>
@@ -182,83 +247,217 @@ const Robotsummary = () => {
                                     <td>{teamAverageRedThree[0].avgTeleopNetScored}</td>
                                     <td>{teamAverageRedThree[0].avgTeleopProcessorScored}</td>
                                 </tr>
-                        </tbody>
-                    </table>
-                </Col>
-            </Row>
-            <Row>
-                <Col>
-                    <table className="table"> 
+                            </tbody>
+                        </table>
+                    </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <table className="table"> 
+                                <thead>
+                                    <tr>
+                                        <th>Team Number</th>
+                                        <th>Match Cnt</th>
+                                        <th>Algae Pick-Up</th>
+                                        <th>Alage Removed</th>
+                                        <th>Climb Position</th>
+                                        <th>Coral Ground Pick-Up</th>
+                                        <th>Coral Station Pick-Up</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr className="bg-primary bg-opacity-10">
+                                        <td>{match.blueOneTeamNumber}</td>
+                                        <td >{teamAverageBlueOne[0].matchCount}</td>
+                                        <td>{teamAverageBlueOne[0].avgTotalAlgaePickup}</td>
+                                        <td>{teamAverageBlueOne[0].avgTotalAlgeaRemoved}</td>
+                                        <td>{teamAverageBlueOne[0].catBargeZonLocation}</td>
+                                        <td>{teamAverageBlueOne[0].avgTotalCoralGroundPickup}</td>
+                                        <td>{teamAverageBlueOne[0].avgTotalCoralStationPickup}</td>
+                                    </tr>
+                                    <tr className="bg-primary bg-opacity-10">
+                                        <td>{match.blueTwoTeamNumber}</td>
+                                        <td>{teamAverageBlueTwo[0].matchCount}</td>
+                                        <td>{teamAverageBlueTwo[0].avgTotalAlgaePickup}</td>
+                                        <td>{teamAverageBlueTwo[0].avgTotalAlgeaRemoved}</td>
+                                        <td>{teamAverageBlueTwo[0].catBargeZonLocation}</td>
+                                        <td>{teamAverageBlueTwo[0].avgTotalCoralGroundPickup}</td>
+                                        <td>{teamAverageBlueTwo[0].avgTotalCoralStationPickup}</td>
+                                    </tr>
+                                    <tr className="bg-primary bg-opacity-10">
+                                        <td>{match.blueThreeTeamNumber}</td>
+                                        <td>{teamAverageBlueThree[0].matchCount}</td>
+                                        <td>{teamAverageBlueThree[0].avgTotalAlgaePickup}</td>
+                                        <td>{teamAverageBlueThree[0].avgTotalAlgeaRemoved}</td>
+                                        <td>{teamAverageBlueThree[0].catBargeZonLocation}</td>
+                                        <td>{teamAverageBlueThree[0].avgTotalCoralGroundPickup}</td>
+                                        <td>{teamAverageBlueThree[0].avgTotalCoralStationPickup}</td>
+                                    </tr>
+                                    <tr className="bg-danger bg-opacity-10">
+                                        <td>{match.redOneTeamNumber}</td>
+                                        <td>{teamAverageRedOne[0].matchCount}</td>
+                                        <td>{teamAverageRedOne[0].avgTotalAlgaePickup}</td>
+                                        <td>{teamAverageRedOne[0].avgTotalAlgeaRemoved}</td>
+                                        <td>{teamAverageRedOne[0].catBargeZonLocation}</td>
+                                        <td>{teamAverageRedOne[0].avgTotalCoralGroundPickup}</td>
+                                        <td>{teamAverageRedOne[0].avgTotalCoralStationPickup}</td>
+                                    </tr>
+                                    <tr className="bg-danger bg-opacity-10">
+                                        <td>{match.redTwoTeamNumber}</td>
+                                        <td>{teamAverageRedTwo[0].matchCount}</td>
+                                        <td>{teamAverageRedTwo[0].avgTotalAlgaePickup}</td>
+                                        <td>{teamAverageRedTwo[0].avgTotalAlgeaRemoved}</td>
+                                        <td>{teamAverageRedTwo[0].catBargeZonLocation}</td>
+                                        <td>{teamAverageRedTwo[0].avgTotalCoralGroundPickup}</td>
+                                        <td>{teamAverageRedTwo[0].avgTotalCoralStationPickup}</td>
+                                    </tr>
+                                    <tr className="bg-danger bg-opacity-10">
+                                        <td>{match.redThreeTeamNumber}</td>
+                                        <td>{teamAverageRedThree[0].matchCount}</td>
+                                        <td>{teamAverageRedThree[0].avgTotalAlgaePickup}</td>
+                                        <td>{teamAverageRedThree[0].avgTotalAlgeaRemoved}</td>
+                                        <td>{teamAverageRedThree[0].catBargeZonLocation}</td>
+                                        <td>{teamAverageRedThree[0].avgTotalCoralGroundPickup}</td>
+                                        <td>{teamAverageRedThree[0].avgTotalCoralStationPickup}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </Col>
+                    </Row>
+                </p>
+            }
+            else {
+                // Filler case for invalid years
+                return <p>
+                    <Row>
+                        <Col>
+                        <table className="table"> 
                         <thead>
                             <tr>
                                 <th>Team Number</th>
                                 <th>Match Cnt</th>
-                                <th>Algae Pick-Up</th>
-                                <th>Alage Removed</th>
-                                <th>Climb Position</th>
-                                <th>Coral Ground Pick-Up</th>
-                                <th>Coral Station Pick-Up</th>
+                                <th>!!Invalid Year!!</th>
                             </tr>
                         </thead>
                         <tbody>
                                 <tr className="bg-primary bg-opacity-10">
                                     <td>{match.blueOneTeamNumber}</td>
-                                    <td >{teamAverageBlueOne[0].matchCount}</td>
-                                    <td>{teamAverageBlueOne[0].avgTotalAlgaePickup}</td>
-                                    <td>{teamAverageBlueOne[0].avgTotalAlgeaRemoved}</td>
-                                    <td>{teamAverageBlueOne[0].catBargeZonLocation}</td>
-                                    <td>{teamAverageBlueOne[0].avgTotalCoralGroundPickup}</td>
-                                    <td>{teamAverageBlueOne[0].avgTotalCoralStationPickup}</td>
+                                    <td>{teamAverageBlueOne[0].matchCount}</td>
+                                    <td> '' </td>
                                 </tr>
                                 <tr className="bg-primary bg-opacity-10">
                                     <td>{match.blueTwoTeamNumber}</td>
                                     <td>{teamAverageBlueTwo[0].matchCount}</td>
-                                    <td>{teamAverageBlueTwo[0].avgTotalAlgaePickup}</td>
-                                    <td>{teamAverageBlueTwo[0].avgTotalAlgeaRemoved}</td>
-                                    <td>{teamAverageBlueTwo[0].catBargeZonLocation}</td>
-                                    <td>{teamAverageBlueTwo[0].avgTotalCoralGroundPickup}</td>
-                                    <td>{teamAverageBlueTwo[0].avgTotalCoralStationPickup}</td>
+                                    <td> '' </td>
                                 </tr>
                                 <tr className="bg-primary bg-opacity-10">
                                     <td>{match.blueThreeTeamNumber}</td>
                                     <td>{teamAverageBlueThree[0].matchCount}</td>
-                                    <td>{teamAverageBlueThree[0].avgTotalAlgaePickup}</td>
-                                    <td>{teamAverageBlueThree[0].avgTotalAlgeaRemoved}</td>
-                                    <td>{teamAverageBlueThree[0].catBargeZonLocation}</td>
-                                    <td>{teamAverageBlueThree[0].avgTotalCoralGroundPickup}</td>
-                                    <td>{teamAverageBlueThree[0].avgTotalCoralStationPickup}</td>
+                                    <td> '' </td>
                                 </tr>
                                 <tr className="bg-danger bg-opacity-10">
                                     <td>{match.redOneTeamNumber}</td>
                                     <td>{teamAverageRedOne[0].matchCount}</td>
-                                    <td>{teamAverageRedOne[0].avgTotalAlgaePickup}</td>
-                                    <td>{teamAverageRedOne[0].avgTotalAlgeaRemoved}</td>
-                                    <td>{teamAverageRedOne[0].catBargeZonLocation}</td>
-                                    <td>{teamAverageRedOne[0].avgTotalCoralGroundPickup}</td>
-                                    <td>{teamAverageRedOne[0].avgTotalCoralStationPickup}</td>
+                                    <td> '' </td>
                                 </tr>
                                 <tr className="bg-danger bg-opacity-10">
                                     <td>{match.redTwoTeamNumber}</td>
                                     <td>{teamAverageRedTwo[0].matchCount}</td>
-                                    <td>{teamAverageRedTwo[0].avgTotalAlgaePickup}</td>
-                                    <td>{teamAverageRedTwo[0].avgTotalAlgeaRemoved}</td>
-                                    <td>{teamAverageRedTwo[0].catBargeZonLocation}</td>
-                                    <td>{teamAverageRedTwo[0].avgTotalCoralGroundPickup}</td>
-                                    <td>{teamAverageRedTwo[0].avgTotalCoralStationPickup}</td>
+                                    <td> '' </td>
                                 </tr>
                                 <tr className="bg-danger bg-opacity-10">
                                     <td>{match.redThreeTeamNumber}</td>
                                     <td>{teamAverageRedThree[0].matchCount}</td>
-                                    <td>{teamAverageRedThree[0].avgTotalAlgaePickup}</td>
-                                    <td>{teamAverageRedThree[0].avgTotalAlgeaRemoved}</td>
-                                    <td>{teamAverageRedThree[0].catBargeZonLocation}</td>
-                                    <td>{teamAverageRedThree[0].avgTotalCoralGroundPickup}</td>
-                                    <td>{teamAverageRedThree[0].avgTotalCoralStationPickup}</td>
+                                    <td> '' </td>
                                 </tr>
+                            </tbody>
+                        </table>
+                    </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <table className="table"> 
+                                <thead>
+                                    <tr>
+                                        <th>Team Number</th>
+                                        <th>Match Cnt</th>
+                                        <th>!!Invalid Year!!</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr className="bg-primary bg-opacity-10">
+                                        <td>{match.blueOneTeamNumber}</td>
+                                        <td >{teamAverageBlueOne[0].matchCount}</td>
+                                        <td> '' </td>
+                                    </tr>
+                                    <tr className="bg-primary bg-opacity-10">
+                                        <td>{match.blueTwoTeamNumber}</td>
+                                        <td>{teamAverageBlueTwo[0].matchCount}</td>
+                                        <td> '' </td>
+                                    </tr>
+                                    <tr className="bg-primary bg-opacity-10">
+                                        <td>{match.blueThreeTeamNumber}</td>
+                                        <td>{teamAverageBlueThree[0].matchCount}</td>
+                                        <td> '' </td>
+                                    </tr>
+                                    <tr className="bg-danger bg-opacity-10">
+                                        <td>{match.redOneTeamNumber}</td>
+                                        <td>{teamAverageRedOne[0].matchCount}</td>
+                                        <td> '' </td>
+                                    </tr>
+                                    <tr className="bg-danger bg-opacity-10">
+                                        <td>{match.redTwoTeamNumber}</td>
+                                        <td>{teamAverageRedTwo[0].matchCount}</td>
+                                        <td> '' </td>
+                                    </tr>
+                                    <tr className="bg-danger bg-opacity-10">
+                                        <td>{match.redThreeTeamNumber}</td>
+                                        <td>{teamAverageRedThree[0].matchCount}</td>
+                                        <td> '' </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </Col>
+                    </Row>
+                </p>;;
+            }
+        };
+
+    return (
+        <Container>
+            <Row>
+                <Col md={1}><BackButton /></Col>
+                <Col md={11}><h1> Match {match.matchNumber} Robot Summary</h1></Col>
+            </Row>
+            <Row><hr></hr><p>Event Year: {appData.currentEventYear}; Event Key: {appData.currentEventKey}; Event Id (serverDV): {appData.currentEventID}; <em><b>{appData.name}</b></em></p>
+            </Row>
+            <Row>
+                <Col>
+                    <table className="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Blue 1</th>
+                                <th>Blue 2</th>
+                                <th>Blue 3</th>
+                                <th>Red 1</th>
+                                <th>Red 2</th>
+                                <th>Red 3</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td className="bg-primary bg-opacity-10"><Link to={`/team/?teamId=${arrayLookup(match.blueOneTeamNumber, team, "teamNumber", "id")}`}>{match.blueOneTeamNumber}</Link></td>
+                                <td className="bg-primary bg-opacity-10"><Link to={`/team/?teamId=${arrayLookup(match.blueTwoTeamNumber, team, "teamNumber", "id")}`}>{match.blueTwoTeamNumber}</Link></td>
+                                <td className="bg-primary bg-opacity-10"><Link to={`/team/?teamId=${arrayLookup(match.blueThreeTeamNumber, team, "teamNumber", "id")}`}>{match.blueThreeTeamNumber}</Link></td>
+                                <td className="bg-danger bg-opacity-10"><Link to={`/team/?teamId=${arrayLookup(match.redOneTeamNumber, team, "teamNumber", "id")}`}>{match.redOneTeamNumber}</Link></td>
+                                <td className="bg-danger bg-opacity-10"><Link to={`/team/?teamId=${arrayLookup(match.redTwoTeamNumber, team, "teamNumber", "id")}`}>{match.redTwoTeamNumber}</Link></td>
+                                <td className="bg-danger bg-opacity-10"><Link to={`/team/?teamId=${arrayLookup(match.redThreeTeamNumber, team, "teamNumber", "id")}`}>{match.redThreeTeamNumber}</Link></td>
+                            </tr>
                         </tbody>
                     </table>
                 </Col>
             </Row>
+            {renderDataByYear(`${appData.currentEventYear}`)}
         </Container>
     );
 }

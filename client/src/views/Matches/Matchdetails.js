@@ -59,7 +59,7 @@ const Matchdetails = () => {
                                     <td>{matchdata.scouterName}</td>
                                     <td>{matchdata.allianceLocation}</td>
                                     <td>{matchdata.autonPosition}</td>
-                                    <td> N/A </td>
+                                    <td> '' </td>
                                 </tr>
                             ))}
                         </tbody>
@@ -135,7 +135,7 @@ const Matchdetails = () => {
                                     <td>{matchdata.scouterName}</td>
                                     <td>{matchdata.allianceLocation}</td>
                                     <td>{matchdata.autonPosition}</td>
-                                    <td> N/A </td>
+                                    <td> '' </td>
                                 </tr>
                             ))}
                         </tbody>
