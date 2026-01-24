@@ -1,16 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext  } from "react";
 import axios from 'axios';
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation, Link, useHistory } from 'react-router-dom';
 import BackButton from '../common/BackButton';
 import { Col, Container, Row } from "react-bootstrap";
 import { APP_DATABASE_URL } from "../../constant/constant";
 import { arrayLookup } from "../../utils/common";
 import { FaCircleInfo } from "react-icons/fa6";
+import { AppContext } from "../common/AppContext.js";
 
 const Matchdetails = () => {
     const [match, setMatch] = useState(null);
     const [matchdata, setMatchdata] = useState([]);
     const [team, setTeam] = useState([]);
+    const [event, setEvent] = useState(null);
+    const { appData, setAppData } = useContext(AppContext);
+    const history = useHistory();
     
     let matchId = null;
     const location = useLocation();
@@ -27,68 +31,43 @@ const Matchdetails = () => {
         axios.get(`${APP_DATABASE_URL}/teams`)
         .then(response => setTeam(response.data))
         .catch(error => console.error('Error fetching data:', error));
+
+        axios.get(`${APP_DATABASE_URL}/event`)
+        .then(response => setEvent(response.data))
+        .catch(error => console.error('Error fetching data:', error));
         
     }, [matchId]);
 
-    
-    useEffect(() => {
-        if (match && match.matchKey) {
-            axios.get(`${APP_DATABASE_URL}/matchData/2025/matchkey/${match.matchKey}`)
-            .then(response => setMatchdata(response.data))
-            .catch(error => console.error('Error fetching data:', error));
-        }
-    }, [match]);
-
-
-    return (
-        <Container>
-            <Row>
-                <Col md={1}><BackButton /></Col>
-                <Col md={11}><h2>{match ? match.matchKey : matchId}</h2></Col>
-            </Row>
-            <Row><hr></hr></Row>
-            {match ? (
-                <>
-            <Row>
-                <Col>
-                    <table className="table table-bordered">
+    //dictates what data to render based on year
+    const renderDataByYear = (year) => {
+        if (year === '2026') {
+            // Data to render for 2026
+            return <table className="table"> 
                         <thead>
                             <tr>
-                                <th>Match Number</th>
-                                <th>Blue 1</th>
-                                <th>Blue 2</th>
-                                <th>Blue 3</th>
-                                <th>Red 1</th>
-                                <th>Red 2</th>
-                                <th>Red 3</th>
-                                <th>Blue Score</th>
-                                <th>Red Score</th>
+                                <th>Team Number</th>
+                                <th>Scouter</th>
+                                <th>Position</th>
+                                <th>Robot Position</th>
+                                <th>!!2026 Data Needs to Be Added!!</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr key={match.matchNumber}>
-                                <td>{match.matchNumber}</td>
-                                <td className="bg-primary bg-opacity-10"><Link to={`/team/?teamId=${arrayLookup(match.blueOneTeamNumber, team, "teamNumber", "id")}`}>{match.blueOneTeamNumber}</Link></td>
-                                <td className="bg-primary bg-opacity-10"><Link to={`/team/?teamId=${arrayLookup(match.blueTwoTeamNumber, team, "teamNumber", "id")}`}>{match.blueTwoTeamNumber}</Link></td>
-                                <td className="bg-primary bg-opacity-10"><Link to={`/team/?teamId=${arrayLookup(match.blueThreeTeamNumber, team, "teamNumber", "id")}`}>{match.blueThreeTeamNumber}</Link></td>
-                                <td className="bg-danger bg-opacity-10"><Link to={`/team/?teamId=${arrayLookup(match.redOneTeamNumber, team, "teamNumber", "id")}`}>{match.redOneTeamNumber}</Link></td>
-                                <td className="bg-danger bg-opacity-10"><Link to={`/team/?teamId=${arrayLookup(match.redTwoTeamNumber, team, "teamNumber", "id")}`}>{match.redTwoTeamNumber}</Link></td>
-                                <td className="bg-danger bg-opacity-10"><Link to={`/team/?teamId=${arrayLookup(match.redThreeTeamNumber, team, "teamNumber", "id")}`}>{match.redThreeTeamNumber}</Link></td>
-                                <td>{match.blueScore}</td>
-                                <td>{match.redScore}</td>
-                            </tr>
+                            {matchdata.map(matchdata => (
+                                <tr key={matchdata.teamNumber}>
+                                    <td><Link to={`/team/?teamId=${arrayLookup(matchdata.teamNumber, team, "teamNumber", "id")}`}> {matchdata.teamNumber}</Link></td>
+                                    <td>{matchdata.scouterName}</td>
+                                    <td>{matchdata.allianceLocation}</td>
+                                    <td>{matchdata.autonPosition}</td>
+                                    <td> N/A </td>
+                                </tr>
+                            ))}
                         </tbody>
-                    </table>
-                </Col>
-            </Row>
-            <Row>
-                <Col>
-                    <Link to={`/robotsummary/?matchId=${match.id}`}><button className="btn btn-primary">Robot Summary</button></Link>
-                </Col>
-            </Row>
-            <Row>
-                <Col>
-                    <table className="table"> 
+                    </table>;
+        }
+        else if (year === '2025') {
+            // Data to render for 2025
+            return <table className="table"> 
                         <thead>
                             <tr>
                                 <th>Team Number</th>
@@ -135,9 +114,106 @@ const Matchdetails = () => {
                                 </tr>
                             ))}
                         </tbody>
+                    </table>;
+        }
+        else {
+            // Filler case for invalid years
+            return <table className="table"> 
+                        <thead>
+                            <tr>
+                                <th>Team Number</th>
+                                <th>Scouter</th>
+                                <th>Position</th>
+                                <th>Robot Position</th>
+                                <th>!!Invalid Year!!</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {matchdata.map(matchdata => (
+                                <tr key={matchdata.teamNumber}>
+                                    <td><Link to={`/team/?teamId=${arrayLookup(matchdata.teamNumber, team, "teamNumber", "id")}`}> {matchdata.teamNumber}</Link></td>
+                                    <td>{matchdata.scouterName}</td>
+                                    <td>{matchdata.allianceLocation}</td>
+                                    <td>{matchdata.autonPosition}</td>
+                                    <td> N/A </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>;
+        }
+    };
+
+    useEffect(() => {
+        if (match && match.matchKey) {
+            axios.get(`${APP_DATABASE_URL}/matchData/2025/matchkey/${match.matchKey}`)
+            .then(response => setMatchdata(response.data))
+            .catch(error => console.error('Error fetching data:', error));
+        }
+    }, [match]);
+    
+    async function handleViewEvent(event) {
+        await setAppData({
+            ...appData,
+            name: event.name,
+            currentEventID: event.id,
+            currentEventKey: event.key,
+            currentEventYear: event.year
+        });
+        history.push(`/eventdetail/?eventId=${event.id}`);
+    };
+
+    return (
+        <Container>
+            <Row>
+                <Col md={1}><BackButton /></Col>
+                <Col md={11}><h2>{appData.currentEventYear} {appData.name}: {match ? match.matchKey : matchId}</h2></Col>
+            </Row>
+            <Row><hr></hr></Row>
+            {match ? (
+                <>
+            <Row>
+                <Col>
+                    <table className="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Match Number</th>
+                                <th>Blue 1</th>
+                                <th>Blue 2</th>
+                                <th>Blue 3</th>
+                                <th>Red 1</th>
+                                <th>Red 2</th>
+                                <th>Red 3</th>
+                                <th>Blue Score</th>
+                                <th>Red Score</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr key={match.matchNumber}>
+                                <td>{match.matchNumber}</td>
+                                <td className="bg-primary bg-opacity-10"><Link to={`/team/?teamId=${arrayLookup(match.blueOneTeamNumber, team, "teamNumber", "id")}`}>{match.blueOneTeamNumber}</Link></td>
+                                <td className="bg-primary bg-opacity-10"><Link to={`/team/?teamId=${arrayLookup(match.blueTwoTeamNumber, team, "teamNumber", "id")}`}>{match.blueTwoTeamNumber}</Link></td>
+                                <td className="bg-primary bg-opacity-10"><Link to={`/team/?teamId=${arrayLookup(match.blueThreeTeamNumber, team, "teamNumber", "id")}`}>{match.blueThreeTeamNumber}</Link></td>
+                                <td className="bg-danger bg-opacity-10"><Link to={`/team/?teamId=${arrayLookup(match.redOneTeamNumber, team, "teamNumber", "id")}`}>{match.redOneTeamNumber}</Link></td>
+                                <td className="bg-danger bg-opacity-10"><Link to={`/team/?teamId=${arrayLookup(match.redTwoTeamNumber, team, "teamNumber", "id")}`}>{match.redTwoTeamNumber}</Link></td>
+                                <td className="bg-danger bg-opacity-10"><Link to={`/team/?teamId=${arrayLookup(match.redThreeTeamNumber, team, "teamNumber", "id")}`}>{match.redThreeTeamNumber}</Link></td>
+                                <td>{match.blueScore}</td>
+                                <td>{match.redScore}</td>
+                            </tr>
+                        </tbody>
                     </table>
                 </Col>
             </Row>
+            <Row>
+                <Col>
+                    <Link to={`/robotsummary/?matchId=${match.id}`}><button className="btn btn-primary">Robot Summary</button></Link>
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                    <p>{renderDataByYear(`${appData.currentEventYear}`)}</p>
+                </Col>
+            </Row>
+            
             </>
             ) : (
                 <Row>
