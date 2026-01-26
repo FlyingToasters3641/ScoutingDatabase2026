@@ -2,7 +2,7 @@
 
 
 ## Ubuntu:
-Need to install required build tools and/or an older version of Python.  Python 3.12+ removed tools to build the sqlite3 packages. NOTE: Do not need to remove the newer version, just need to add 3.11
+Need to install missing required build tools and an older version of Python -- 3.11.x.  Python 3.12+ removed tools to build the sqlite3 packages. NOTE: Do not need to remove the newer version, just need to add 3.11
 
 ### 1. Install System Build Tools and Dependencies
 
@@ -10,7 +10,7 @@ The node-gyp tool, which is used to compile native add-ons, requires specific bu
 
 ```
 sudo apt update
-sudo apt install build-essential gcc g++ make python3 libsqlite3-0 libsqlite3-dev
+sudo apt install build-essential gcc g++ make libsqlite3-0 libsqlite3-dev
 ```
 
 ### 2. Update system packages and install prerequisites:
@@ -21,6 +21,7 @@ sudo apt install software-properties-common -y
 ```
 
 ### 3. Add the deadsnakes PPA repository:
+Preparing to install older verion of Python
 ```
 sudo add-apt-repository ppa:deadsnakes/ppa
 ```
