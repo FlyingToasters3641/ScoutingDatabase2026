@@ -5,7 +5,7 @@ import { AppContext } from "../common/AppContext.js";
 import { Container, Row, Col, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { APP_DATABASE_URL } from "../../constant/constant";
 import BackButton from '../common/BackButton';
-import { RiTrophyLine, RiAddCircleLine } from "react-icons/ri";
+import { RiTrophyLine, RiAddCircleLine, RiAlertLine } from "react-icons/ri";
 import { MdOutlinePreview } from "react-icons/md";
 import DataTable from '../../components/DataTableNetBase.js';
 import { ListBox } from 'primereact/listbox';
@@ -254,6 +254,21 @@ const Eventdetail = () => {
 
     const eventKeyText = `Match Type - Ex. qm, sf#m, f#m, etc.  Note: ${appData.currentEventKey}_ and Match Number will be added.`;
 
+    const renderDataByYear = (year) => {
+            if (year === '2026') {
+                // Render import button for 2026
+                return <Link to={`/dataimport2026`}><button type="button" className="btn btn-success"><RiAddCircleLine /> Import Data</button></Link>;
+            }
+            else if (year === '2025') {
+                // Render import button for 2025
+                return <Link to={`/dataimport`}><button type="button" className="btn btn-success"><RiAddCircleLine /> Import Data</button></Link>;
+            }
+            else {
+                // Render import button for invalid years
+                return <button type="button" className="btn btn-danger" disabled><RiAlertLine /> Import Not Available</button>;
+            }
+        };
+
     /* ############################################################  */
 
     return (
@@ -275,7 +290,7 @@ const Eventdetail = () => {
                 <Col md={11} style={tdRight}>
                     <Link to={`/eventdata/?eventId=${event.id}`}><button type="button" className="btn btn-primary"><RiTrophyLine /> Pick List</button></Link>
                     &nbsp;
-                    <Link to={`/dataimport`}><button type="button" className="btn btn-success"><RiAddCircleLine /> Import Data</button></Link>
+                    {renderDataByYear(`${appData.currentEventYear}`)}
                 </Col>
             </Row>
             <Row>
