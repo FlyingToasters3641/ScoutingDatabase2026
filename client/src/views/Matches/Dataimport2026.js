@@ -325,7 +325,7 @@ const Dataimport = () => {
             <Row>
                 <Col md={1}><BackButton /></Col>
                 <Col md={11}> 
-                    <h1>Import Scouting Data 2025</h1>
+                    <h1>Import Scouting Data 2026</h1>
                 </Col>
                 <hr></hr>
                 <p>Event Year: {appData.currentEventYear}; Event Key: {appData.currentEventKey}; Event Id (serverDV): {appData.currentEventID};</p>
