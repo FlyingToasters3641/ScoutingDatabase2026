@@ -1,5 +1,15 @@
 # Installing sqlite3 if failing during npm install
 
+## Windows:
+
+### 1. Install System Build Tools and Dependencies
+
+
+
+```
+npm install --global --production windows-build-tools
+npm install --global node-gyp
+```
 
 ## Ubuntu:
 Need to install missing required build tools and an older version of Python -- 3.11.x.  Python 3.12+ removed tools to build the sqlite3 packages. NOTE: Do not need to remove the newer version, just need to add 3.11
