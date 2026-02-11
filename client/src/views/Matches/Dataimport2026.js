@@ -69,20 +69,20 @@ const Dataimport = () => {
         prepData.teleOpPassNuetralAlliance = matchData.tPNA;
         prepData.teleOpPassOpponentNuetral = matchData.tPON;
         prepData.teleOpPassOpponentAlliance = matchData.tPOA;
-        prepData.teleopShootMajority = matchData.tSM;
-        prepData.teleopShootHalf = matchData.tSH;
-        prepData.teleopShootLittle = matchData.tSL;
+        prepData.teleOpShootMajority = matchData.tSM;
+        prepData.teleOpShootHalf = matchData.tSH;
+        prepData.teleOpShootLittle = matchData.tSL;
         // prepData.teleopHumanLot = matchData.tFHM;
         // prepData.teleopHumanLittle = matchData.tFHL;
         // prepData.teleopShift = matchData.tSh;
         prepData.teleOpDefenceStealing = matchData.tDS;
-        prepData.teleopDefenceBad = matchData.tDB;
+        prepData.teleOpDefenceBlocking = matchData.tDB;
         // prepData.postgameClimb = matchData.pCL;
         prepData.postUnderTrench = matchData.pUT;
         prepData.postOverBump = matchData.pOB;
         prepData.postDisabledMechanically = matchData.pDB;
-        prepData.postgameNotThere = matchData.pNT;
-        prepData.postgameStuckFieldElement = matchData.pSFE;
+        prepData.postNotThere = matchData.pNT;
+        prepData.postStuckFieldElement = matchData.pSFE;
         prepData.uniqueId = scannedDataSHA1;
 
 
