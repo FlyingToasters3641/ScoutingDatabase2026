@@ -58,7 +58,7 @@ const Dataimport = () => {
         
 
     
-        let autonActions = matchData.aP1 + matchData.aP2 + matchData.aP3 + matchData.aP4 + matchData.aP5 + matchData.aP6;
+        // let autonActions = matchData.aP1 + matchData.aP2 + matchData.aP3 + matchData.aP4 + matchData.aP5 + matchData.aP6;
 
         // prepData.autonOne = matchData.aP1;
         // prepData.autonTwo = matchData.aP2;
@@ -66,23 +66,24 @@ const Dataimport = () => {
         // prepData.autonFour = matchData.aP4;
         // prepData.autonFive = matchData.aP5;
         // prepData.autonSix = matchData.aP6;
-        prepData.teleopNuetralAlliance = matchData.tPNA;
-        prepData.teleopOAllianceNuetral = matchData.tPON;
-        prepData.teleopOAllianceAlliance = matchData.tPOA;
-        prepData.teleopMajority = matchData.tSM;
-        prepData.teleopHalf = matchData.tSH;
+        prepData.teleOpPassNuetralAlliance = matchData.tPNA;
+        prepData.teleOpPassOpponentNuetral = matchData.tPON;
+        prepData.teleOpPassOpponentAlliance = matchData.tPOA;
+        prepData.teleopShootMajority = matchData.tSM;
+        prepData.teleopShootHalf = matchData.tSH;
         prepData.teleopShootLittle = matchData.tSL;
-        prepData.teleopLoHuman = matchData.tFHM;
-        prepData.teleopLiHuman = matchData.tFHL;
-        prepData.teleopShift = matchData.tSh;
-        prepData.teleopSteal = matchData.tDS;
-        prepData.teleopBlock = matchData.tDB;
-        prepData.postgameClimb = matchData.pCL;
-        prepData.postgameTrench = matchData.pUT;
-        prepData.postgameBump = matchData.pOB;
-        prepData.postgameDisabled = matchData.pDB;
-        prepData.postgameNoRobot = matchData.pNT;
-        prepData.postgameStuck = matchData.pSFE;
+        // prepData.teleopHumanLot = matchData.tFHM;
+        // prepData.teleopHumanLittle = matchData.tFHL;
+        // prepData.teleopShift = matchData.tSh;
+        prepData.teleOpDefenceStealing = matchData.tDS;
+        prepData.teleopDefenceBad = matchData.tDB;
+        // prepData.postgameClimb = matchData.pCL;
+        prepData.postUnderTrench = matchData.pUT;
+        prepData.postOverBump = matchData.pOB;
+        prepData.postDisabledMechanically = matchData.pDB;
+        prepData.postgameNotThere = matchData.pNT;
+        prepData.postgameStuckFieldElement = matchData.pSFE;
+        prepData.uniqueId = scannedDataSHA1;
 
 
         /* *** Returning the prepData to the calling method  *** */
