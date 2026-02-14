@@ -7,6 +7,7 @@ import { APP_DATABASE_URL } from "../../constant/constant";
 import { arrayLookup } from "../../utils/common";
 import { FaCircleInfo } from "react-icons/fa6";
 import { AppContext } from "../common/AppContext.js";
+import MatchData2026 from "../../../../server/models/matchData2026.js";
 
 const Matchdetails = () => {
     const [match, setMatch] = useState(null);
@@ -49,17 +50,16 @@ const Matchdetails = () => {
                                 <th>Scouter</th>
                                 <th>Position</th>
                                 <th>Robot Position</th>
-                                <th>!!2026 Data Needs to Be Added!!</th>
+                                <th>Auton path</th>
                             </tr>
                         </thead>
                         <tbody>
                             {matchdata.map(matchdata => (
                                 <tr key={matchdata.teamNumber}>
                                     <td><Link to={`/team2026/?teamId2026=${arrayLookup(matchdata.teamNumber, team, "teamNumber", "id")}`}> {matchdata.teamNumber}</Link></td>
-                                    <td>{matchdata.scouterName}</td>
-                                    <td>{matchdata.allianceLocation}</td>
-                                    <td>{matchdata.autonPosition}</td>
-                                    <td> '' </td>
+                                    <td>{MatchData2026.scouterName}</td>
+                                    <td>{MatchData2026.allianceLocation}</td>
+                                    <td>{MatchData2026.autonPath}</td>
                                 </tr>
                             ))}
                         </tbody>
