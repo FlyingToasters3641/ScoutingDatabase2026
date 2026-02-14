@@ -30,15 +30,14 @@ MatchData2026.init({
     // Auton (use 'auton' prefix)
     autonPath: DataTypes.STRING,
 
-    // TeleOp (use 'teleop' prefix)
+    // TeleOp (use 'teleOp' prefix)
     teleOpPassNeutralAlliance: DataTypes.INTEGER,
     teleOpPassOpponentNeutral: DataTypes.INTEGER,
     teleOpPassOpponentAlliance: DataTypes.INTEGER,
     teleOpShootMajority: DataTypes.INTEGER,
     teleOpShootHalf: DataTypes.INTEGER,
     teleOpShootLittle: DataTypes.INTEGER,
-    teleOpFeedHumanMajority: DataTypes.INTEGER,
-    teleOpFeedHumanLittle: DataTypes.INTEGER,
+    teleOpFeedHuman: DataTypes.INTEGER, //Robot feeds fuel to human player 0=None, 1=little, 2=lots
     teleOpShiftOne: DataTypes.INTEGER,
     teleOpShiftTwo: DataTypes.INTEGER,
     teleOpDefenceStealling: DataTypes.INTEGER,
