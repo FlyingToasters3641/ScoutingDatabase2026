@@ -8,6 +8,7 @@ import About from "./views/About/About.js";
 import Test from "./views/Test/Test.js";
 import Eventdetail from "./views/Events/Eventdetail.js";
 import Team from "./views/Events/Team.js";
+import Team2026 from "./views/Events/Team2026.js";
 import Eventimport from "./views/Events/Eventimport.js";
 import Dataimport from "./views/Matches/Dataimport.js";
 import Dataimport2026 from "./views/Matches/Dataimport2026.js";
@@ -32,6 +33,7 @@ const App = () => {
                 <Route path='/test' component={Test}/>
                 <Route path='/eventdetail' component={Eventdetail}/>
                 <Route path='/team' component={Team}/>
+                <Route path='/team2026' component={Team2026}/>
                 <Route path='/matchdetails' component={Matchdetails}/>
                 <Route path='/settings' component={Settings}/>
                 <Route path='/eventdata' component={Eventdata}/>

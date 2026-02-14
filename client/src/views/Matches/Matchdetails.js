@@ -55,7 +55,7 @@ const Matchdetails = () => {
                         <tbody>
                             {matchdata.map(matchdata => (
                                 <tr key={matchdata.teamNumber}>
-                                    <td><Link to={`/team/?teamId=${arrayLookup(matchdata.teamNumber, team, "teamNumber", "id")}`}> {matchdata.teamNumber}</Link></td>
+                                    <td><Link to={`/team2026/?teamId2026=${arrayLookup(matchdata.teamNumber, team, "teamNumber", "id")}`}> {matchdata.teamNumber}</Link></td>
                                     <td>{matchdata.scouterName}</td>
                                     <td>{matchdata.allianceLocation}</td>
                                     <td>{matchdata.autonPosition}</td>
@@ -89,7 +89,7 @@ const Matchdetails = () => {
                         <tbody>
                             {matchdata.map(matchdata => (
                                 <tr key= {matchdata.teamNumber}>
-                                    <td><Link to={`/team/?teamId=${arrayLookup(matchdata.teamNumber, team, "teamNumber", "id")}`}> {matchdata.teamNumber}</Link></td>
+                                    <td><Link to={`/team2026/?teamId2026=${arrayLookup(matchdata.teamNumber, team, "teamNumber", "id")}`}> {matchdata.teamNumber}</Link></td>
                                     <td>{matchdata.scouterName}</td>
                                     <td>{matchdata.allianceLocation}</td>
                                     <td>{matchdata.autonPosition}</td>
@@ -131,7 +131,7 @@ const Matchdetails = () => {
                         <tbody>
                             {matchdata.map(matchdata => (
                                 <tr key={matchdata.teamNumber}>
-                                    <td><Link to={`/team/?teamId=${arrayLookup(matchdata.teamNumber, team, "teamNumber", "id")}`}> {matchdata.teamNumber}</Link></td>
+                                    <td><Link to={`/team2026/?teamId2026=${arrayLookup(matchdata.teamNumber, team, "teamNumber", "id")}`}> {matchdata.teamNumber}</Link></td>
                                     <td>{matchdata.scouterName}</td>
                                     <td>{matchdata.allianceLocation}</td>
                                     <td>{matchdata.autonPosition}</td>
@@ -145,7 +145,7 @@ const Matchdetails = () => {
 
     useEffect(() => {
         if (match && match.matchKey) {
-            axios.get(`${APP_DATABASE_URL}/matchData/2025/matchkey/${match.matchKey}`)
+            axios.get(`${APP_DATABASE_URL}/matchData/2026/matchkey/${match.matchKey}`)
             .then(response => setMatchdata(response.data))
             .catch(error => console.error('Error fetching data:', error));
         }
@@ -190,12 +190,12 @@ const Matchdetails = () => {
                         <tbody>
                             <tr key={match.matchNumber}>
                                 <td>{match.matchNumber}</td>
-                                <td className="bg-primary bg-opacity-10"><Link to={`/team/?teamId=${arrayLookup(match.blueOneTeamNumber, team, "teamNumber", "id")}`}>{match.blueOneTeamNumber}</Link></td>
-                                <td className="bg-primary bg-opacity-10"><Link to={`/team/?teamId=${arrayLookup(match.blueTwoTeamNumber, team, "teamNumber", "id")}`}>{match.blueTwoTeamNumber}</Link></td>
-                                <td className="bg-primary bg-opacity-10"><Link to={`/team/?teamId=${arrayLookup(match.blueThreeTeamNumber, team, "teamNumber", "id")}`}>{match.blueThreeTeamNumber}</Link></td>
-                                <td className="bg-danger bg-opacity-10"><Link to={`/team/?teamId=${arrayLookup(match.redOneTeamNumber, team, "teamNumber", "id")}`}>{match.redOneTeamNumber}</Link></td>
-                                <td className="bg-danger bg-opacity-10"><Link to={`/team/?teamId=${arrayLookup(match.redTwoTeamNumber, team, "teamNumber", "id")}`}>{match.redTwoTeamNumber}</Link></td>
-                                <td className="bg-danger bg-opacity-10"><Link to={`/team/?teamId=${arrayLookup(match.redThreeTeamNumber, team, "teamNumber", "id")}`}>{match.redThreeTeamNumber}</Link></td>
+                                <td className="bg-primary bg-opacity-10"><Link to={`/team2026/?teamId2026=${arrayLookup(match.blueOneTeamNumber, team, "teamNumber", "id")}`}>{match.blueOneTeamNumber}</Link></td>
+                                <td className="bg-primary bg-opacity-10"><Link to={`/team2026/?teamId2026=${arrayLookup(match.blueTwoTeamNumber, team, "teamNumber", "id")}`}>{match.blueTwoTeamNumber}</Link></td>
+                                <td className="bg-primary bg-opacity-10"><Link to={`/team2026/?teamId2026=${arrayLookup(match.blueThreeTeamNumber, team, "teamNumber", "id")}`}>{match.blueThreeTeamNumber}</Link></td>
+                                <td className="bg-danger bg-opacity-10"><Link to={`/team2026/?teamId2026=${arrayLookup(match.redOneTeamNumber, team, "teamNumber", "id")}`}>{match.redOneTeamNumber}</Link></td>
+                                <td className="bg-danger bg-opacity-10"><Link to={`/team2026/?teamId2026=${arrayLookup(match.redTwoTeamNumber, team, "teamNumber", "id")}`}>{match.redTwoTeamNumber}</Link></td>
+                                <td className="bg-danger bg-opacity-10"><Link to={`/team2026/?teamId2026=${arrayLookup(match.redThreeTeamNumber, team, "teamNumber", "id")}`}>{match.redThreeTeamNumber}</Link></td>
                                 <td>{match.blueScore}</td>
                                 <td>{match.redScore}</td>
                             </tr>
