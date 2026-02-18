@@ -42,16 +42,10 @@ const Team = () => {
                                 <th>Match Key</th>
                                 <th>Position</th>
                                 <th>Robot Position</th>
-                                <th>Auton Coral</th>
-                                <th>Auton Processor</th>
-                                <th>Auton Net</th>
-                                <th>TeleOp Coral</th>
-                                <th>TeleOp Processor</th>
-                                <th>TeleOp Net</th>
-                                <th>Alage Removed</th>
-                                <th>Climb Position</th>
-                                <th>Coral Pick-Up</th>
-                                <th>Coral Pick-Up Type</th>
+                                <th>Auton Path</th>
+                                <th>Preload</th>
+                                <th>TeleOp Trench</th>
+                                <th>TeleOp Bump</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -59,25 +53,10 @@ const Team = () => {
                                 <tr key= {matchdata.teamNumber}>
                                     <td>{matchdata.matchKey}</td>
                                     <td>{matchdata.allianceLocation}</td>
-                                    <td>{matchdata.autonPosition}</td>
-                                    <td>{matchdata.autonReefTotal}</td>
-                                    <td>{matchdata.autonProcessorScored}</td>
-                                    <td>{matchdata.autonNetScored}</td>
-                                    <td>{matchdata.teleopReefTotal}</td>
-                                    <td>{matchdata.teleopProcessorScored}</td>
-                                    <td>{matchdata.teleopNetScored}</td>
-                                    <td>{matchdata.totalAlgeaRemoved}</td>
-                                    <td>{matchdata.bargeZonLocation}</td>
-                                    <td>
-                                        {matchdata.schemaVersion === '2025.2.0' 
-                                            ? matchdata.totalCoralPickup 
-                                            : (matchdata.totalCoralGroundPickup + matchdata.totalCoralStationPickup)}
-                                    </td>
-                                    <td>
-                                        {matchdata.schemaVersion === '2025.2.0'
-                                            ? `${matchdata.coralIntakeTypeGround ? 'G' : ''}${matchdata.coralIntakeTypeStation ? 'S' : ''}`
-                                            : `${matchdata.totalCoralGroundPickup > 0 ? 'G' : ''}${matchdata.totalCoralStationPickup  > 0 ? 'S' : ''}`}
-                                    </td>
+                                    <td>{matchdata.autonPath}</td>
+                                    <td>{matchdata.startPreload}</td>
+                                    <td>{matchdata.postUnderTrench}</td>
+                                    <td>{matchdata.postOverBump}</td>
                                 </tr>
                             ))}
                         </tbody>
