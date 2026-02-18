@@ -51,15 +51,14 @@ import { Container, Row, Col, Modal } from "react-bootstrap";
                  <Col md={4}>
                      <h3>App Information</h3>
                      <hr></hr>
-                     <p>Flying Toasters ScoutDB Version: 2026.0.0</p>
-                     <p>Most Recent Server Model Version: 2026-v1</p>
+                     <p>Flying Toasters ScoutDB Version: 2025.1.0</p>
+                     <p>Most Recent Server Model Version: 2025-v3</p>
                      <p>Powered By <a href="https://www.thebluealliance.com/" target="_blank" rel="noopener noreferrer">The Blue Alliance</a></p>
                  </Col>
                  <Col md={4}>
                      <h3>Compatible Years</h3>
                      <hr></hr>
                      <p>Reefscape ~ 2025</p>
-                     <p>Rebuilt ~ 2026</p>
                  </Col>
                  <Col md={4}>
                      <h3>Contributors</h3>
