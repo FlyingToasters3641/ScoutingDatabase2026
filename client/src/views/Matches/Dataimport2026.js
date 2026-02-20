@@ -23,26 +23,101 @@ const Dataimport = () => {
 
         /* *** General Decoding logic *** */
         let botLocationEnum = [];
-        // const botLocationViewSbEnum = ['None', 'Left', 'Center', 'Right']; // Scoring Blue, Spectator Red
-        // const botLocationViewSrEnum = ['None', 'Right', 'Center', 'Left']; // Scoring Red, Spectator Blue
+        const botLocationViewSbEnum = ['None', 'LeftTrench', 'LeftBump', 'Hub', 'RightBump', 'RightTrench']; // Scoring Blue, Spectator Red
+        const botLocationViewSrEnum = ['None', 'RightTrench', 'RightBump', 'Hub', 'LeftBump', 'LeftTrench']; // Scoring Red, Spectator Blue
         // leftFieldOrientation is used to determine mapping for Reef scouted data to reference to the field orientation
         //  and will be used to determine the mapping of the data to the database
-        // For Reef Coral, 
-        //  - Left: A->A, C->C, E->E, G->G, I->I, K->K (Scoring, Blue; Spectator, Red)
-        //  - Right: A->G, C->I, E->K, G->A, I->C, K->E (Scoring, Red; Spectator, Blue)
-        // For Reef Algea,
-        //  - Left: A->A, B->B, C->C, D->D, E->E, F->F (Scoring, Blue; Spectator, Red)
-        //  - Right: A->D, B->E, C->F, D->A, E->B, F->C (Scoring, Red; Spectator, Blue)
-        // let leftFieldOrientation = true;
-        // if ( (matchData.allianceLocation[0] === 'R' && matchData.fieldOrientation === "Scoring") ||
-        //         (matchData.allianceLocation[0] === 'B' && matchData.fieldOrientation === "Spectator") ) {
-        //     leftFieldOrientation = false;
-        //     botLocationEnum = [...botLocationViewSrEnum]; // Scoring Red, Spectator Blue
-        // }
-        // else {
-        //     leftFieldOrientation = true
-        //     botLocationEnum = [...botLocationViewSbEnum]; // Scoring Blue, Spectator Red
-        // }
+        if ( (matchData.allianceLocation[0] === 'R' && matchData.fieldOrientation === "Scoring") ||
+                (matchData.allianceLocation[0] === 'B' && matchData.fieldOrientation === "Spectator") ) {
+            botLocationEnum = [...botLocationViewSrEnum]; // Scoring Red, Spectator Blue
+                if (matchData.sL === 1) {
+                    prepData.startTrenchLeft = 0;
+                    prepData.startBumpLeft = 0;
+                    prepData.startHub = 0;
+                    prepData.startBumpRight = 0;
+                    prepData.startTrenchRight = 1;
+                }
+                else if (matchData.sL === 2) {
+                    prepData.startTrenchLeft = 0;
+                    prepData.startBumpLeft = 0;
+                    prepData.startHub = 0;
+                    prepData.startBumpRight = 1;
+                    prepData.startTrenchRight = 0;
+                }
+                else if (matchData.sL === 3) {
+                    prepData.startTrenchLeft = 0;
+                    prepData.startBumpLeft = 0;
+                    prepData.startHub = 1;
+                    prepData.startBumpRight = 0;
+                    prepData.startTrenchRight = 0;
+                }
+                else if (matchData.sL === 4) {
+                    prepData.startTrenchLeft = 0;
+                    prepData.startBumpLeft = 1;
+                    prepData.startHub = 0;
+                    prepData.startBumpRight = 0;
+                    prepData.startTrenchRight = 0;
+                }
+                else if (matchData.sL === 5) {
+                    prepData.startTrenchLeft = 1;
+                    prepData.startBumpLeft = 0;
+                    prepData.startHub = 0;
+                    prepData.startBumpRight = 0;
+                    prepData.startTrenchRight = 0;
+                }
+                else {
+                    prepData.startTrenchLeft = 0;
+                    prepData.startBumpLeft = 0;
+                    prepData.startHub = 0;
+                    prepData.startBumpRight = 0;
+                    prepData.startTrenchRight = 0;
+                }
+        }
+        else {
+            botLocationEnum = [...botLocationViewSbEnum]; // Scoring Blue, Spectator Red
+                if (matchData.sL === 1) {
+                    prepData.startTrenchLeft = 1;
+                    prepData.startBumpLeft = 0;
+                    prepData.startHub = 0;
+                    prepData.startBumpRight = 0;
+                    prepData.startTrenchRight = 0;
+                }
+                else if (matchData.sL === 2) {
+                    prepData.startTrenchLeft = 0;
+                    prepData.startBumpLeft = 1;
+                    prepData.startHub = 0;
+                    prepData.startBumpRight = 0;
+                    prepData.startTrenchRight = 0;
+                }
+                else if (matchData.sL === 3) {
+                    prepData.startTrenchLeft = 0;
+                    prepData.startBumpLeft = 0;
+                    prepData.startHub = 1;
+                    prepData.startBumpRight = 0;
+                    prepData.startTrenchRight = 0;
+                }
+                else if (matchData.sL === 4) {
+                    prepData.startTrenchLeft = 0;
+                    prepData.startBumpLeft = 0;
+                    prepData.startHub = 0;
+                    prepData.startBumpRight = 1;
+                    prepData.startTrenchRight = 0;
+                }
+                else if (matchData.sL === 5) {
+                    prepData.startTrenchLeft = 0;
+                    prepData.startBumpLeft = 0;
+                    prepData.startHub = 0;
+                    prepData.startBumpRight = 0;
+                    prepData.startTrenchRight = 1;
+                }
+                else {
+                    prepData.startTrenchLeft = 0;
+                    prepData.startBumpLeft = 0;
+                    prepData.startHub = 0;
+                    prepData.startBumpRight = 0;
+                    prepData.startTrenchRight = 0;
+                }
+        }
 
          
         /* *** General Match Data *** */
@@ -55,8 +130,8 @@ const Dataimport = () => {
         prepData.event_id = appData.currentEventID;
         prepData.allianceLocation = matchData.allianceLocation;
         prepData.fieldOrientation = matchData.fieldOrientation;
-        
 
+        prepData.startPreload = matchData.sP;
     
         // let autonActions = matchData.aP1 + matchData.aP2 + matchData.aP3 + matchData.aP4 + matchData.aP5 + matchData.aP6;
 
