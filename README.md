@@ -140,4 +140,4 @@ the command cmd.
 ```bash
 PS C:\*your branch*\ScoutingDatabase2025> cmd
 ```
-Afterwords, you will enter the commands from instructions 2-4 in Setting up scouting database in codespces (see above).
+Afterwords, you will enter the commands from instructions 2-4 in Setting up scouting database in codespces (see above). Stuff

@@ -27,6 +27,8 @@ const Matchdetails = () => {
         axios.get(`${APP_DATABASE_URL}/match/${matchId}`)
         .then(response => setMatch(response.data))
         .catch(error => console.error('Error fetching data:', error));
+
+
         
         axios.get(`${APP_DATABASE_URL}/teams`)
         .then(response => setTeam(response.data))
@@ -49,17 +51,16 @@ const Matchdetails = () => {
                                 <th>Scouter</th>
                                 <th>Position</th>
                                 <th>Robot Position</th>
-                                <th>!!2026 Data Needs to Be Added!!</th>
+                                <th>Auton path</th>
                             </tr>
                         </thead>
                         <tbody>
                             {matchdata.map(matchdata => (
                                 <tr key={matchdata.teamNumber}>
-                                    <td><Link to={`/team/?teamId=${arrayLookup(matchdata.teamNumber, team, "teamNumber", "id")}`}> {matchdata.teamNumber}</Link></td>
+                                    <td><Link to={`/team2026/?teamId=${arrayLookup(matchdata.teamNumber, team, "teamNumber", "id")}`}> {matchdata.teamNumber}</Link></td>
                                     <td>{matchdata.scouterName}</td>
                                     <td>{matchdata.allianceLocation}</td>
-                                    <td>{matchdata.autonPosition}</td>
-                                    <td> '' </td>
+                                    <td>{matchdata.autonPath}</td>
                                 </tr>
                             ))}
                         </tbody>
@@ -145,7 +146,7 @@ const Matchdetails = () => {
 
     useEffect(() => {
         if (match && match.matchKey) {
-            axios.get(`${APP_DATABASE_URL}/matchData/2025/matchkey/${match.matchKey}`)
+            axios.get(`${APP_DATABASE_URL}/matchData/2026/matchkey/${match.matchKey}`)
             .then(response => setMatchdata(response.data))
             .catch(error => console.error('Error fetching data:', error));
         }
