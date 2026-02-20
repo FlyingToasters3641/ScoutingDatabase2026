@@ -269,6 +269,21 @@ const Eventdetail = () => {
             }
         };
 
+    const MatchDetailByYear = (year) => {
+            if (year === '2026') {
+                // Render import button for 2026
+                return `/Matchdetails2026`;
+            }
+            else if (year === '2025') {
+                // Render import button for 2025
+                return `/Matchdetails`;
+            }
+            else {
+                // Render import button for invalid years
+                return '';
+            }
+        };
+
     /* ############################################################  */
 
     return (
@@ -457,7 +472,7 @@ const Eventdetail = () => {
                             slots={{
                                 0: (data, row) => {
                                     return (
-                                        <div onClick={() => handleViewItem(`/matchdetails/?matchId=${row.id}`)}><OverlayTrigger placement="top" overlay={renderTooltip({ text: 'View Match' })}><MdOutlinePreview size='2em' /></OverlayTrigger></div>
+                                        <div onClick={() => handleViewItem(`${MatchDetailByYear(`${appData.currentEventYear}`)}/?matchId=${row.id}`)}><OverlayTrigger placement="top" overlay={renderTooltip({ text: 'View Match' })}><MdOutlinePreview size='2em' /></OverlayTrigger></div>
                                     );
                                 },
                             }}

@@ -16,6 +16,7 @@ import Matchdetails from "./views/Matches/Matchdetails.js";
 import Settings from "./views/Settings/Settings.js";
 import Eventdata from "./views/Events/Eventdata.js";
 import Robotsummary from "./views/Matches/Robotsummary.js";
+import Matchdetails2026 from "./views/Matches/Matchdetails2026.js";
 
 
 const App = () => {
@@ -38,6 +39,7 @@ const App = () => {
                 <Route path='/settings' component={Settings}/>
                 <Route path='/eventdata' component={Eventdata}/>
                 <Route path='/robotsummary' component={Robotsummary}/>
+                <Route path='/Matchdetails2026' component={Matchdetails2026}/>
             </Switch>
         </Router>
       </AppProvider>
