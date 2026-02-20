@@ -23,8 +23,8 @@ const Dataimport = () => {
 
         /* *** General Decoding logic *** */
         let botLocationEnum = [];
-        const botLocationViewSbEnum = ['None', 'Left', 'Center', 'Right']; // Scoring Blue, Spectator Red
-        const botLocationViewSrEnum = ['None', 'Right', 'Center', 'Left']; // Scoring Red, Spectator Blue
+        // const botLocationViewSbEnum = ['None', 'Left', 'Center', 'Right']; // Scoring Blue, Spectator Red
+        // const botLocationViewSrEnum = ['None', 'Right', 'Center', 'Left']; // Scoring Red, Spectator Blue
         // leftFieldOrientation is used to determine mapping for Reef scouted data to reference to the field orientation
         //  and will be used to determine the mapping of the data to the database
         // For Reef Coral, 
@@ -33,16 +33,16 @@ const Dataimport = () => {
         // For Reef Algea,
         //  - Left: A->A, B->B, C->C, D->D, E->E, F->F (Scoring, Blue; Spectator, Red)
         //  - Right: A->D, B->E, C->F, D->A, E->B, F->C (Scoring, Red; Spectator, Blue)
-        let leftFieldOrientation = true;
-        if ( (matchData.allianceLocation[0] === 'R' && matchData.fieldOrientation === "Scoring") ||
-                (matchData.allianceLocation[0] === 'B' && matchData.fieldOrientation === "Spectator") ) {
-            leftFieldOrientation = false;
-            botLocationEnum = [...botLocationViewSrEnum]; // Scoring Red, Spectator Blue
-        }
-        else {
-            leftFieldOrientation = true
-            botLocationEnum = [...botLocationViewSbEnum]; // Scoring Blue, Spectator Red
-        }
+        // let leftFieldOrientation = true;
+        // if ( (matchData.allianceLocation[0] === 'R' && matchData.fieldOrientation === "Scoring") ||
+        //         (matchData.allianceLocation[0] === 'B' && matchData.fieldOrientation === "Spectator") ) {
+        //     leftFieldOrientation = false;
+        //     botLocationEnum = [...botLocationViewSrEnum]; // Scoring Red, Spectator Blue
+        // }
+        // else {
+        //     leftFieldOrientation = true
+        //     botLocationEnum = [...botLocationViewSbEnum]; // Scoring Blue, Spectator Red
+        // }
 
          
         /* *** General Match Data *** */
@@ -66,17 +66,45 @@ const Dataimport = () => {
         // prepData.autonFour = matchData.aP4;
         // prepData.autonFive = matchData.aP5;
         // prepData.autonSix = matchData.aP6;
-        prepData.teleOpPassNuetralAlliance = matchData.tPNA;
-        prepData.teleOpPassOpponentNuetral = matchData.tPON;
+
+
+        prepData.teleOpPassNeutralAlliance = matchData.tPNA;
+        prepData.teleOpPassOpponentNeutral = matchData.tPON;
         prepData.teleOpPassOpponentAlliance = matchData.tPOA;
         prepData.teleOpShootMajority = matchData.tSM;
         prepData.teleOpShootHalf = matchData.tSH;
         prepData.teleOpShootLittle = matchData.tSL;
-        // prepData.teleopHumanLot = matchData.tFHM;
-        // prepData.teleopHumanLittle = matchData.tFHL;
-        // prepData.teleopShift = matchData.tSh;
-        prepData.teleOpDefenceStealing = matchData.tDS;
+
+        if (matchData.tFH === 1) {
+            prepData.teleOpFeedHumanMajority = 1;
+            prepData.teleOpFeedHumanLittle = 0;
+        }
+        else if (matchData.tFH === 2) {
+            prepData.teleOpFeedHumanMajority = 0;
+            prepData.teleOpFeedHumanLittle = 1;
+        }
+        else {
+            prepData.teleOpFeedHumanMajority = 0;
+            prepData.teleOpFeedHumanLittle = 0;
+        }
+    
+        if (matchData.tS === 1) {
+            prepData.teleOpShiftOne = 1;
+            prepData.teleOpShiftTwo = 0;
+        }
+        else if (matchData.tS === 2) {
+            prepData.teleOpShiftOne = 0;
+            prepData.teleOpShiftTwo = 1;
+        }
+        else {
+            prepData.teleOpShiftOne = 0;
+            prepData.teleOpShiftTwo = 0;
+        }
+
+        prepData.teleOpDefenceStealling = matchData.tDS;
         prepData.teleOpDefenceBlocking = matchData.tDB;
+
+
         // prepData.postgameClimb = matchData.pCL;
         prepData.postUnderTrench = matchData.pUT;
         prepData.postOverBump = matchData.pOB;
@@ -100,7 +128,7 @@ const Dataimport = () => {
 
             // Check if this QR code is already in database
             let inDatabase = false
-            await axios.get(`${APP_DATABASE_URL}/matchData/2025/uniqueid/${scannedDataSHA1}`)
+            await axios.get(`${APP_DATABASE_URL}/matchData/2026/uniqueid/${scannedDataSHA1}`)
             .then(response => {
                 if (response.data.length > 0) {
                     inDatabase = true;
@@ -120,7 +148,7 @@ const Dataimport = () => {
                 // console.log('matchData:', matchData);
                 console.log('matchData for DB:', JSON.stringify(matchData));
                 // Entering the data from the scanned QR code to the database
-                await axios.post(`${APP_DATABASE_URL}/matchData/2025`,matchData,
+                await axios.post(`${APP_DATABASE_URL}/matchData/2026`,matchData,
                 
                 { headers: { 'Content-Type': 'application/json' } })
             
