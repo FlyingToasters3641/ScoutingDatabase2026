@@ -131,8 +131,10 @@ const Dataimport = () => {
         prepData.allianceLocation = matchData.allianceLocation;
         prepData.fieldOrientation = matchData.fieldOrientation;
 
+
         prepData.startPreload = matchData.sP;
     
+
         // let autonActions = matchData.aP1 + matchData.aP2 + matchData.aP3 + matchData.aP4 + matchData.aP5 + matchData.aP6;
 
         // prepData.autonOne = matchData.aP1;
@@ -180,12 +182,151 @@ const Dataimport = () => {
         prepData.teleOpDefenceBlocking = matchData.tDB;
 
 
-        // prepData.postgameClimb = matchData.pCL;
-        prepData.postUnderTrench = matchData.pUT;
-        prepData.postOverBump = matchData.pOB;
-        prepData.postDisabledMechanically = matchData.pDB;
-        prepData.postNotThere = matchData.pNT;
-        prepData.postStuckFieldElement = matchData.pSFE;
+        if (matchData.pCL === 1) {
+            prepData.postClimbLevelOneRight = 0;
+            prepData.postClimbLevelOneCenter = 0;
+            prepData.postClimbLevelOneLeft = 0;
+            prepData.postClimbLevelTwoRight = 0;
+            prepData.postClimbLevelTwoCenter = 0;
+            prepData.postClimbLevelTwoLeft = 0;
+            prepData.postClimbLevelThreeRight = 0;
+            prepData.postClimbLevelThreeCenter = 0;
+            prepData.postClimbLevelThreeLeft = 1;
+        }
+        else if (matchData.pCL === 2) {
+            prepData.postClimbLevelOneRight = 0;
+            prepData.postClimbLevelOneCenter = 0;
+            prepData.postClimbLevelOneLeft = 0;
+            prepData.postClimbLevelTwoRight = 0;
+            prepData.postClimbLevelTwoCenter = 0;
+            prepData.postClimbLevelTwoLeft = 0;
+            prepData.postClimbLevelThreeRight = 0;
+            prepData.postClimbLevelThreeCenter = 1;
+            prepData.postClimbLevelThreeLeft = 0;
+        }
+        else if (matchData.pCL === 3) {
+            prepData.postClimbLevelOneRight = 0;
+            prepData.postClimbLevelOneCenter = 0;
+            prepData.postClimbLevelOneLeft = 0;
+            prepData.postClimbLevelTwoRight = 0;
+            prepData.postClimbLevelTwoCenter = 0;
+            prepData.postClimbLevelTwoLeft = 0;
+            prepData.postClimbLevelThreeRight = 1;
+            prepData.postClimbLevelThreeCenter = 0;
+            prepData.postClimbLevelThreeLeft = 0;
+        }
+        else if (matchData.pCL === 4) {
+            prepData.postClimbLevelOneRight = 0;
+            prepData.postClimbLevelOneCenter = 0;
+            prepData.postClimbLevelOneLeft = 0;
+            prepData.postClimbLevelTwoRight = 0;
+            prepData.postClimbLevelTwoCenter = 0;
+            prepData.postClimbLevelTwoLeft = 1;
+            prepData.postClimbLevelThreeRight = 0;
+            prepData.postClimbLevelThreeCenter = 0;
+            prepData.postClimbLevelThreeLeft = 0;
+        }
+        else if (matchData.pCL === 5) {
+            prepData.postClimbLevelOneRight = 0;
+            prepData.postClimbLevelOneCenter = 0;
+            prepData.postClimbLevelOneLeft = 0;
+            prepData.postClimbLevelTwoRight = 0;
+            prepData.postClimbLevelTwoCenter = 1;
+            prepData.postClimbLevelTwoLeft = 0;
+            prepData.postClimbLevelThreeRight = 0;
+            prepData.postClimbLevelThreeCenter = 0;
+            prepData.postClimbLevelThreeLeft = 0;
+        }  
+        else if (matchData.pCL === 6) {
+            prepData.postClimbLevelOneRight = 0;
+            prepData.postClimbLevelOneCenter = 0;
+            prepData.postClimbLevelOneLeft = 0;
+            prepData.postClimbLevelTwoRight = 1;
+            prepData.postClimbLevelTwoCenter = 0;
+            prepData.postClimbLevelTwoLeft = 0;
+            prepData.postClimbLevelThreeRight = 0;
+            prepData.postClimbLevelThreeCenter = 0;
+            prepData.postClimbLevelThreeLeft = 0;
+        }
+        else if (matchData.pCL === 7) {
+            prepData.postClimbLevelOneRight = 0;
+            prepData.postClimbLevelOneCenter = 0;
+            prepData.postClimbLevelOneLeft = 1;
+            prepData.postClimbLevelTwoRight = 0;
+            prepData.postClimbLevelTwoCenter = 0;
+            prepData.postClimbLevelTwoLeft = 0;
+            prepData.postClimbLevelThreeRight = 0;
+            prepData.postClimbLevelThreeCenter = 0;
+            prepData.postClimbLevelThreeLeft = 0;
+        }
+        else if (matchData.pCL === 8) {
+            prepData.postClimbLevelOneRight = 0;
+            prepData.postClimbLevelOneCenter = 1;
+            prepData.postClimbLevelOneLeft = 0;
+            prepData.postClimbLevelTwoRight = 0;
+            prepData.postClimbLevelTwoCenter = 0;
+            prepData.postClimbLevelTwoLeft = 0;
+            prepData.postClimbLevelThreeRight = 0;
+            prepData.postClimbLevelThreeCenter = 0;
+            prepData.postClimbLevelThreeLeft = 0;
+        }
+        else if (matchData.pCL === 9) {
+            prepData.postClimbLevelOneRight = 1;
+            prepData.postClimbLevelOneCenter = 0;
+            prepData.postClimbLevelOneLeft = 0;
+            prepData.postClimbLevelTwoRight = 0;
+            prepData.postClimbLevelTwoCenter = 0;
+            prepData.postClimbLevelTwoLeft = 0;
+            prepData.postClimbLevelThreeRight = 0;
+            prepData.postClimbLevelThreeCenter = 0;
+            prepData.postClimbLevelThreeLeft = 0;
+        }  
+        else {
+            prepData.postClimbLevelOneRight = 0;
+            prepData.postClimbLevelOneCenter = 0;
+            prepData.postClimbLevelOneLeft = 0;
+            prepData.postClimbLevelTwoRight = 0;
+            prepData.postClimbLevelTwoCenter = 0;
+            prepData.postClimbLevelTwoLeft = 0;
+            prepData.postClimbLevelThreeRight = 0;
+            prepData.postClimbLevelThreeCenter = 0;
+            prepData.postClimbLevelThreeLeft = 0;
+        }
+
+        if (matchData.pUT === true) {
+            prepData.postUnderTrench = 1;
+        }
+        else {
+            prepData.postUnderTrench = 0;
+        }
+
+        if (matchData.pOB === true) {
+            prepData.postOverBump = 1;
+        }
+        else {
+            prepData.postOverBump = 0;
+        }
+
+        if (matchData.pDB === true) {
+            prepData.postDisabledMechanically = 1;
+        }
+        else {
+            prepData.postDisabledMechanically = 0;
+        }
+
+        if (matchData.pNT === true) {
+            prepData.postNotThere = 1;
+        }
+        else {
+            prepData.postNotThere = 0;
+        }   
+
+        if (matchData.pSFE === true) {
+            prepData.postStuckFieldElement = 1;
+        }
+        else {
+            prepData.postStuckFieldElement = 0;
+        }
         prepData.uniqueId = scannedDataSHA1;
 
 
