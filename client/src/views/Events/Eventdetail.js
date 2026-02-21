@@ -284,6 +284,18 @@ const Eventdetail = () => {
             }
         };
 
+    const RenderLinkByYear = (year) => {
+            if (year === '2026') {
+                return `/Team2026`;
+            }
+            else if (year === '2025') {
+                return `/Team`;
+            }
+            else {
+                return '';
+            }
+        };
+
     /* ############################################################  */
 
     return (
@@ -613,7 +625,7 @@ const Eventdetail = () => {
                                 slots={{
                                     2: (data, row) => {
                                         return (
-                                            <div onClick={() => handleViewItem(`/team/?teamId=${data}`)}><OverlayTrigger placement="top" overlay={renderTooltip({ text: 'View Team' })}><MdOutlinePreview size='2em' /></OverlayTrigger></div>
+                                            <div onClick={() => handleViewItem(`${RenderLinkByYear(`${appData.currentEventYear}`)}/?teamId=${row.id}`)}><OverlayTrigger placement="top" overlay={renderTooltip({ text: 'View Team' })}><MdOutlinePreview size='2em' /></OverlayTrigger></div>
                                         );
                                     },
                                 }}
