@@ -17,7 +17,6 @@ MatchData2026.init({
     matchKey: DataTypes.STRING,
     event_id: DataTypes.INTEGER,
     uniqueId: DataTypes.STRING,
-    allianceLocation: DataTypes.INTEGER,
     fieldOrientation: DataTypes.STRING,
 
 
