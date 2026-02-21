@@ -103,7 +103,7 @@ const Matchdetails = () => {
             </Row>
             <Row>
                 <Col>
-                    <Link to={`/robotsummary/?matchId=${match.id}`}><button className="btn btn-primary">Robot Summary</button></Link>
+                    <Link to={`/robotsummary2026/?matchId=${match.id}`}><button className="btn btn-primary">Robot Summary</button></Link>
                 </Col>
             </Row>
                 <Col>
