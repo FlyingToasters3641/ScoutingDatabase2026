@@ -135,15 +135,235 @@ const Dataimport = () => {
         prepData.startPreload = matchData.sP;
     
 
-        // let autonActions = matchData.aP1 + matchData.aP2 + matchData.aP3 + matchData.aP4 + matchData.aP5 + matchData.aP6;
+        if (matchData.aP1 === 1) {
+            prepData.autonOne = 'Shoot';
+        }
+        else if (matchData.aP1 === 2) {
+            prepData.autonOne = 'Passing';
+        }
+        else if (matchData.aP1 === 3) {
+            prepData.autonOne = 'Outpost';
+        }
+        else if (matchData.aP1 === 4) {
+            prepData.autonOne = 'Depot';
+        }
+        else if (matchData.aP1 === 5) {
+            prepData.autonOne = 'Climb';
+        }
+        else if (matchData.aP1 === 6) {
+            prepData.autonOne = 'All of Neutral Zone';
+        }
+        else if (matchData.aP1 === 7) {
+            if (matchData.allianceLocation[0] === 'R') {
+                prepData.autonOne = 'Left Neutral Zone';
+            }
+            else {
+                prepData.autonOne = 'Right Neutral Zone';
+            }
+        }
+        else if (matchData.aP1 === 8) {
+            if (matchData.allianceLocation[0] === 'R') {
+                prepData.autonOne = 'Right Neutral Zone';
+            }
+            else {
+                prepData.autonOne = 'Left Neutral Zone';
+            }
+        }
+        else {
+            prepData.autonOne = 'None';
+        }
 
-        // prepData.autonOne = matchData.aP1;
-        // prepData.autonTwo = matchData.aP2;
-        // prepData.autonThree = matchData.aP3;
-        // prepData.autonFour = matchData.aP4;
-        // prepData.autonFive = matchData.aP5;
-        // prepData.autonSix = matchData.aP6;
+        if (matchData.aP2 === 1) {
+            prepData.autonTwo = 'Shoot';
+        }
+        else if (matchData.aP2 === 2) {
+            prepData.autonTwo = 'Passing';
+        }
+        else if (matchData.aP2 === 3) {
+            prepData.autonTwo = 'Outpost';
+        }
+        else if (matchData.aP2 === 4) {
+            prepData.autonTwo = 'Depot';
+        }
+        else if (matchData.aP2 === 5) {
+            prepData.autonTwo = 'Climb';
+        }
+        else if (matchData.aP2 === 6) {
+            prepData.autonTwo = 'All of Neutral Zone';
+        }
+        else if (matchData.aP2 === 7) {
+            if (matchData.allianceLocation[0] === 'R') {
+                prepData.autonTwo = 'Left Neutral Zone';
+            }
+            else {
+                prepData.autonTwo = 'Right Neutral Zone';
+            }
+        }
+        else if (matchData.aP2 === 8) {
+            if (matchData.allianceLocation[0] === 'R') {
+                prepData.autonTwo = 'Right Neutral Zone';
+            }
+            else {
+                prepData.autonTwo = 'Left Neutral Zone';
+            }
+        }
+        else {
+            prepData.autonTwo = 'None';
+        }
 
+        if (matchData.aP3 === 1) {
+            prepData.autonThree = 'Shoot';
+        }
+        else if (matchData.aP3 === 2) {
+            prepData.autonThree = 'Passing';
+        }
+        else if (matchData.aP3 === 3) {
+            prepData.autonThree = 'Outpost';
+        }
+        else if (matchData.aP3 === 4) {
+            prepData.autonThree = 'Depot';
+        }
+        else if (matchData.aP3 === 5) {
+            prepData.autonThree = 'Climb';
+        }
+        else if (matchData.aP3 === 6) {
+            prepData.autonThree = 'All of Neutral Zone';
+        }
+        else if (matchData.aP3 === 7) {
+            if (matchData.allianceLocation[0] === 'R') {
+                prepData.autonThree = 'Left Neutral Zone';
+            }
+            else {
+                prepData.autonThree = 'Right Neutral Zone';
+            }
+        }
+        else if (matchData.aP3 === 8) {
+            if (matchData.allianceLocation[0] === 'R') {
+                prepData.autonThree = 'Right Neutral Zone';
+            }
+            else {
+                prepData.autonThree = 'Left Neutral Zone';
+            }
+        }
+        else {
+            prepData.autonThree = 'None';
+        }
+
+        if (matchData.aP4 === 1) {
+            prepData.autonFour = 'Shoot';
+        }
+        else if (matchData.aP4 === 2) {
+            prepData.autonFour = 'Passing';
+        }
+        else if (matchData.aP4 === 3) {
+            prepData.autonFour = 'Outpost';
+        }
+        else if (matchData.aP4 === 4) {
+            prepData.autonFour = 'Depot';
+        }
+        else if (matchData.aP4 === 5) {
+            prepData.autonFour = 'Climb';
+        }
+        else if (matchData.aP4 === 6) {
+            prepData.autonFour = 'All of Neutral Zone';
+        }
+        else if (matchData.aP4 === 7) {
+            if (matchData.allianceLocation[0] === 'R') {
+                prepData.autonFour = 'Left Neutral Zone';
+            }
+            else {
+                prepData.autonFour = 'Right Neutral Zone';
+            }
+        }
+        else if (matchData.aP4 === 8) {
+            if (matchData.allianceLocation[0] === 'R') {
+                prepData.autonFour = 'Right Neutral Zone';
+            }
+            else {
+                prepData.autonFour = 'Left Neutral Zone';
+            }
+        }
+        else {
+            prepData.autonFour = 'None';
+        }
+        
+        if (matchData.aP5 === 1) {
+            prepData.autonFive = 'Shoot';
+        }
+        else if (matchData.aP5 === 2) {
+            prepData.autonFive = 'Passing';
+        }
+        else if (matchData.aP5 === 3) {
+            prepData.autonFive = 'Outpost';
+        }
+        else if (matchData.aP5 === 4) {
+            prepData.autonFive = 'Depot';
+        }
+        else if (matchData.aP5 === 5) {
+            prepData.autonFive = 'Climb';
+        }
+        else if (matchData.aP5 === 6) {
+            prepData.autonFive = 'All of Neutral Zone';
+        }
+        else if (matchData.aP5 === 7) {
+            if (matchData.allianceLocation[0] === 'R') {
+                prepData.autonFive = 'Left Neutral Zone';
+            }
+            else {
+                prepData.autonFive = 'Right Neutral Zone';
+            }
+        }
+        else if (matchData.aP5 === 8) {
+            if (matchData.allianceLocation[0] === 'R') {
+                prepData.autonFive = 'Right Neutral Zone';
+            }
+            else {
+                prepData.autonFive = 'Left Neutral Zone';
+            }
+        }
+        else {
+            prepData.autonFive = 'None';
+        }
+
+        if (matchData.aP6 === 1) {
+            prepData.autonSix = 'Shoot';
+        }
+        else if (matchData.aP6 === 2) {
+            prepData.autonSix = 'Passing';
+        }
+        else if (matchData.aP6 === 3) {
+            prepData.autonSix = 'Outpost';
+        }
+        else if (matchData.aP6 === 4) {
+            prepData.autonSix = 'Depot';
+        }
+        else if (matchData.aP6 === 5) {
+            prepData.autonSix = 'Climb';
+        }
+        else if (matchData.aP6 === 6) {
+            prepData.autonSix = 'All of Neutral Zone';
+        }
+        else if (matchData.aP6 === 7) {
+            if (matchData.allianceLocation[0] === 'R') {
+                prepData.autonSix = 'Left Neutral Zone';
+            }
+            else {
+                prepData.autonSix = 'Right Neutral Zone';
+            }
+        }
+        else if (matchData.aP6 === 8) {
+            if (matchData.allianceLocation[0] === 'R') {
+                prepData.autonSix = 'Right Neutral Zone';
+            }
+            else {
+                prepData.autonSix = 'Left Neutral Zone';
+            }
+        }
+        else {
+            prepData.autonSix = 'None';
+        }
+
+        prepData.autonPath = prepData.autonOne + ', ' + prepData.autonTwo + ', ' + prepData.autonThree + ', ' + prepData.autonFour + ', ' + prepData.autonFive + ', ' + prepData.autonSix;
 
         prepData.teleOpPassNeutralAlliance = matchData.tPNA;
         prepData.teleOpPassOpponentNeutral = matchData.tPON;

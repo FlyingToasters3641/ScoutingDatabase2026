@@ -31,6 +31,12 @@ MatchData2026.init({
 
     // Auton (use 'auton' prefix)
     autonPath: DataTypes.STRING,
+    autonOne: DataTypes.STRING,
+    autonTwo: DataTypes.STRING,
+    autonThree: DataTypes.STRING,
+    autonFour: DataTypes.STRING,
+    autonFive: DataTypes.STRING,
+    autonSix: DataTypes.STRING,
 
     // TeleOp (use 'teleop' prefix)
     teleOpPassNeutralAlliance: DataTypes.INTEGER,
