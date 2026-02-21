@@ -131,7 +131,7 @@ const Dataimport = () => {
         prepData.allianceLocation = matchData.allianceLocation;
         prepData.fieldOrientation = matchData.fieldOrientation;
 
-        
+
         prepData.startPreload = matchData.sP;
     
 
@@ -293,11 +293,40 @@ const Dataimport = () => {
             prepData.postClimbLevelThreeLeft = 0;
         }
 
-        prepData.postUnderTrench = matchData.pUT;
-        prepData.postOverBump = matchData.pOB;
-        prepData.postDisabledMechanically = matchData.pDB;
-        prepData.postNotThere = matchData.pNT;
-        prepData.postStuckFieldElement = matchData.pSFE;
+        if (matchData.pUT === true) {
+            prepData.postUnderTrench = 1;
+        }
+        else {
+            prepData.postUnderTrench = 0;
+        }
+
+        if (matchData.pOB === true) {
+            prepData.postOverBump = 1;
+        }
+        else {
+            prepData.postOverBump = 0;
+        }
+
+        if (matchData.pDB === true) {
+            prepData.postDisabledMechanically = 1;
+        }
+        else {
+            prepData.postDisabledMechanically = 0;
+        }
+
+        if (matchData.pNT === true) {
+            prepData.postNotThere = 1;
+        }
+        else {
+            prepData.postNotThere = 0;
+        }   
+
+        if (matchData.pSFE === true) {
+            prepData.postStuckFieldElement = 1;
+        }
+        else {
+            prepData.postStuckFieldElement = 0;
+        }
         prepData.uniqueId = scannedDataSHA1;
 
 
