@@ -30,7 +30,7 @@ const Matchdetails = () => {
 
 
         
-        axios.get(`${APP_DATABASE_URL}/teams2026`)
+        axios.get(`${APP_DATABASE_URL}/teams`)
         .then(response => setTeam(response.data))
         .catch(error => console.error('Error fetching data:', error));
 
@@ -90,7 +90,7 @@ const Matchdetails = () => {
                         <tbody>
                             {matchdata.map(matchdata => (
                                 <tr key= {matchdata.teamNumber}>
-                                    <td><Link to={`/team/?teamId=${arrayLookup(matchdata.teamNumber, team, "teamNumber", "id")}`}> {matchdata.teamNumber}</Link></td>
+                                    <td><Link to={`/team2026/?teamId=${arrayLookup(matchdata.teamNumber, team, "teamNumber", "id")}`}> {matchdata.teamNumber}</Link></td>
                                     <td>{matchdata.scouterName}</td>
                                     <td>{matchdata.allianceLocation}</td>
                                     <td>{matchdata.autonPath}</td>
@@ -132,7 +132,7 @@ const Matchdetails = () => {
                         <tbody>
                             {matchdata.map(matchdata => (
                                 <tr key={matchdata.teamNumber}>
-                                    <td><Link to={`/team/?teamId=${arrayLookup(matchdata.teamNumber, team, "teamNumber", "id")}`}> {matchdata.teamNumber}</Link></td>
+                                    <td><Link to={`/team2026/?teamId=${arrayLookup(matchdata.teamNumber, team, "teamNumber", "id")}`}> {matchdata.teamNumber}</Link></td>
                                     <td>{matchdata.scouterName}</td>
                                     <td>{matchdata.allianceLocation}</td>
                                     <td>{matchdata.autonPosition}</td>
