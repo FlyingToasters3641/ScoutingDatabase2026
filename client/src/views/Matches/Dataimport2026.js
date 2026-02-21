@@ -154,7 +154,8 @@ const Dataimport = () => {
             prepData.autonOne = 'All of Neutral Zone';
         }
         else if (matchData.aP1 === 7) {
-            if (matchData.allianceLocation[0] === 'R') {
+            if ((matchData.allianceLocation[0] === 'R' && matchData.fieldOrientation === "Scoring") ||
+                (matchData.allianceLocation[0] === 'B' && matchData.fieldOrientation === "Spectator")) {
                 prepData.autonOne = 'Left Neutral Zone';
             }
             else {
@@ -162,7 +163,8 @@ const Dataimport = () => {
             }
         }
         else if (matchData.aP1 === 8) {
-            if (matchData.allianceLocation[0] === 'R') {
+            if ((matchData.allianceLocation[0] === 'R' && matchData.fieldOrientation === "Scoring") ||
+                (matchData.allianceLocation[0] === 'B' && matchData.fieldOrientation === "Spectator")) {
                 prepData.autonOne = 'Right Neutral Zone';
             }
             else {
@@ -192,7 +194,8 @@ const Dataimport = () => {
             prepData.autonTwo = 'All of Neutral Zone';
         }
         else if (matchData.aP2 === 7) {
-            if (matchData.allianceLocation[0] === 'R') {
+            if ((matchData.allianceLocation[0] === 'R' && matchData.fieldOrientation === "Spectator") ||
+                (matchData.allianceLocation[0] === 'B' && matchData.fieldOrientation === "Scoring")) {
                 prepData.autonTwo = 'Left Neutral Zone';
             }
             else {
@@ -200,7 +203,8 @@ const Dataimport = () => {
             }
         }
         else if (matchData.aP2 === 8) {
-            if (matchData.allianceLocation[0] === 'R') {
+            if ((matchData.allianceLocation[0] === 'R' && matchData.fieldOrientation === "Spectator") ||
+                (matchData.allianceLocation[0] === 'B' && matchData.fieldOrientation === "Scoring")) {
                 prepData.autonTwo = 'Right Neutral Zone';
             }
             else {
@@ -230,7 +234,8 @@ const Dataimport = () => {
             prepData.autonThree = 'All of Neutral Zone';
         }
         else if (matchData.aP3 === 7) {
-            if (matchData.allianceLocation[0] === 'R') {
+            if ((matchData.allianceLocation[0] === 'R' && matchData.fieldOrientation === "Spectator") ||
+                (matchData.allianceLocation[0] === 'B' && matchData.fieldOrientation === "Scoring")) {
                 prepData.autonThree = 'Left Neutral Zone';
             }
             else {
@@ -238,7 +243,8 @@ const Dataimport = () => {
             }
         }
         else if (matchData.aP3 === 8) {
-            if (matchData.allianceLocation[0] === 'R') {
+            if ((matchData.allianceLocation[0] === 'R' && matchData.fieldOrientation === "Spectator") ||
+                (matchData.allianceLocation[0] === 'B' && matchData.fieldOrientation === "Scoring")) {
                 prepData.autonThree = 'Right Neutral Zone';
             }
             else {
@@ -268,7 +274,8 @@ const Dataimport = () => {
             prepData.autonFour = 'All of Neutral Zone';
         }
         else if (matchData.aP4 === 7) {
-            if (matchData.allianceLocation[0] === 'R') {
+            if ((matchData.allianceLocation[0] === 'R' && matchData.fieldOrientation === "Spectator") ||
+                (matchData.allianceLocation[0] === 'B' && matchData.fieldOrientation === "Scoring")) {
                 prepData.autonFour = 'Left Neutral Zone';
             }
             else {
@@ -276,7 +283,8 @@ const Dataimport = () => {
             }
         }
         else if (matchData.aP4 === 8) {
-            if (matchData.allianceLocation[0] === 'R') {
+            if ((matchData.allianceLocation[0] === 'R' && matchData.fieldOrientation === "Spectator") ||
+                (matchData.allianceLocation[0] === 'B' && matchData.fieldOrientation === "Scoring")) {
                 prepData.autonFour = 'Right Neutral Zone';
             }
             else {
@@ -306,7 +314,8 @@ const Dataimport = () => {
             prepData.autonFive = 'All of Neutral Zone';
         }
         else if (matchData.aP5 === 7) {
-            if (matchData.allianceLocation[0] === 'R') {
+            if ((matchData.allianceLocation[0] === 'R' && matchData.fieldOrientation === "Spectator") ||
+                (matchData.allianceLocation[0] === 'B' && matchData.fieldOrientation === "Scoring")) {
                 prepData.autonFive = 'Left Neutral Zone';
             }
             else {
@@ -314,7 +323,8 @@ const Dataimport = () => {
             }
         }
         else if (matchData.aP5 === 8) {
-            if (matchData.allianceLocation[0] === 'R') {
+            if ((matchData.allianceLocation[0] === 'R' && matchData.fieldOrientation === "Spectator") ||
+                (matchData.allianceLocation[0] === 'B' && matchData.fieldOrientation === "Scoring")) {
                 prepData.autonFive = 'Right Neutral Zone';
             }
             else {
@@ -344,7 +354,8 @@ const Dataimport = () => {
             prepData.autonSix = 'All of Neutral Zone';
         }
         else if (matchData.aP6 === 7) {
-            if (matchData.allianceLocation[0] === 'R') {
+            if ((matchData.allianceLocation[0] === 'R' && matchData.fieldOrientation === "Spectator") ||
+                (matchData.allianceLocation[0] === 'B' && matchData.fieldOrientation === "Scoring")) {
                 prepData.autonSix = 'Left Neutral Zone';
             }
             else {
@@ -352,7 +363,8 @@ const Dataimport = () => {
             }
         }
         else if (matchData.aP6 === 8) {
-            if (matchData.allianceLocation[0] === 'R') {
+            if ((matchData.allianceLocation[0] === 'R' && matchData.fieldOrientation === "Spectator") ||
+                (matchData.allianceLocation[0] === 'B' && matchData.fieldOrientation === "Scoring")) {
                 prepData.autonSix = 'Right Neutral Zone';
             }
             else {
