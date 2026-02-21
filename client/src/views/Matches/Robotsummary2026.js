@@ -39,27 +39,27 @@ const Robotsummary = () => {
 
     useEffect(() => {
         if(match){
-        axios.get(`${APP_DATABASE_URL}/matchData/2026/${appData.currentEventID}/team/${match.blueOneTeamNumber}`)
+        axios.get(`${APP_DATABASE_URL}/matchData/2025/${appData.currentEventID}/team2026/${match.blueOneTeamNumber}`)
         .then(response => setTeamAverageBlueOne(response.data))
         .catch(error => console.error('Error fetching data:', error));
 
-        axios.get(`${APP_DATABASE_URL}/matchData/2026/${appData.currentEventID}/team/${match.blueTwoTeamNumber}`)
+        axios.get(`${APP_DATABASE_URL}/matchData/2025/${appData.currentEventID}/team2026/${match.blueTwoTeamNumber}`)
         .then(response => setTeamAverageBlueTwo(response.data))
         .catch(error => console.error('Error fetching data:', error));
 
-        axios.get(`${APP_DATABASE_URL}/matchData/2026/${appData.currentEventID}/team/${match.blueThreeTeamNumber}`)
+        axios.get(`${APP_DATABASE_URL}/matchData/2025/${appData.currentEventID}/team2026/${match.blueThreeTeamNumber}`)
         .then(response => setTeamAverageBlueThree(response.data))
         .catch(error => console.error('Error fetching data:', error));
 
-        axios.get(`${APP_DATABASE_URL}/matchData/2026/${appData.currentEventID}/team/${match.redOneTeamNumber}`)
+        axios.get(`${APP_DATABASE_URL}/matchData/2025/${appData.currentEventID}/team2026/${match.redOneTeamNumber}`)
         .then(response => setTeamAverageRedOne(response.data))
         .catch(error => console.error('Error fetching data:', error));
 
-        axios.get(`${APP_DATABASE_URL}/matchData/2026/${appData.currentEventID}/team/${match.redTwoTeamNumber}`)
+        axios.get(`${APP_DATABASE_URL}/matchData/2025/${appData.currentEventID}/team2026/${match.redTwoTeamNumber}`)
         .then(response => setTeamAverageRedTwo(response.data))
         .catch(error => console.error('Error fetching data:', error));
 
-        axios.get(`${APP_DATABASE_URL}/matchData/2026/${appData.currentEventID}/team/${match.redThreeTeamNumber}`)
+        axios.get(`${APP_DATABASE_URL}/matchData/2025/${appData.currentEventID}/team2026/${match.redThreeTeamNumber}`)
         .then(response => setTeamAverageRedThree(response.data))
         .catch(error => console.error('Error fetching data:', error));
         }
@@ -446,12 +446,12 @@ const Robotsummary = () => {
                         </thead>
                         <tbody>
                             <tr>
-                                <td className="bg-primary bg-opacity-10"><Link to={`/team/?teamId=${arrayLookup(match.blueOneTeamNumber, team, "teamNumber", "id")}`}>{match.blueOneTeamNumber}</Link></td>
-                                <td className="bg-primary bg-opacity-10"><Link to={`/team/?teamId=${arrayLookup(match.blueTwoTeamNumber, team, "teamNumber", "id")}`}>{match.blueTwoTeamNumber}</Link></td>
-                                <td className="bg-primary bg-opacity-10"><Link to={`/team/?teamId=${arrayLookup(match.blueThreeTeamNumber, team, "teamNumber", "id")}`}>{match.blueThreeTeamNumber}</Link></td>
-                                <td className="bg-danger bg-opacity-10"><Link to={`/team/?teamId=${arrayLookup(match.redOneTeamNumber, team, "teamNumber", "id")}`}>{match.redOneTeamNumber}</Link></td>
-                                <td className="bg-danger bg-opacity-10"><Link to={`/team/?teamId=${arrayLookup(match.redTwoTeamNumber, team, "teamNumber", "id")}`}>{match.redTwoTeamNumber}</Link></td>
-                                <td className="bg-danger bg-opacity-10"><Link to={`/team/?teamId=${arrayLookup(match.redThreeTeamNumber, team, "teamNumber", "id")}`}>{match.redThreeTeamNumber}</Link></td>
+                                <td className="bg-primary bg-opacity-10"><Link to={`/team2026/?teamId=${arrayLookup(match.blueOneTeamNumber, team, "teamNumber", "id")}`}>{match.blueOneTeamNumber}</Link></td>
+                                <td className="bg-primary bg-opacity-10"><Link to={`/team2026/?teamId=${arrayLookup(match.blueTwoTeamNumber, team, "teamNumber", "id")}`}>{match.blueTwoTeamNumber}</Link></td>
+                                <td className="bg-primary bg-opacity-10"><Link to={`/team2026/?teamId=${arrayLookup(match.blueThreeTeamNumber, team, "teamNumber", "id")}`}>{match.blueThreeTeamNumber}</Link></td>
+                                <td className="bg-danger bg-opacity-10"><Link to={`/team2026/?teamId=${arrayLookup(match.redOneTeamNumber, team, "teamNumber", "id")}`}>{match.redOneTeamNumber}</Link></td>
+                                <td className="bg-danger bg-opacity-10"><Link to={`/team2026/?teamId=${arrayLookup(match.redTwoTeamNumber, team, "teamNumber", "id")}`}>{match.redTwoTeamNumber}</Link></td>
+                                <td className="bg-danger bg-opacity-10"><Link to={`/team2026/?teamId=${arrayLookup(match.redThreeTeamNumber, team, "teamNumber", "id")}`}>{match.redThreeTeamNumber}</Link></td>
                             </tr>
                         </tbody>
                     </table>
