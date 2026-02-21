@@ -40,109 +40,6 @@ const Matchdetails = () => {
         
     }, [matchId]);
 
-    //dictates what data to render based on year
-    const renderDataByYear = (year) => {
-        if (year === '2026') {
-            // Data to render for 2026
-            return <table className="table"> 
-                        <thead>
-                            <tr>
-                                <th>Team Number</th>
-                                <th>Scouter</th>
-                                <th>Position</th>
-                                <th>Robot Position</th>
-                                <th>Auton path</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {matchdata.map(matchdata => (
-                                <tr key={matchdata.teamNumber}>
-                                    <td><Link to={`/team2026/?teamId=${arrayLookup(matchdata.teamNumber, team, "teamNumber", "id")}`}> {matchdata.teamNumber}</Link></td>
-                                    <td>{matchdata.scouterName}</td>
-                                    <td>{matchdata.allianceLocation}</td>
-                                    <td>{matchdata.autonPath}</td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>;
-        }
-        else if (year === '2025') {
-            // Data to render for 2025
-            return <table className="table"> 
-                        <thead>
-                            <tr>
-                                <th>Team Number</th>
-                                <th>Scouter</th>
-                                <th>Position</th>
-                                <th>Auton Path</th>
-                                <th>Auton Coral</th>
-                                <th>Auton Processor</th>
-                                <th>Auton Net</th>
-                                <th>TeleOp Coral</th>
-                                <th>TeleOp Processor</th>
-                                <th>TeleOp Net</th>
-                                <th>Alage Removed</th>
-                                <th>Climb Position</th>
-                                <th>Coral Pick-Up</th>
-                                <th>Coral Pick-Up Type</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {matchdata.map(matchdata => (
-                                <tr key= {matchdata.teamNumber}>
-                                    <td><Link to={`/team/?teamId=${arrayLookup(matchdata.teamNumber, team, "teamNumber", "id")}`}> {matchdata.teamNumber}</Link></td>
-                                    <td>{matchdata.scouterName}</td>
-                                    <td>{matchdata.allianceLocation}</td>
-                                    <td>{matchdata.autonPath}</td>
-                                    <td>{matchdata.autonReefTotal}</td>
-                                    <td>{matchdata.autonProcessorScored}</td>
-                                    <td>{matchdata.autonNetScored}</td>
-                                    <td>{matchdata.teleopReefTotal}</td>
-                                    <td>{matchdata.teleopProcessorScored}</td>
-                                    <td>{matchdata.teleopNetScored}</td>
-                                    <td>{matchdata.totalAlgeaRemoved}</td>
-                                    <td>{matchdata.bargeZonLocation}</td>
-                                    <td>
-                                        {matchdata.schemaVersion === '2025.2.0' 
-                                            ? matchdata.totalCoralPickup 
-                                            : (matchdata.totalCoralGroundPickup + matchdata.totalCoralStationPickup)}
-                                    </td>
-                                    <td>
-                                        {matchdata.schemaVersion === '2025.2.0'
-                                            ? `${matchdata.coralIntakeTypeGround ? 'G' : ''}${matchdata.coralIntakeTypeStation ? 'S' : ''}`
-                                            : `${matchdata.totalCoralGroundPickup > 0 ? 'G' : ''}${matchdata.totalCoralStationPickup  > 0 ? 'S' : ''}`}
-                                    </td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>;
-        }
-        else {
-            // Filler case for invalid years
-            return <table className="table"> 
-                        <thead>
-                            <tr>
-                                <th>Team Number</th>
-                                <th>Scouter</th>
-                                <th>Position</th>
-                                <th>Robot Position</th>
-                                <th>!!Invalid Year!!</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {matchdata.map(matchdata => (
-                                <tr key={matchdata.teamNumber}>
-                                    <td><Link to={`/team/?teamId=${arrayLookup(matchdata.teamNumber, team, "teamNumber", "id")}`}> {matchdata.teamNumber}</Link></td>
-                                    <td>{matchdata.scouterName}</td>
-                                    <td>{matchdata.allianceLocation}</td>
-                                    <td>{matchdata.autonPosition}</td>
-                                    <td> '' </td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>;
-        }
-    };
 
     useEffect(() => {
         if (match && match.matchKey) {
@@ -191,12 +88,12 @@ const Matchdetails = () => {
                         <tbody>
                             <tr key={match.matchNumber}>
                                 <td>{match.matchNumber}</td>
-                                <td className="bg-primary bg-opacity-10"><Link to={`/team/?teamId=${arrayLookup(match.blueOneTeamNumber, team, "teamNumber", "id")}`}>{match.blueOneTeamNumber}</Link></td>
-                                <td className="bg-primary bg-opacity-10"><Link to={`/team/?teamId=${arrayLookup(match.blueTwoTeamNumber, team, "teamNumber", "id")}`}>{match.blueTwoTeamNumber}</Link></td>
-                                <td className="bg-primary bg-opacity-10"><Link to={`/team/?teamId=${arrayLookup(match.blueThreeTeamNumber, team, "teamNumber", "id")}`}>{match.blueThreeTeamNumber}</Link></td>
-                                <td className="bg-danger bg-opacity-10"><Link to={`/team/?teamId=${arrayLookup(match.redOneTeamNumber, team, "teamNumber", "id")}`}>{match.redOneTeamNumber}</Link></td>
-                                <td className="bg-danger bg-opacity-10"><Link to={`/team/?teamId=${arrayLookup(match.redTwoTeamNumber, team, "teamNumber", "id")}`}>{match.redTwoTeamNumber}</Link></td>
-                                <td className="bg-danger bg-opacity-10"><Link to={`/team/?teamId=${arrayLookup(match.redThreeTeamNumber, team, "teamNumber", "id")}`}>{match.redThreeTeamNumber}</Link></td>
+                                <td className="bg-primary bg-opacity-10"><Link to={`/team2026/?teamId=${arrayLookup(match.blueOneTeamNumber, team, "teamNumber", "id")}`}>{match.blueOneTeamNumber}</Link></td>
+                                <td className="bg-primary bg-opacity-10"><Link to={`/team2026/?teamId=${arrayLookup(match.blueTwoTeamNumber, team, "teamNumber", "id")}`}>{match.blueTwoTeamNumber}</Link></td>
+                                <td className="bg-primary bg-opacity-10"><Link to={`/team2026/?teamId=${arrayLookup(match.blueThreeTeamNumber, team, "teamNumber", "id")}`}>{match.blueThreeTeamNumber}</Link></td>
+                                <td className="bg-danger bg-opacity-10"><Link to={`/team2026/?teamId=${arrayLookup(match.redOneTeamNumber, team, "teamNumber", "id")}`}>{match.redOneTeamNumber}</Link></td>
+                                <td className="bg-danger bg-opacity-10"><Link to={`/team2026/?teamId=${arrayLookup(match.redTwoTeamNumber, team, "teamNumber", "id")}`}>{match.redTwoTeamNumber}</Link></td>
+                                <td className="bg-danger bg-opacity-10"><Link to={`/team2026/?teamId=${arrayLookup(match.redThreeTeamNumber, team, "teamNumber", "id")}`}>{match.redThreeTeamNumber}</Link></td>
                                 <td>{match.blueScore}</td>
                                 <td>{match.redScore}</td>
                             </tr>
