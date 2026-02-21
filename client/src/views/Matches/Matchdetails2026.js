@@ -209,10 +209,8 @@ const Matchdetails = () => {
                     <Link to={`/robotsummary/?matchId=${match.id}`}><button className="btn btn-primary">Robot Summary</button></Link>
                 </Col>
             </Row>
-    const renderDataByYear = (year) = {}
-        if (year === '2026') {}
-            // Data to render for 2026
-            return <table className="table"> 
+                <Col>
+                    <table className="table"> 
                         <thead>
                             <tr>
                                 <th>Team Number</th>
@@ -232,7 +230,8 @@ const Matchdetails = () => {
                                 </tr>
                             ))}
                         </tbody>
-                    </table>;
+                    </table>
+                </Col>
             </>
             ) : (
                 <Row>
