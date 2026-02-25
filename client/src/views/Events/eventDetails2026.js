@@ -647,4 +647,4 @@ const Eventdetail = () => {
     );
 }
 
-export default Eventdetail;
+export default eventDetail2026;
