@@ -46,6 +46,25 @@ const Team = () => {
                                 <th>Preload</th>
                                 <th>TeleOp Trench</th>
                                 <th>TeleOp Bump</th>
+                                <th>Nuetral to Alliance</th>
+                                <th>Oppenent to Nuetral</th>
+                                <th>Oppenent to Alliance</th>
+                                <th>Shoots Majority</th>
+                                <th>Shoots Half</th>
+                                <th>Shoots Less Than Half</th>
+                                <th>Often does Human Feed</th>
+                                <th>Rarely does Human Feed</th>
+                                <th>Steals</th>
+                                <th>Blocks</th>
+                                <th>CL1R</th>
+                                <th>CL1C</th>
+                                <th>CL1L</th>
+                                <th>CL2R</th>
+                                <th>CL2C</th>
+                                <th>CL2L</th>
+                                <th>CL3R</th>
+                                <th>CL3C</th>
+                                <th>CL3L</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -57,6 +76,28 @@ const Team = () => {
                                     <td>{matchdata.startPreload}</td>
                                     <td>{matchdata.postUnderTrench}</td>
                                     <td>{matchdata.postOverBump}</td>
+                                    <td>{matchdata.teleOpPassNeutralAlliance}</td>
+                                    <td>{matchdata.teleOpPassOpponentNeutral}</td>
+                                    <td>{matchdata.teleOpPassOpponentAlliance}</td>
+                                    <td>{matchdata.teleOpShootMajority}</td>
+                                    <td>{matchdata.teleOpShootHalf}</td>
+                                    <td>{matchdata.teleOpShootLittle}</td>
+                                    <td>{matchdata.teleOpFeedHumanMajority}</td>
+                                    <td>{matchdata.teleOpFeedHumanLittle}</td>
+                                    <td>{matchdata.teleOpDefenceStealling}</td>
+                                    <td>{matchdata.teleOpDefenceBlocking}</td>
+                                    <td>{matchdata.postClimbLevelOneRight}</td>
+                                    <td>{matchdata.postClimbLevelOneCenter}</td>
+                                    <td>{matchdata.postClimbLevelOneLeft}</td>
+                                    <td>{matchdata.postClimbLevelTwoRight}</td>
+                                    <td>{matchdata.postClimbLevelTwoCenter}</td>
+                                    <td>{matchdata.postClimbLevelTwoLeft}</td>
+                                    <td>{matchdata.postClimbLevelThreeRight}</td>
+                                    <td>{matchdata.postClimbLevelThreeCenter}</td>
+                                    <td>{matchdata.postClimbLevelThreeLeft}</td>
+                                    <td>{matchdata.postDisabledMechanically}</td>
+                                    <td>{matchdata.postNotThere}</td>
+                                    <td>{matchdata.postStuckFieldElement}</td>
                                 </tr>
                             ))}
                         </tbody>
