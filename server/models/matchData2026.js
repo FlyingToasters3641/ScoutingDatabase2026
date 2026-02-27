@@ -52,6 +52,7 @@ MatchData2026.init({
     teleOpDefenceBlocking: DataTypes.INTEGER,
 
     // Post match (use 'post' prefix)
+    postClimbLocation: DataTypes.INTEGER,
     postClimbLevelOneRight: DataTypes.INTEGER,
     postClimbLevelOneCenter: DataTypes.INTEGER,
     postClimbLevelOneLeft: DataTypes.INTEGER,

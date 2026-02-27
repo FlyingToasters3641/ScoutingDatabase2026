@@ -24,6 +24,7 @@ const Team = () => {
         .then(response => setMatchdata(response.data))
         .catch(error => console.error('Error fetching data:', error));
     }, [team.teamNumber]);
+    
 
     return (
         <Container>
