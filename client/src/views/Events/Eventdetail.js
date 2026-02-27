@@ -269,6 +269,21 @@ const Eventdetail = () => {
             }
         };
 
+        const ByYear = (year) => {
+            if (year === '2026') {
+                // Render import button for 2026
+                return <Link to={`/EventData2026`}><button type="button" className="btn btn-success"><RiAddCircleLine /> Import Data</button></Link>;
+            }
+            else if (year === '2025') {
+                // Render import button for 2025
+                return <Link to={`/Eventdata`}><button type="button" className="btn btn-success"><RiAddCircleLine /> Import Data</button></Link>;
+            }
+            else {
+                // Render import button for invalid years
+                return <button type="button" className="btn btn-danger" disabled><RiAlertLine /> Import Not Available</button>;
+            }
+        };
+
     const MatchDetailByYear = (year) => {
             if (year === '2026') {
                 // Render import button for 2026
@@ -315,7 +330,7 @@ const Eventdetail = () => {
             <Row>
                 <Col md={1}>&nbsp;</Col>
                 <Col md={11} style={tdRight}>
-                    <Link to={`/eventdata/?eventId=${event.id}`}><button type="button" className="btn btn-primary"><RiTrophyLine /> Pick List</button></Link>
+                    <Link to={`/EventData2026/?eventId=${event.id}`}><button type="button" className="btn btn-primary"><RiTrophyLine /> Pick List</button></Link>
                     &nbsp;
                     {renderDataByYear(`${appData.currentEventYear}`)}
                 </Col>
