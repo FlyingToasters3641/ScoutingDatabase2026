@@ -530,7 +530,7 @@ app.get('/api/v1/matchData/2026/:eventkey/team/:ids', async (req, res) => {
         [Sequelize.literal('ROUND(AVG(postUnderTrench), 2)'), 'avgPostUnderTrench'],
         [Sequelize.literal('ROUND(AVG(postOverBump), 2)'), 'avgPostOverBump'],
         [Sequelize.literal('ROUND(AVG(postDisabledMechanically), 2)'), 'avgPostDisabledMechanically'],
-        [Sequelize.literal('ROUND(AVG(postStuckOnFieldElement), 2)'), 'avgPostStuckOnFieldElement'],
+        [Sequelize.literal('ROUND(AVG(postStuckFieldElement), 2)'), 'avgPostStuckOnFieldElement'],
       ],
       where: {
         teamNumber: req.params.ids,

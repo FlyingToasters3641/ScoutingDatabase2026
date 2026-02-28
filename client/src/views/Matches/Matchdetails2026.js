@@ -40,7 +40,7 @@ const Matchdetails = () => {
         .then(response => setTeam(response.data))
         .catch(error => console.error('Error fetching data:', error));
 
-        axios.get(`${APP_DATABASE_URL}/event`)
+        axios.get(`${APP_DATABASE_URL}/events`)
         .then(response => setEvent(response.data))
         .catch(error => console.error('Error fetching data:', error));
         
