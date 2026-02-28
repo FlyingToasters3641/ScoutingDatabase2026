@@ -114,12 +114,12 @@ const Matchdetails = () => {
                         <tbody>
                             <tr key={match.matchNumber}>
                                 <td>{match.matchNumber}</td>
-                                <td className="bg-primary bg-opacity-10"><Link to={`/team2026/?teamId=${arrayLookup(match.blueOneTeamNumber, team, "teamNumber", "id")}`}>{match.blueOneTeamNumber}</Link></td>
-                                <td className="bg-primary bg-opacity-10"><Link to={`/team2026/?teamId=${arrayLookup(match.blueTwoTeamNumber, team, "teamNumber", "id")}`}>{match.blueTwoTeamNumber}</Link></td>
-                                <td className="bg-primary bg-opacity-10"><Link to={`/team2026/?teamId=${arrayLookup(match.blueThreeTeamNumber, team, "teamNumber", "id")}`}>{match.blueThreeTeamNumber}</Link></td>
-                                <td className="bg-danger bg-opacity-10"><Link to={`/team2026/?teamId=${arrayLookup(match.redOneTeamNumber, team, "teamNumber", "id")}`}>{match.redOneTeamNumber}</Link></td>
-                                <td className="bg-danger bg-opacity-10"><Link to={`/team2026/?teamId=${arrayLookup(match.redTwoTeamNumber, team, "teamNumber", "id")}`}>{match.redTwoTeamNumber}</Link></td>
-                                <td className="bg-danger bg-opacity-10"><Link to={`/team2026/?teamId=${arrayLookup(match.redThreeTeamNumber, team, "teamNumber", "id")}`}>{match.redThreeTeamNumber}</Link></td>
+                                <td className="bg-primary bg-opacity-10"><Link to={`/team2026/?teamId=${arrayLookup(match.blueOneTeamNumber, team, "teamNumber", "id")}`}>{match.blueOneTeamNumber}</Link> ~ {teamAverageBlueOne[0].matchCount}</td>
+                                <td className="bg-primary bg-opacity-10"><Link to={`/team2026/?teamId=${arrayLookup(match.blueTwoTeamNumber, team, "teamNumber", "id")}`}>{match.blueTwoTeamNumber}</Link> ~ {teamAverageBlueTwo[0].matchCount}</td>
+                                <td className="bg-primary bg-opacity-10"><Link to={`/team2026/?teamId=${arrayLookup(match.blueThreeTeamNumber, team, "teamNumber", "id")}`}>{match.blueThreeTeamNumber}</Link> ~ {teamAverageBlueThree[0].matchCount}</td>
+                                <td className="bg-danger bg-opacity-10"><Link to={`/team2026/?teamId=${arrayLookup(match.redOneTeamNumber, team, "teamNumber", "id")}`}>{match.redOneTeamNumber}</Link> ~ {teamAverageRedOne[0].matchCount}</td>
+                                <td className="bg-danger bg-opacity-10"><Link to={`/team2026/?teamId=${arrayLookup(match.redTwoTeamNumber, team, "teamNumber", "id")}`}>{match.redTwoTeamNumber}</Link> ~ {teamAverageRedTwo[0].matchCount}</td>
+                                <td className="bg-danger bg-opacity-10"><Link to={`/team2026/?teamId=${arrayLookup(match.redThreeTeamNumber, team, "teamNumber", "id")}`}>{match.redThreeTeamNumber}</Link> ~ {teamAverageRedThree[0].matchCount}</td>
                                 <td>{match.blueScore}</td>
                                 <td>{match.redScore}</td>
                             </tr>
@@ -145,7 +145,7 @@ const Matchdetails = () => {
                         </thead>
                         <tbody>
                             <tr className="bg-primary bg-opacity-10">
-                                <td>{match.blueOneTeamNumber}</td>
+                                <td>{match.blueOneTeamNumber} ~ {teamAverageBlueOne[0].matchCount}</td>
                                 <td>{teamAverageBlueOne[0].avgStartPreload}</td>
                                 <td>{teamAverageBlueOne[0].avgTeleOpPassNeutralAlliance}</td>
                                 <td>{teamAverageBlueOne[0].avgTeleOpPassOpponentNeutral}</td>
@@ -157,7 +157,7 @@ const Matchdetails = () => {
                                 <td>{teamAverageBlueOne[0].avgTeleOpFeedHumanLittle}</td>
                             </tr>
                             <tr className="bg-primary bg-opacity-10">
-                                <td>{match.blueTwoTeamNumber}</td>
+                                <td>{match.blueTwoTeamNumber} ~ {teamAverageBlueTwo[0].matchCount}</td>
                                 <td>{teamAverageBlueTwo[0].avgStartPreload}</td>
                                 <td>{teamAverageBlueTwo[0].avgTeleOpPassNeutralAlliance}</td>
                                 <td>{teamAverageBlueTwo[0].avgTeleOpPassOpponentNeutral}</td>
@@ -169,7 +169,7 @@ const Matchdetails = () => {
                                 <td>{teamAverageBlueTwo[0].avgTeleOpFeedHumanLittle}</td>
                             </tr>
                             <tr className="bg-primary bg-opacity-10">
-                                <td>{match.blueThreeTeamNumber}</td>
+                                <td>{match.blueThreeTeamNumber} ~ {teamAverageBlueThree[0].matchCount}</td>
                                 <td>{teamAverageBlueThree[0].avgStartPreload}</td>
                                 <td>{teamAverageBlueThree[0].avgTeleOpPassNeutralAlliance}</td>
                                 <td>{teamAverageBlueThree[0].avgTeleOpPassOpponentNeutral}</td>
@@ -181,7 +181,7 @@ const Matchdetails = () => {
                                 <td>{teamAverageBlueThree[0].avgTeleOpFeedHumanLittle}</td>
                             </tr>
                             <tr className="bg-danger bg-opacity-10">
-                                <td>{match.redOneTeamNumber}</td>
+                                <td>{match.redOneTeamNumber} ~ {teamAverageRedOne[0].matchCount}</td>
                                 <td>{teamAverageRedOne[0].avgStartPreload}</td>
                                 <td>{teamAverageRedOne[0].avgTeleOpPassNeutralAlliance}</td>
                                 <td>{teamAverageRedOne[0].avgTeleOpPassOpponentNeutral}</td>
@@ -193,7 +193,7 @@ const Matchdetails = () => {
                                 <td>{teamAverageRedOne[0].avgTeleOpFeedHumanLittle}</td>
                             </tr>
                             <tr className="bg-danger bg-opacity-10">
-                                <td>{match.redTwoTeamNumber}</td>
+                                <td>{match.redTwoTeamNumber} ~ {teamAverageRedTwo[0].matchCount}</td>
                                 <td>{teamAverageRedTwo[0].avgStartPreload}</td>
                                 <td>{teamAverageRedTwo[0].avgTeleOpPassNeutralAlliance}</td>
                                 <td>{teamAverageRedTwo[0].avgTeleOpPassOpponentNeutral}</td>
@@ -205,7 +205,7 @@ const Matchdetails = () => {
                                 <td>{teamAverageRedTwo[0].avgTeleOpFeedHumanLittle}</td>
                             </tr>
                             <tr className="bg-danger bg-opacity-10">
-                                <td>{match.redThreeTeamNumber}</td>
+                                <td>{match.redThreeTeamNumber} ~ {teamAverageRedThree[0].matchCount}</td>
                                 <td>{teamAverageRedThree[0].avgStartPreload}</td>
                                 <td>{teamAverageRedThree[0].avgTeleOpPassNeutralAlliance}</td>
                                 <td>{teamAverageRedThree[0].avgTeleOpPassOpponentNeutral}</td>
@@ -240,7 +240,7 @@ const Matchdetails = () => {
                         </thead>
                         <tbody>
                             <tr className="bg-primary bg-opacity-10">
-                                <td>{match.blueOneTeamNumber}</td>
+                                <td>{match.blueOneTeamNumber} ~ {teamAverageBlueOne[0].matchCount}</td>
                                 <td>{teamAverageBlueOne[0].avgTeleOpDefenceBlocking}</td>
                                 <td>{teamAverageBlueOne[0].avgTeleOpDefenceStealling}</td>
                                 <td>{teamAverageBlueOne[0].avgPostClimbLevelOne}</td>
@@ -255,7 +255,7 @@ const Matchdetails = () => {
                                 <td>{teamAverageBlueOne[0].avgPostStuckOnFieldElement}</td>
                             </tr>
                             <tr className="bg-primary bg-opacity-10">
-                                <td>{match.blueTwoTeamNumber}</td>
+                                <td>{match.blueTwoTeamNumber} ~ {teamAverageBlueTwo[0].matchCount}</td>
                                 <td>{teamAverageBlueTwo[0].avgTeleOpDefenceBlocking}</td>
                                 <td>{teamAverageBlueTwo[0].avgTeleOpDefenceStealling}</td>
                                 <td>{teamAverageBlueTwo[0].avgPostClimbLevelOne}</td>
@@ -270,7 +270,7 @@ const Matchdetails = () => {
                                 <td>{teamAverageBlueTwo[0].avgPostStuckOnFieldElement}</td>
                             </tr>
                             <tr className="bg-primary bg-opacity-10">
-                                <td>{match.blueThreeTeamNumber}</td>
+                                <td>{match.blueThreeTeamNumber} ~ {teamAverageBlueThree[0].matchCount}</td>
                                 <td>{teamAverageBlueThree[0].avgTeleOpDefenceBlocking}</td>
                                 <td>{teamAverageBlueThree[0].avgTeleOpDefenceStealling}</td>
                                 <td>{teamAverageBlueThree[0].avgPostClimbLevelOne}</td>
@@ -285,7 +285,7 @@ const Matchdetails = () => {
                                 <td>{teamAverageBlueThree[0].avgPostStuckOnFieldElement}</td>
                             </tr>
                             <tr className="bg-danger bg-opacity-10">
-                                <td>{match.redOneTeamNumber}</td>
+                                <td>{match.redOneTeamNumber} ~ {teamAverageRedOne[0].matchCount}</td>
                                 <td>{teamAverageRedOne[0].avgTeleOpDefenceBlocking}</td>
                                 <td>{teamAverageRedOne[0].avgTeleOpDefenceStealling}</td>
                                 <td>{teamAverageRedOne[0].avgPostClimbLevelOne}</td>
@@ -300,7 +300,7 @@ const Matchdetails = () => {
                                 <td>{teamAverageRedOne[0].avgPostStuckOnFieldElement}</td>
                             </tr>
                             <tr className="bg-danger bg-opacity-10">
-                                <td>{match.redTwoTeamNumber}</td>
+                                <td>{match.redTwoTeamNumber} ~ {teamAverageRedTwo[0].matchCount}</td>
                                 <td>{teamAverageRedTwo[0].avgTeleOpDefenceBlocking}</td>
                                 <td>{teamAverageRedTwo[0].avgTeleOpDefenceStealling}</td>
                                 <td>{teamAverageRedTwo[0].avgPostClimbLevelOne}</td>
@@ -315,7 +315,7 @@ const Matchdetails = () => {
                                 <td>{teamAverageRedTwo[0].avgPostStuckOnFieldElement}</td>
                             </tr>
                             <tr className="bg-danger bg-opacity-10">
-                                <td>{match.redThreeTeamNumber}</td>
+                                <td>{match.redThreeTeamNumber} ~ {teamAverageRedThree[0].matchCount}</td>
                                 <td>{teamAverageRedThree[0].avgTeleOpDefenceBlocking}</td>
                                 <td>{teamAverageRedThree[0].avgTeleOpDefenceStealling}</td>
                                 <td>{teamAverageRedThree[0].avgPostClimbLevelOne}</td>

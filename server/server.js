@@ -508,6 +508,7 @@ app.get('/api/v1/matchData/2026/:eventkey/team/:ids', async (req, res) => {
     const matchdata = await MatchData.findAll({
       attributes: [
         'teamNumber',
+        [Sequelize.fn('COUNT', Sequelize.col('teamNumber')), 'matchCount'],
         [Sequelize.literal('ROUND(AVG(startPreload), 2)'), 'avgStartPreload'],
         [Sequelize.literal('ROUND(AVG(teleOpPassNeutralAlliance), 2)'), 'avgTeleOpPassNeutralAlliance'],
         [Sequelize.literal('ROUND(AVG(teleOpPassOpponentNeutral), 2)'), 'avgTeleOpPassOpponentNeutral'],
