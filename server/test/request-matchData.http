@@ -43,6 +43,8 @@ GET http://localhost:3001/api/v1/matchData/2025/eventkey/2025mibel/exclude/0
 
 ###
 
+GET http://localhost:3001/api/v1/matchData/2026/1/team/1
+
 // List matchData by ID 
 GET http://localhost:3001/api/v1/matchData/2024/1
 

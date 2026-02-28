@@ -386,9 +386,9 @@ app.get('/api/v1/matchData/:year/teamMatches/:id', async (req, res) => {
 //   }
 // });
 
-app.get('/api/v1/matchData/:year/eventkey/:id/exclude/:exclude', async (req, res) => {
+app.get('/api/v1/matchData/2025/eventkey/:id/exclude/:exclude', async (req, res) => {
   try {
-    const MatchData = getMatchDataModelByYear(req.params.year);
+    const MatchData = getMatchDataModelByYear(2025);
     const excludeList = req.params.exclude ? req.params.exclude.split(',') : [];
     const matchdata = await MatchData.findAll({
       attributes: [
@@ -429,9 +429,9 @@ app.get('/api/v1/matchData/:year/eventkey/:id/exclude/:exclude', async (req, res
   }
 });
 
-app.get('/api/v1/matchData/:year/team/:ids', async (req, res) => {
+app.get('/api/v1/matchData/2025/team/:ids', async (req, res) => {
   try {
-    const MatchData = getMatchDataModelByYear(req.params.year);
+    const MatchData = getMatchDataModelByYear(2025);
     const matchdata = await MatchData.findAll({
       attributes: [
         'teamNumber',
@@ -465,9 +465,9 @@ app.get('/api/v1/matchData/:year/team/:ids', async (req, res) => {
   }
 });
 
-app.get('/api/v1/matchData/:year/:eventkey/team/:ids', async (req, res) => {
+app.get('/api/v1/matchData/2025/:eventkey/team/:ids', async (req, res) => {
   try {
-    const MatchData = getMatchDataModelByYear(req.params.year);
+    const MatchData = getMatchDataModelByYear(2025);
     const matchdata = await MatchData.findAll({
       attributes: [
         'teamNumber',
@@ -502,6 +502,50 @@ app.get('/api/v1/matchData/:year/:eventkey/team/:ids', async (req, res) => {
   }
 });
 
+app.get('/api/v1/matchData/2026/:eventkey/team/:ids', async (req, res) => {
+  try {
+    const MatchData = getMatchDataModelByYear('2026');
+    const matchdata = await MatchData.findAll({
+      attributes: [
+        'teamNumber',
+        [Sequelize.literal('ROUND(AVG(startPreload), 2)'), 'avgStartPreload'],
+        [Sequelize.literal('ROUND(AVG(teleOpPassNeutralAlliance), 2)'), 'avgTeleOpPassNeutralAlliance'],
+        [Sequelize.literal('ROUND(AVG(teleOpPassOpponentNeutral), 2)'), 'avgTeleOpPassOpponentNeutral'],
+        [Sequelize.literal('ROUND(AVG(teleOpPassOpponentAlliance), 2)'), 'avgTeleOpPassOpponentAlliance'],
+        [Sequelize.literal('ROUND(AVG(teleOpShootMajority), 2)'), 'avgTeleOpShootMajority'],
+        [Sequelize.literal('ROUND(AVG(teleOpShootHalf), 2)'), 'avgTeleOpShootHalf'],
+        [Sequelize.literal('ROUND(AVG(teleOpShootLittle), 2)'), 'avgTeleOpShootLittle'],
+        [Sequelize.literal('ROUND(AVG(teleOpFeedHumanMajority), 2)'), 'avgTeleOpFeedHumanMajority'],
+        [Sequelize.literal('ROUND(AVG(teleOpFeedHumanLittle), 2)'), 'avgTeleOpFeedHumanLittle'],
+        [Sequelize.literal('ROUND(AVG(teleOpDefenceStealling), 2)'), 'avgTeleOpDefenceStealling'],
+        [Sequelize.literal('ROUND(AVG(teleOpDefenceBlocking), 2)'), 'avgTeleOpDefenceBlocking'],
+        [Sequelize.literal('ROUND(AVG(postClimbLevelOneRight + postClimbLevelOneCenter + postClimbLevelOneLeft), 2)'), 'avgPostClimbLevelOne'],
+        [Sequelize.literal('ROUND(AVG(postClimbLevelTwoRight + postClimbLevelTwoCenter + postClimbLevelTwoLeft), 2)'), 'avgPostClimbLevelTwo'],
+        [Sequelize.literal('ROUND(AVG(postClimbLevelThreeRight + postClimbLevelThreeCenter + postClimbLevelThreeLeft), 2)'), 'avgPostClimbLevelThree'],
+        [Sequelize.literal('ROUND(AVG(postClimbLevelOneLeft + postClimbLevelTwoLeft + postClimbLevelThreeLeft), 2)'), 'avgPostClimbLevelLeft'],
+        [Sequelize.literal('ROUND(AVG(postClimbLevelOneCenter + postClimbLevelTwoCenter + postClimbLevelThreeCenter), 2)'), 'avgPostClimbLevelCenter'],
+        [Sequelize.literal('ROUND(AVG(postClimbLevelOneRight + postClimbLevelTwoRight + postClimbLevelThreeRight), 2)'), 'avgPostClimbLevelRight'],
+        [Sequelize.literal('ROUND(AVG(postClimbLevelThreeCenter), 2)'), 'avgPostClimbLevelThreeCenter'],
+        [Sequelize.literal('ROUND(AVG(postClimbLevelThreeLeft), 2)'), 'avgPostClimbLevelThreeLeft'],
+        [Sequelize.literal('ROUND(AVG(postUnderTrench), 2)'), 'avgPostUnderTrench'],
+        [Sequelize.literal('ROUND(AVG(postOverBump), 2)'), 'avgPostOverBump'],
+        [Sequelize.literal('ROUND(AVG(postDisabledMechanically), 2)'), 'avgPostDisabledMechanically'],
+        [Sequelize.literal('ROUND(AVG(postStuckOnFieldElement), 2)'), 'avgPostStuckOnFieldElement'],
+      ],
+      where: {
+        teamNumber: req.params.ids,
+        event_id: req.params.eventkey
+        // {
+        //   [Op.in]: req.params.ids ? req.params.ids.split(',') : null,
+        // }
+      },
+      //group: ['teamNumber']
+    });
+    res.json(matchdata);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
 
 app.post('/api/v1/matchData/:year', async (req, res) => {
   try {
