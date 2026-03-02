@@ -31,7 +31,7 @@ const Eventdata = () => {
 
     useEffect(() => {
         const excludeList = chipsValue.length > 0 ? chipsValue.join(',') : "0"; // Convert array to comma-separated string
-        axios.get(`${APP_DATABASE_URL}/matchData/2025/eventkey/${appData.currentEventKey}/exclude/${excludeList}`)
+        axios.get(`${APP_DATABASE_URL}/matchData/2026/eventkey/${appData.currentEventKey}/exclude/${excludeList}`)
             .then(response => setTeamAverage(response.data))
             .catch(error => console.error('Error fetching data:', error));
     }, [chipsValue, appData.currentEventKey]);
@@ -49,102 +49,6 @@ const Eventdata = () => {
 
     const tdRight = {
         textAlign: 'right'
-    };
-
-    //dictates what data to render based on year
-    const renderDataByYear = (year) => {
-        if (year === '2026') {
-            // Data to render for 2026
-            return <DataTable
-                    data={teamAverage}
-                    options={{
-                        columns: [
-                            { data: 'teamNumber' },
-                            { data: 'matchCount' },
-                            { data: ` '' ` }
-                        ],
-                        responsive: false,
-                    }}
-                >
-                    <thead>
-                        <tr>
-                            <th>Team Number</th>
-                            <th>Total Matches</th>
-                            <th>!!Data Not Available for 2026!!</th>
-                        </tr>
-                    </thead>
-                </DataTable>;
-        }
-        else if (year === '2025') {
-            // Data to render for 2025
-            return <DataTable
-                    data={teamAverage}
-                    options={{
-                        columns: [
-                            { data: 'teamNumber' },
-                            { data: 'matchCount' },
-                            { data: 'avgTotalReef', searchable: false, },
-                            { data: 'totalProcessorScored', searchable: false, },
-                            { data: 'totalNetScored', searchable: false, },
-                            { data: 'avgTotalAlgeaRemoved', searchable: false, },
-                            { data: 'catBargeZonLocation' },
-                            { data: 'avgAutonReefLevel1Total', searchable: false, },
-                            { data: 'avgAutonReefLevel4Total', searchable: false, },
-                            { data: 'avgAutonReefTotal', searchable: false, },
-                            { data: 'avgAutonNetScored', searchable: false, },
-                            { data: 'avgTeleopReefLevel1Total', searchable: false, },
-                            { data: 'avgTeleopReefLevel3Total', searchable: false, },
-                            { data: 'avgTeleopReefLevel4Total', searchable: false, },
-                            { data: 'avgTeleopReefTotal', searchable: false, },
-                            { data: 'avgTeleopNetScored', searchable: false, }
-                        ],
-                        responsive: false,
-                    }}
-                >
-                    <thead>
-                        <tr>
-                            <th>Team Number</th>
-                            <th>Total Matches</th>
-                            <th>Total Coral</th>
-                            <th>Total Processor</th>
-                            <th>Total Net</th>
-                            <th>Total Alage Removed</th>
-                            <th>Climb Position</th>
-                            <th>Auton Coral L1</th>
-                            <th>Auton Coral L4</th>
-                            <th>Auton Coral</th>
-                            <th>Auton Net</th>
-                            <th>TeleOp Coral L1</th>
-                            <th>TeleOp Coral L3</th>
-                            <th>TeleOp Coral L4</th>
-                            <th>TeleOp Coral</th>
-                            <th>TeleOp Net</th>
-                        </tr>
-                    </thead>
-                </DataTable>;
-        }
-        else {
-            // Filler case for invalid years
-            return <DataTable
-                    data={teamAverage}
-                    options={{
-                        columns: [
-                            { data: 'teamNumber' },
-                            { data: 'matchCount' },
-                            { data: ` '' ` }
-                        ],
-                        responsive: false,
-                    }}
-                >
-                    <thead>
-                        <tr>
-                            <th>Team Number</th>
-                            <th>Total Matches</th>
-                            <th>!!Invalid Year!!</th>
-                        </tr>
-                    </thead>
-                </DataTable>;;
-        }
     };
 
     return (
@@ -191,29 +95,22 @@ const Eventdata = () => {
                 </Col>
             </Row>
             <Row>
-                {renderDataByYear(`${appData.currentEventYear}`)}
-            </Row>
-            {/* <Row>
                 <DataTable
                     data={teamAverage}
                     options={{
                         columns: [
                             { data: 'teamNumber' },
                             { data: 'matchCount' },
-                            { data: 'avgTotalReef', searchable: false, },
-                            { data: 'totalProcessorScored', searchable: false, },
-                            { data: 'totalNetScored', searchable: false, },
-                            { data: 'avgTotalAlgeaRemoved', searchable: false, },
-                            { data: 'catBargeZonLocation' },
-                            { data: 'avgAutonReefLevel1Total', searchable: false, },
-                            { data: 'avgAutonReefLevel4Total', searchable: false, },
-                            { data: 'avgAutonReefTotal', searchable: false, },
-                            { data: 'avgAutonNetScored', searchable: false, },
-                            { data: 'avgTeleopReefLevel1Total', searchable: false, },
-                            { data: 'avgTeleopReefLevel3Total', searchable: false, },
-                            { data: 'avgTeleopReefLevel4Total', searchable: false, },
-                            { data: 'avgTeleopReefTotal', searchable: false, },
-                            { data: 'avgTeleopNetScored', searchable: false, }
+                            { data: 'avgStartPreload', searchable: false, },
+                            { data: 'avgTeleOpPassNeutralAlliance', searchable: false, },
+                            { data: 'avgTeleOpPassOpponentAlliance', searchable: false, },
+                            { data: 'avgTeleOpShootMajority', searchable: false, },
+                            { data: 'avgTeleOpShootHalf', searchable: false, },
+                            { data: 'avgTeleOpFeedHumanMajority', searchable: false, },
+                            { data: 'avgTeleOpDefenceStealling', searchable: false, },
+                            { data: 'avgTeleOpDefenceBlocking', searchable: false, },
+                            { data: 'avgPostUnderTrench', searchable: false, },
+                            { data: 'avgPostOverBump', searchable: false, }
                         ],
                         responsive: false,
                     }}
@@ -222,24 +119,20 @@ const Eventdata = () => {
                         <tr>
                             <th>Team Number</th>
                             <th>Total Matches</th>
-                            <th>Total Coral</th>
-                            <th>Total Processor</th>
-                            <th>Total Net</th>
-                            <th>Total Alage Removed</th>
-                            <th>Climb Position</th>
-                            <th>Auton Coral L1</th>
-                            <th>Auton Coral L4</th>
-                            <th>Auton Coral</th>
-                            <th>Auton Net</th>
-                            <th>TeleOp Coral L1</th>
-                            <th>TeleOp Coral L3</th>
-                            <th>TeleOp Coral L4</th>
-                            <th>TeleOp Coral</th>
-                            <th>TeleOp Net</th>
+                            <th>Is Preloaded</th>
+                            <th>Passes from Neutral to Alliance Zone</th>
+                            <th>Passes from Opposing to Alliance Zone</th>
+                            <th>Shoots Majority of Fuel in Hub</th>
+                            <th>Shoots About Half of Fuel in Hub</th>
+                            <th>Feeds Human Player a lot</th>
+                            <th>Defence via Stealing</th>
+                            <th>Defence via Blocking</th>
+                            <th>Goes Under Trench</th>
+                            <th>Goes Over Bump</th>
                         </tr>
                     </thead>
                 </DataTable>
-            </Row> */}
+            </Row>
         </Container>
     );
 }
