@@ -532,7 +532,7 @@ const Dataimport = () => {
             prepData.postUnderTrench = 0;
         }
 
-        if (matchData.pOB === true) {
+        if (matchData.pUB === true) {
             prepData.postOverBump = 1;
         }
         else {
