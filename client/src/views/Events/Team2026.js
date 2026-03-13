@@ -10,6 +10,7 @@ const Team = () => {
     const { appData, setAppData } = useContext(AppContext);
     const [team, setTeam] = useState([]);
     const [matchdata, setMatchdata] = useState([]);
+    const teamMedianDefault = [{medTeleOpPassNeutralAlliance: -1, medTeleOpPassOpponentNeutral: -1, medTeleOpPassOpponentAlliance: -1, medTeleOpShootMajority: -1, medTeleOpShootHalf: -1, medTeleOpShootLittle: -1}];
     const teamAverageDefault = [{
         avgStartTrenchLeft: -1,
         avgStartBumpLeft: -1,
@@ -43,6 +44,7 @@ const Team = () => {
         avgPostStuckOnFieldElement: -1,
     }];
     const [teamAverage, setTeamAverage] = useState(teamAverageDefault);
+    const [teamMedian, setTeamMedian] = useState(teamMedianDefault);
 
     const location = useLocation();
     const searchParams = new URLSearchParams(location.search);
@@ -59,6 +61,12 @@ const Team = () => {
     useEffect(() => {
         axios.get(`${APP_DATABASE_URL}/matchData/2026/${appData.currentEventID}/team/${team.teamNumber}`)
         .then(response => setTeamAverage(response.data))
+        .catch(error => console.error('Error fetching data:', error));
+    }, [team.teamNumber]);
+
+    useEffect(() => {
+        axios.get(`${APP_DATABASE_URL}/matchData/2026/${appData.currentEventID}/team/${team.teamNumber}/median`)
+        .then(response => setTeamMedian(response.data))
         .catch(error => console.error('Error fetching data:', error));
     }, [team.teamNumber]);
    

@@ -19,6 +19,16 @@ app.use(cors());
 //     storage: './database.sqlite'
 //   });
 
+function median(values) {
+  const nums = (values || []).filter(v => v != null).map(Number).sort((a, b) => a - b);
+  if (nums.length === 0) return null;
+  const mid = Math.floor(nums.length / 2);
+  return nums.length % 2 === 1
+    ? nums[mid]
+    : (nums[mid - 1] + nums[mid]) / 2;
+}
+
+
 // ######################################################################
 // Database models Definitions
 //  ____        _        _                      __  __           _      _     
@@ -533,6 +543,50 @@ app.get('/api/v1/matchData/2026/eventkey/:id/exclude/:exclude', async (req, res)
   }
 });
 
+app.get('/api/v1/matchData/2026/eventkey/:id/exclude/:exclude/median', async (req, res) => {
+  try {
+    const MatchData = getMatchDataModelByYear('2026');
+    const excludeList = req.params.exclude ? req.params.exclude.split(',') : [];
+
+    // Fetch rows grouped by teamNumber
+    const rows = await MatchData.findAll({
+      where: {
+        eventKey: req.params.id,
+        teamNumber: { [Op.notIn]: excludeList },
+      },
+    });
+
+    // Group rows by teamNumber
+    const teams = {};
+    rows.forEach(row => {
+      if (!teams[row.teamNumber]) teams[row.teamNumber] = [];
+      teams[row.teamNumber].push(row);
+    });
+
+    // Compute medians for each team
+    const result = Object.keys(teams).map(teamNumber => {
+      const teamRows = teams[teamNumber];
+      const getFieldValues = field => teamRows.map(r => r[field]);
+
+      return {
+        teamNumber: parseInt(teamNumber),
+        matchCount: teamRows.length,
+        medTeleOpPassNeutralAlliance: median(getFieldValues('teleOpPassNeutralAlliance')),
+        medTeleOpPassOpponentNeutral: median(getFieldValues('teleOpPassOpponentNeutral')),
+        medTeleOpPassOpponentAlliance: median(getFieldValues('teleOpPassOpponentAlliance')),
+        medTeleOpShootMajority: median(getFieldValues('teleOpShootMajority')),
+        medTeleOpShootHalf: median(getFieldValues('teleOpShootHalf')),
+        medTeleOpShootLittle: median(getFieldValues('teleOpShootLittle'))
+
+      };
+    });
+
+    res.json(result);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 app.get('/api/v1/matchData/2026/:eventkey/team/:ids', async (req, res) => {
   try {
     const MatchData = getMatchDataModelByYear('2026');
@@ -590,6 +644,29 @@ app.get('/api/v1/matchData/2026/:eventkey/team/:ids', async (req, res) => {
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
+});
+
+app.get('/api/v1/matchData/2026/:eventkey/team/:ids/median', async (req, res) => {
+  const MatchData = getMatchDataModelByYear('2026');
+  const rows = await MatchData.findAll({
+    where: {
+      event_id: req.params.eventkey,
+      teamNumber: req.params.ids,
+    },
+  });
+
+  const getFieldValues = field => rows.map(r => r[field]);
+
+  res.json([{
+    teamNumber: req.params.ids,
+    matchCount: rows.length,
+    medTeleOpPassNeutralAlliance: median(getFieldValues('teleOpPassNeutralAlliance')),
+    medTeleOpPassOpponentNeutral: median(getFieldValues('teleOpPassOpponentNeutral')),
+    medTeleOpPassOpponentAlliance: median(getFieldValues('teleOpPassOpponentAlliance')),
+    medTeleOpShootMajority: median(getFieldValues('teleOpShootMajority')),
+    medTeleOpShootHalf: median(getFieldValues('teleOpShootHalf')),
+    medTeleOpShootLittle: median(getFieldValues('teleOpShootLittle')),
+  }]);
 });
 
 app.post('/api/v1/matchData/:year', async (req, res) => {

@@ -13,6 +13,7 @@ const Eventdata = () => {
     const { appData } = useContext(AppContext);
     // const [event, setEvent] = useState([]);
     const [teamAverage, setTeamAverage] = useState([]);
+    const [teamMedian, setTeamMedian] = useState([]);
     const [title, setTitle] = useState('Printable Pick List'); // State to handle title
     const [isEditing, setIsEditing] = useState(false); // State to handle editing
     const [newTitle, setNewTitle] = useState(title); // State to handle new title
@@ -34,7 +35,12 @@ const Eventdata = () => {
         axios.get(`${APP_DATABASE_URL}/matchData/2026/eventkey/${appData.currentEventKey}/exclude/${excludeList}`)
             .then(response => setTeamAverage(response.data))
             .catch(error => console.error('Error fetching data:', error));
+
+        axios.get(`${APP_DATABASE_URL}/matchData/2026/eventkey/${appData.currentEventKey}/exclude/${excludeList}/median`)
+            .then(response => setTeamMedian(response.data))
+            .catch(error => console.error('Error fetching data:', error));
     }, [chipsValue, appData.currentEventKey]);
+
 
     const handleTitleChange = (e) => {
         if (e.target.value.length <= 100) {
