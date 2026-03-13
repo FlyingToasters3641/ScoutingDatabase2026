@@ -50,6 +50,7 @@ MatchData2026.init({
     teleOpShiftTwo: DataTypes.INTEGER,
     teleOpDefenceStealling: DataTypes.INTEGER,
     teleOpDefenceBlocking: DataTypes.INTEGER,
+    teleopDefencePlayed: DataTypes.INTEGER,
 
     // Post match (use 'post' prefix)
     postClimbLevelOneRight: DataTypes.INTEGER,
@@ -65,7 +66,7 @@ MatchData2026.init({
     postOverBump: DataTypes.INTEGER,
     postDisabledMechanically: DataTypes.INTEGER,
     postNotThere: DataTypes.INTEGER,
-    postStuckFieldElement: DataTypes.INTEGER
+    postStuckFieldElement: DataTypes.INTEGER,
 
 }, { sequelize, modelName: 'matchdata2026' });
 
