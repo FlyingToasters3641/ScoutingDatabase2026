@@ -65,7 +65,8 @@ MatchData2026.init({
     postOverBump: DataTypes.INTEGER,
     postDisabledMechanically: DataTypes.INTEGER,
     postNotThere: DataTypes.INTEGER,
-    postStuckFieldElement: DataTypes.INTEGER
+    postStuckFieldElement: DataTypes.INTEGER,
+    postPartBroken: DataTypes.INTEGER,
 
 }, { sequelize, modelName: 'matchdata2026' });
 
