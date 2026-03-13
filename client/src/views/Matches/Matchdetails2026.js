@@ -13,12 +13,19 @@ const Matchdetails = () => {
 
     const [match, setMatch] = useState(null);
     const teamAverageDefault = [{avgStartPreload: -1, avgTeleOpPassNeutralAlliance: -1, avgTeleOpPassOpponentNeutral: -1, avgTeleOpPassOpponentAlliance: -1, avgTeleOpShootMajority: -1, avgTeleOpShootHalf: -1, avgTeleOpShootLittle: -1, avgTeleOpFeedHumanMajority: -1, avgTeleOpFeedHumanLittle: -1, avgTeleOpDefenceStealling: -1, avgTeleOpDefenceBlocking: -1, avgPostClimbLevelOne: -1, avgPostClimbLevelTwo: -1, avgPostClimbLevelThree: -1, avgPostClimbLevelLeft: -1, avgPostClimbLevelCenter: -1, avgPostClimbLevelRight: -1, avgPostUnderTrench: -1, avgPostOverBump: -1, avgPostDisabledMechanically: -1, avgPostStuckOnFieldElement: -1}];
+    const teamMedianDefault = [{medTeleOpPassNeutralAlliance: -1, medTeleOpPassOpponentNeutral: -1, medTeleOpPassOpponentAlliance: -1, medTeleOpShootMajority: -1, medTeleOpShootHalf: -1, medTeleOpShootLittle: -1}];
     const [teamAverageBlueOne, setTeamAverageBlueOne] = useState(teamAverageDefault);
+    const [teamMedianBlueOne, setTeamMedianBlueOne] = useState(teamMedianDefault);
     const [teamAverageBlueTwo, setTeamAverageBlueTwo] = useState(teamAverageDefault);
+    const [teamMedianBlueTwo, setTeamMedianBlueTwo] = useState(teamMedianDefault);
     const [teamAverageBlueThree, setTeamAverageBlueThree] = useState(teamAverageDefault);
+    const [teamMedianBlueThree, setTeamMedianBlueThree] = useState(teamMedianDefault);
     const [teamAverageRedOne, setTeamAverageRedOne] = useState(teamAverageDefault);
+    const [teamMedianRedOne, setTeamMedianRedOne] = useState(teamMedianDefault);
     const [teamAverageRedTwo, setTeamAverageRedTwo] = useState(teamAverageDefault);
+    const [teamMedianRedTwo, setTeamMedianRedTwo] = useState(teamMedianDefault);
     const [teamAverageRedThree, setTeamAverageRedThree] = useState(teamAverageDefault);
+    const [teamMedianRedThree, setTeamMedianRedThree] = useState(teamMedianDefault);
     const [team, setTeam] = useState([]);
 
     const [event, setEvent] = useState(null);
@@ -53,24 +60,52 @@ const Matchdetails = () => {
         .then(response => setTeamAverageBlueOne(response.data))
         .catch(error => console.error('Error fetching data:', error));
 
+        axios.get(`${APP_DATABASE_URL}/matchData/2026/${appData.currentEventID}/team/${match.blueOneTeamNumber}/median`)
+        .then(response => setTeamMedianBlueOne(response.data))
+        .catch(error => console.error('Error fetching data:', error));
+
         axios.get(`${APP_DATABASE_URL}/matchData/2026/${appData.currentEventID}/team/${match.blueTwoTeamNumber}`)
         .then(response => setTeamAverageBlueTwo(response.data))
+        .catch(error => console.error('Error fetching data:', error));
+
+        axios.get(`${APP_DATABASE_URL}/matchData/2026/${appData.currentEventID}/team/${match.blueTwoTeamNumber}/median`)
+        .then(response => setTeamMedianBlueTwo(response.data))
         .catch(error => console.error('Error fetching data:', error));
 
         axios.get(`${APP_DATABASE_URL}/matchData/2026/${appData.currentEventID}/team/${match.blueThreeTeamNumber}`)
         .then(response => setTeamAverageBlueThree(response.data))
         .catch(error => console.error('Error fetching data:', error));
 
+        axios.get(`${APP_DATABASE_URL}/matchData/2026/${appData.currentEventID}/team/${match.blueThreeTeamNumber}/median`)
+        .then(response => setTeamMedianBlueThree(response.data))
+        .catch(error => console.error('Error fetching data:', error));
+
         axios.get(`${APP_DATABASE_URL}/matchData/2026/${appData.currentEventID}/team/${match.redOneTeamNumber}`)
         .then(response => setTeamAverageRedOne(response.data))
+        .catch(error => console.error('Error fetching data:', error));
+
+        axios.get(`${APP_DATABASE_URL}/matchData/2026/${appData.currentEventID}/team/${match.blueThreeTeamNumber}/median`)
+        .then(response => setTeamMedianBlueThree(response.data))
+        .catch(error => console.error('Error fetching data:', error));
+
+        axios.get(`${APP_DATABASE_URL}/matchData/2026/${appData.currentEventID}/team/${match.redOneTeamNumber}/median`)
+        .then(response => setTeamMedianRedOne(response.data))
         .catch(error => console.error('Error fetching data:', error));
 
         axios.get(`${APP_DATABASE_URL}/matchData/2026/${appData.currentEventID}/team/${match.redTwoTeamNumber}`)
         .then(response => setTeamAverageRedTwo(response.data))
         .catch(error => console.error('Error fetching data:', error));
 
+        axios.get(`${APP_DATABASE_URL}/matchData/2026/${appData.currentEventID}/team/${match.redTwoTeamNumber}/median`)
+        .then(response => setTeamMedianRedTwo(response.data))
+        .catch(error => console.error('Error fetching data:', error));
+
         axios.get(`${APP_DATABASE_URL}/matchData/2026/${appData.currentEventID}/team/${match.redThreeTeamNumber}`)
         .then(response => setTeamAverageRedThree(response.data))
+        .catch(error => console.error('Error fetching data:', error));
+
+        axios.get(`${APP_DATABASE_URL}/matchData/2026/${appData.currentEventID}/team/${match.redThreeTeamNumber}`)
+        .then(response => setTeamMedianRedThree(response.data))
         .catch(error => console.error('Error fetching data:', error));
         }
     }, [match]);
