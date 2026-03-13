@@ -1,15 +1,52 @@
 # Installing sqlite3 if failing during npm install
 
-## Windows:
+## Windows
 
-### 1. Install System Build Tools and Dependencies
+If `npm install` fails when installing `sqlite3`, follow these steps. Common causes are:
+- Using a Node.js version with no prebuilt sqlite3 binary (e.g. very new Node releases)
+- Missing Visual Studio C++ build tools (MSBuild) or Python required by `node-gyp`
 
+Steps to fix:
 
+- **1) Install Visual Studio Build Tools (Desktop development with C++)**
+	- Download "Build Tools for Visual Studio 2022" from https://visualstudio.microsoft.com/downloads/ and select the "Desktop development with C++" workload.  Use the "Install Additioanl Tools for Node.js" in the Windows Start Menu.  Make sure the latest Windows 11 SDK is installed.
 
+- **2) Configure npm/node-gyp (optional)**
+	- `npm install -g node-gyp`
+	- `npm config set msvs_version 2022` (Maybe)
+
+- **3) Build sqlite3 locally (if needed)**
+	- From `server/` run:
+
+```bash
+npm install sqlite3 --build-from-source --verbose
 ```
-npm install --global --production windows-build-tools
-npm install --global node-gyp
+
+- **6) Then install remaining dependencies**
+
+```bash
+npm install --verbose
 ```
+
+Verification commands:
+
+- `node -v` (should show an LTS version like `v20.x`)
+- `python --version`
+- `where msbuild` (should find MSBuild.exe when Visual Studio Build Tools installed)
+
+Notes:
+- Do not rely on the deprecated `windows-build-tools` npm package; use the official Visual Studio Build Tools installer instead.
+- If you cannot change Node version system-wide, use `nvm-windows` to switch for this project.
+- If installation still fails, paste the full `npm install` error output (especially any `node-gyp`/`MSBUILD` lines) and I can help interpret them.
+
+winget install -e --id Python.Python.3.12
+winget install -e --id Microsoft.VisualStudio.2022.BuildTools --override "--wait --passive --add Microsoft.VisualStudio.Workload.VCTools --includeRecommended"
+
+Use env vars in cmd:
+set GYP_MSVS_VERSION=2022 && set npm_config_msvs_version=2022
+
+
+
 
 ## Ubuntu:
 Need to install missing required build tools and an older version of Python -- 3.11.x.  Python 3.12+ removed tools to build the sqlite3 packages. NOTE: Do not need to remove the newer version, just need to add 3.11
