@@ -8,6 +8,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import DataTable from '../../components/DataTableNetBase.js';
 import { FaEdit } from 'react-icons/fa'; // Import edit icon
 import { Chips } from 'primereact/chips';
+import { InputSwitch } from 'primereact/inputswitch';
 
 const Eventdata = () => {
     const { appData } = useContext(AppContext);
@@ -19,6 +20,8 @@ const Eventdata = () => {
     const [newTitle, setNewTitle] = useState(title); // State to handle new title
 
     const [chipsValue, setChipsValue] = useState([]);
+
+    const [isMedian, setIsMedian] = useState(false);
 
     // const location = useLocation();
     // const searchParams = new URLSearchParams(location.search);
@@ -73,6 +76,7 @@ const Eventdata = () => {
             </Row>
             <Row>
                 <Col>
+                    <h4><InputSwitch checked={isMedian} onChange={(e) => setIsMedian(e.value)} /> {isMedian ? "Median" : "Average"}</h4>
                     <h4>
                         {isEditing ? (
                             <input 
@@ -101,8 +105,52 @@ const Eventdata = () => {
                 </Col>
             </Row>
             <Row>
+                {isMedian ? (
+                    <p>
+                    <DataTable
+                        data={teamMedian}
+                        key="median"
+                        options={{
+                            columns: [
+                                { data: 'teamNumber' },
+                                { data: 'matchCount' },
+                                { data: 'medStartPreload', searchable: false, },
+                                { data: 'medTeleOpPassNeutralAlliance', searchable: false, },
+                                { data: 'medTeleOpPassOpponentAlliance', searchable: false, },
+                                { data: 'medTeleOpShootMajority', searchable: false, },
+                                { data: 'medTeleOpShootHalf', searchable: false, },
+                                { data: 'medTeleOpFeedHumanMajority', searchable: false, },
+                                { data: 'medTeleOpDefenceStealling', searchable: false, },
+                                { data: 'medTeleOpDefenceBlocking', searchable: false, },
+                                { data: 'medPostUnderTrench', searchable: false, },
+                                { data: 'medPostOverBump', searchable: false, }
+                            ],
+                            responsive: false,
+                        }}
+                    >
+                    <thead>
+                        <tr>
+                            <th>Team Number</th>
+                            <th>Total Matches</th>
+                            <th>Is Preloaded</th>
+                            <th>Passes from Neutral to Alliance Zone</th>
+                            <th>Passes from Opposing to Alliance Zone</th>
+                            <th>Shoots Majority of Fuel in Hub</th>
+                            <th>Shoots About Half of Fuel in Hub</th>
+                            <th>Feeds Human Player a lot</th>
+                            <th>Defence via Stealing</th>
+                            <th>Defence via Blocking</th>
+                            <th>Goes Under Trench</th>
+                            <th>Goes Over Bump</th>
+                        </tr>
+                    </thead>
+                </DataTable>
+                </p>
+                ) : (
+                <p>
                 <DataTable
                     data={teamAverage}
+                    key="average"
                     options={{
                         columns: [
                             { data: 'teamNumber' },
@@ -138,6 +186,8 @@ const Eventdata = () => {
                         </tr>
                     </thead>
                 </DataTable>
+                </p>
+                )}
             </Row>
         </Container>
     );

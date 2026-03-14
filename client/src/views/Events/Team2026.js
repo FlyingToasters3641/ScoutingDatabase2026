@@ -5,12 +5,38 @@ import BackButton from '../common/BackButton';
 import { APP_DATABASE_URL } from "../../constant/constant";
 import { Col, Container, Row } from "react-bootstrap";
 import { AppContext } from "../common/AppContext.js";
+import { InputSwitch } from 'primereact/inputswitch';
 
 const Team = () => {
     const { appData, setAppData } = useContext(AppContext);
     const [team, setTeam] = useState([]);
     const [matchdata, setMatchdata] = useState([]);
-    const teamMedianDefault = [{medTeleOpPassNeutralAlliance: -1, medTeleOpPassOpponentNeutral: -1, medTeleOpPassOpponentAlliance: -1, medTeleOpShootMajority: -1, medTeleOpShootHalf: -1, medTeleOpShootLittle: -1}];
+     const teamMedianDefault = [{
+        medStartPreload: -1,
+        medTeleOpPassNeutralAlliance: -1, 
+        medTeleOpPassOpponentNeutral: -1, 
+        medTeleOpPassOpponentAlliance: -1, 
+        medTeleOpShootMajority: -1, 
+        medTeleOpShootHalf: -1, 
+        medTeleOpShootLittle: -1, 
+        medTeleOpFeedHumanMajority: -1, 
+        medTeleOpFeedHumanLittle: -1, 
+        medTeleOpDefenceStealling: -1, 
+        medTeleOpDefenceBlocking: -1, 
+        medPostClimbLevelOneRight: -1,
+        medPostClimbLevelOneCenter: -1,
+        medPostClimbLevelOneLeft: -1,
+        medPostClimbLevelTwoRight: -1,
+        medPostClimbLevelTwoCenter: -1,
+        medPostClimbLevelTwoLeft: -1,
+        medPostClimbLevelThreeRight: -1,
+        medPostClimbLevelThreeCenter: -1,
+        medPostClimbLevelThreeLeft: -1,
+        medPostUnderTrench: -1, 
+        medPostOverBump: -1, 
+        medPostDisabledMechanically: -1, 
+        medPostStuckOnFieldElement: -1
+    }];
     const teamAverageDefault = [{
         avgStartTrenchLeft: -1,
         avgStartBumpLeft: -1,
@@ -45,6 +71,7 @@ const Team = () => {
     }];
     const [teamAverage, setTeamAverage] = useState(teamAverageDefault);
     const [teamMedian, setTeamMedian] = useState(teamMedianDefault);
+    const [isMedian, setIsMedian] = useState(false);
 
     const location = useLocation();
     const searchParams = new URLSearchParams(location.search);
@@ -89,7 +116,31 @@ const Team = () => {
                         <Col md={12}>
                             <h2>Auton Data</h2>
                             <hr></hr>
-                        <table className="table">
+                        {isMedian ? (
+                         <table className="table">
+                            <thead>
+                                    <tr>
+                                        <th>Preloaded</th>
+                                        <th>Trench Left</th>
+                                        <th>Bump Left</th>
+                                        <th>Hub</th>
+                                        <th>Bump Right</th>
+                                        <th>Trench Right</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr className="bg-secondary bg-opacity-10">
+                                        <td>{teamMedian[0].medStartPreload}</td>
+                                        <td>{teamMedian[0].medStartTrenchLeft}</td>
+                                        <td>{teamMedian[0].medStartBumpLeft}</td>
+                                        <td>{teamMedian[0].medStartHub}</td>
+                                        <td>{teamMedian[0].medStartBumpRight}</td>
+                                        <td>{teamMedian[0].medStartTrenchRight}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        ):(
+                            <table className="table">
                             <thead>
                                     <tr>
                                         <th>Preloaded</th>
@@ -111,6 +162,7 @@ const Team = () => {
                                     </tr>
                                 </tbody>
                             </table>
+                        )}
 
                         <table className="table">
                             <thead>
@@ -148,6 +200,24 @@ const Team = () => {
                                 <Col md={6}>
                                     <h5>Passing</h5>
                                     <hr></hr>
+                                    {isMedian ? (
+                                        <table className="table">
+                                        <thead>
+                                                <tr>
+                                                    <th>Neutral to Alliance</th>
+                                                    <th>Opposing to Neutral</th>
+                                                    <th>Opposing to Alliance</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr className="bg-secondary bg-opacity-10">
+                                                    <td>{teamMedian[0].medTeleOpPassNeutralAlliance}</td>
+                                                    <td>{teamMedian[0].medTeleOpPassOpponentNeutral}</td>
+                                                    <td>{teamMedian[0].medTeleOpPassOpponentAlliance}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    ) : (
                                     <table className="table">
                                         <thead>
                                                 <tr>
@@ -164,10 +234,29 @@ const Team = () => {
                                                 </tr>
                                             </tbody>
                                         </table>
+                                    )}
                                 </Col>
                                 <Col md={6}>
                                     <h5>Fuel in Hub</h5>
                                     <hr></hr>
+                                    {isMedian ? (
+                                           <table className="table">
+                                        <thead>
+                                                <tr>
+                                                    <th>Majority</th>
+                                                    <th>About Half</th>
+                                                    <th>Little</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr className="bg-secondary bg-opacity-10">
+                                                    <td>{teamMedian[0].medTeleOpShootMajority}</td>
+                                                    <td>{teamMedian[0].medTeleOpShootHalf}</td>
+                                                    <td>{teamMedian[0].medTeleOpShootLittle}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    ) : (
                                         <table className="table">
                                         <thead>
                                                 <tr>
@@ -184,6 +273,7 @@ const Team = () => {
                                                 </tr>
                                             </tbody>
                                         </table>
+                                    )}
                                 </Col>
                             </Row>
                         </Col>
@@ -195,6 +285,54 @@ const Team = () => {
                             <Col md={6}>
                                 <h5>General Data</h5>
                                 <hr></hr>
+                                {isMedian ? (
+<table className="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Category</th>
+                                            <th>Median</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr className="bg-secondary bg-opacity-10">
+                                            <td>Under Trench</td>
+                                            <td>{teamMedian[0].medPostUnderTrench}</td>
+                                        </tr>
+                                        <tr className="bg-secondary bg-opacity-10">
+                                            <td>Over Bump</td>
+                                            <td>{teamMedian[0].medPostOverBump}</td>
+                                        </tr>
+                                        <tr className="bg-secondary bg-opacity-10">
+                                            <td>Not There</td>
+                                            <td>{teamMedian[0].medPostNotThere}</td>
+                                        </tr>
+                                        <tr className="bg-secondary bg-opacity-10">
+                                            <td>Disabled Mechanically</td>
+                                            <td>{teamMedian[0].medPostDisabledMechanically}</td>
+                                        </tr>
+                                        <tr className="bg-secondary bg-opacity-10">
+                                            <td>Stuck on Field Element</td>
+                                            <td>{teamMedian[0].medPostStuckOnFieldElement}</td>
+                                        </tr>
+                                        <tr className="bg-secondary bg-opacity-10">
+                                            <td>Feed Human Lots</td>
+                                            <td>{teamMedian[0].medTeleOpFeedHumanMajority}</td>
+                                        </tr>
+                                        <tr className="bg-secondary bg-opacity-10">
+                                            <td>Feed Human Little</td>
+                                            <td>{teamMedian[0].medTeleOpFeedHumanLittle}</td>
+                                        </tr>
+                                        <tr className="bg-secondary bg-opacity-10">
+                                            <td>Defence Stealling</td>
+                                            <td>{teamMedian[0].medTeleOpDefenceStealling}</td>
+                                        </tr>
+                                        <tr className="bg-secondary bg-opacity-10">
+                                            <td>Defence Blocking</td>
+                                            <td>{teamMedian[0].medTeleOpDefenceBlocking}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                ) : (
                                 <table className="table">
                                     <thead>
                                         <tr>
@@ -241,10 +379,43 @@ const Team = () => {
                                         </tr>
                                     </tbody>
                                 </table>
+                                )}
                             </Col>
                             <Col md={6}>
                                 <h5>Climb Data</h5>
                                 <hr></hr>
+                                {isMedian ? (
+                                <table className="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Level</th>
+                                            <th>Left</th>
+                                            <th>Center</th>
+                                            <th>Right</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr className="bg-secondary bg-opacity-10">
+                                            <td>L3</td>
+                                            <td>{teamMedian[0].medPostClimbLevelThreeLeft}</td>
+                                            <td>{teamMedian[0].medPostClimbLevelThreeCenter}</td>
+                                            <td>{teamMedian[0].medPostClimbLevelThreeRight}</td>
+                                        </tr>
+                                        <tr className="bg-secondary bg-opacity-10">
+                                            <td>L2</td>
+                                            <td>{teamMedian[0].medPostClimbLevelTwoLeft}</td>
+                                            <td>{teamMedian[0].medPostClimbLevelTwoCenter}</td>
+                                            <td>{teamMedian[0].medPostClimbLevelTwoRight}</td>
+                                        </tr>
+                                        <tr className="bg-secondary bg-opacity-10">
+                                            <td>L1</td>
+                                            <td>{teamMedian[0].medPostClimbLevelOneLeft}</td>
+                                            <td>{teamMedian[0].medPostClimbLevelOneCenter}</td>
+                                            <td>{teamMedian[0].medPostClimbLevelOneRight}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                ) : (
                                 <table className="table">
                                     <thead>
                                         <tr>
@@ -275,6 +446,7 @@ const Team = () => {
                                         </tr>
                                     </tbody>
                                 </table>
+                                )}
                             </Col>
                         </Row>
                     </Row>
@@ -295,6 +467,8 @@ const Team = () => {
                     <p>{team.city}</p>
                     <h5>Total Matches:</h5>
                     <p>{teamAverage[0].matchCount}</p>
+                    <h5>Mode:</h5>
+                    <h6><InputSwitch checked={isMedian} onChange={(e) => setIsMedian(e.value)} /> {isMedian ? "Median" : "Average"}</h6>
                 </Col>
             </Row>
         </Container>
