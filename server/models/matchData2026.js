@@ -37,6 +37,13 @@ MatchData2026.init({
     autonFive: DataTypes.STRING,
     autonSix: DataTypes.STRING,
 
+    autonNeutralZone: DataTypes.INTEGER,
+    autonClimbLevel: DataTypes.INTEGER,
+    autonOutpost: DataTypes.INTEGER,
+    autonDepot: DataTypes.INTEGER,
+    autonIntakes: DataTypes.INTEGER,
+    autonShootsFuel: DataTypes.INTEGER,
+
     // TeleOp (use 'teleop' prefix)
     teleOpPassNeutralAlliance: DataTypes.INTEGER,
     teleOpPassOpponentNeutral: DataTypes.INTEGER,
@@ -50,6 +57,8 @@ MatchData2026.init({
     teleOpShiftTwo: DataTypes.INTEGER,
     teleOpDefenceStealling: DataTypes.INTEGER,
     teleOpDefenceBlocking: DataTypes.INTEGER,
+    
+    teleOpCorralls: DataTypes.INTEGER,
 
     // Post match (use 'post' prefix)
     postClimbLevelOneRight: DataTypes.INTEGER,
@@ -65,7 +74,9 @@ MatchData2026.init({
     postOverBump: DataTypes.INTEGER,
     postDisabledMechanically: DataTypes.INTEGER,
     postNotThere: DataTypes.INTEGER,
-    postStuckFieldElement: DataTypes.INTEGER
+    postStuckFieldElement: DataTypes.INTEGER,
+
+    postPartBroken: DataTypes.INTEGER,
 
 }, { sequelize, modelName: 'matchdata2026' });
 
