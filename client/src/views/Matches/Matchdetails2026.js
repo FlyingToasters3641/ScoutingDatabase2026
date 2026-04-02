@@ -38,7 +38,7 @@ const Matchdetails = () => {
         avgPostPartBroken: -1, 
         avgTeleOpCorralls: -1, 
         avgAutonNeutralZone: -1,
-        avgAutonIntake: -1,
+        avgAutonIntakes: -1,
         avgAutonClimbLevel: -1,
         avgAutonOutpost: -1,
         avgAutonDepot: -1,
