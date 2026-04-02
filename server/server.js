@@ -636,6 +636,15 @@ app.get('/api/v1/matchData/2026/:eventkey/team/:ids', async (req, res) => {
         [Sequelize.literal('ROUND(AVG(postNotThere), 2)'), 'avgPostNotThere'],
         [Sequelize.literal('ROUND(AVG(postDisabledMechanically), 2)'), 'avgPostDisabledMechanically'],
         [Sequelize.literal('ROUND(AVG(postStuckFieldElement), 2)'), 'avgPostStuckOnFieldElement'],
+        [Sequelize.literal('ROUND(AVG(teleOpCorralls), 2)'), 'avgTeleOpCorralls'],
+        [Sequelize.literal('ROUND(AVG(postPartBroken), 2)'), 'avgPostPartBroken'],
+        [Sequelize.literal('ROUND(AVG(autonNeutralZone), 2)'), 'avgAutonNeutralZone'],
+        [Sequelize.literal('ROUND(AVG(autonClimbLevel), 2)'), 'avgAutonClimbLevel'],
+        [Sequelize.literal('ROUND(AVG(autonOutpost), 2)'), 'avgAutonOutpost'],
+        [Sequelize.literal('ROUND(AVG(autonDepot), 2)'), 'avgAutonDepot'],
+        [Sequelize.literal('ROUND(AVG(autonIntakes), 2)'), 'avgAutonIntakes'],
+        [Sequelize.literal('ROUND(AVG(autonShootsFuel), 2)'), 'avgAutonShootsFuel'],
+        [Sequelize.literal('ROUND(AVG(teleOpDefened), 2)'), 'avgTeleOpDefened'],
       ],
       where: {
         teamNumber: req.params.ids,
@@ -702,6 +711,7 @@ app.get('/api/v1/matchData/2026/:eventkey/team/:ids/median', async (req, res) =>
     medPostNotThere: median(getFieldValues('postNotThere')),
     medPostDisabledMechanically: median(getFieldValues('postDisabledMechanically')),
     medPostStuckOnFieldElement: median(getFieldValues('postStuckFieldElement')),
+    medTeleOpDefened: median(getFieldValues('teleOpDefened')),
   }]);
 });
 

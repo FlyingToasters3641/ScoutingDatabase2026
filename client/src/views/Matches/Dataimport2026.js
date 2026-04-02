@@ -265,6 +265,13 @@ const Dataimport = () => {
                 prepData.postPartBroken = 0;
             }
 
+            if (matchData.tPD === true) {
+                prepData.teleOpDefened = 1;
+            }
+            else {
+                prepData.teleOpDefened = 0;
+            }
+
         }
         else {
             if (matchData.aP1 === 1) {

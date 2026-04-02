@@ -34,7 +34,16 @@ const Matchdetails = () => {
         avgPostUnderTrench: -1, 
         avgPostOverBump: -1, 
         avgPostDisabledMechanically: -1, 
-        avgPostStuckOnFieldElement: -1
+        avgPostStuckOnFieldElement: -1,
+        avgPostPartBroken: -1, 
+        avgTeleOpCorralls: -1, 
+        avgAutonNeutralZone: -1,
+        avgAutonIntakes: -1,
+        avgAutonClimbLevel: -1,
+        avgAutonOutpost: -1,
+        avgAutonDepot: -1,
+        avgAutonShootsFuel: -1,
+        avgTeleOpDefened: -1,
     }];
     const teamMedianDefault = [{
         medStartPreload: -1,
@@ -57,7 +66,16 @@ const Matchdetails = () => {
         medPostUnderTrench: -1, 
         medPostOverBump: -1, 
         medPostDisabledMechanically: -1, 
-        medPostStuckOnFieldElement: -1
+        medPostStuckOnFieldElement: -1,
+        medPostPartBroken: -1, 
+        medTeleOpCorralls: -1, 
+        medAutonNeutralZone: -1,
+        medAutonIntake: -1,
+        medAutonClimbLevel: -1,
+        medAutonOutpost: -1,
+        medAutonDepot: -1,
+        medAutonShootsFuel: -1,
+        medTeleOpDefened: -1,
     }];
     const [teamAverageBlueOne, setTeamAverageBlueOne] = useState(teamAverageDefault);
     const [teamMedianBlueOne, setTeamMedianBlueOne] = useState(teamMedianDefault);
@@ -216,90 +234,97 @@ const Matchdetails = () => {
                             <table className="table"> 
                                 <thead>
                                     <tr>
-                                        <th>Team Number</th>
-                                        <th>Has Preload</th>
-                                        <th>Pass Neutral to Alliance</th>
-                                        <th>Pass Opponent to Neutral</th>
-                                        <th>Pass Opponent to Alliance</th>
-                                        <th>Shoot Majority</th>
-                                        <th>Shoot Half</th>
-                                        <th>Shoot Little</th>
-                                        <th>Feeds Human Lots</th>
-                                        <th>Feeds Human Little</th>
+                                        <th>Team<br/>Number</th>
+                                        <th>Preload</th>
+                                        <th>Auton Intake</th>
+                                        <th>Auton<br/>Shoots Fuel</th>
+                                        <th>Shoots<br/>Fuel Majority</th>
+                                        <th>Shoots<br/>Fuel Half</th>
+                                        <th>Shoots<br/>Fuel Little</th>
+                                        <th>Passing</th>
+                                        <th>Corralls</th>
+                                        <th>Defense</th>
+                                        <th>Defended</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr className="bg-primary bg-opacity-10">
                                         <td>{match.blueOneTeamNumber} ~ {teamAverageBlueOne[0].matchCount}</td>
                                         <td>{teamMedianBlueOne[0].medStartPreload}</td>
-                                        <td>{teamMedianBlueOne[0].medTeleOpPassNeutralAlliance}</td>
-                                        <td>{teamMedianBlueOne[0].medTeleOpPassOpponentNeutral}</td>
-                                        <td>{teamMedianBlueOne[0].medTeleOpPassOpponentAlliance}</td>
+                                        <td>{teamMedianBlueOne[0].medAutonIntake}</td>
+                                        <td>{teamMedianBlueOne[0].medAutonShootsFuel}</td>
                                         <td>{teamMedianBlueOne[0].medTeleOpShootMajority}</td>
                                         <td>{teamMedianBlueOne[0].medTeleOpShootHalf}</td>
                                         <td>{teamMedianBlueOne[0].medTeleOpShootLittle}</td>
-                                        <td>{teamMedianBlueOne[0].medTeleOpFeedHumanMajority}</td>
-                                        <td>{teamMedianBlueOne[0].medTeleOpFeedHumanLittle}</td>
+                                        <td>{teamMedianBlueOne[0].medTeleOpPassNeutralAlliance}</td>
+                                        <td>{teamMedianBlueOne[0].medTeleOpCorralls}</td>
+                                        <td>{teamMedianBlueOne[0].medTeleOpDefenceBlocking}</td> 
+                                        <td>{teamMedianBlueOne[0].medTeleOpDefened}</td>
                                     </tr>
                                     <tr className="bg-primary bg-opacity-10">
                                         <td>{match.blueTwoTeamNumber} ~ {teamAverageBlueTwo[0].matchCount}</td>
                                         <td>{teamMedianBlueTwo[0].medStartPreload}</td>
-                                        <td>{teamMedianBlueTwo[0].medTeleOpPassNeutralAlliance}</td>
-                                        <td>{teamMedianBlueTwo[0].medTeleOpPassOpponentNeutral}</td>
-                                        <td>{teamMedianBlueTwo[0].medTeleOpPassOpponentAlliance}</td>
+                                        <td>{teamMedianBlueTwo[0].medAutonIntake}</td>
+                                        <td>{teamMedianBlueTwo[0].medAutonShootsFuel}</td>
                                         <td>{teamMedianBlueTwo[0].medTeleOpShootMajority}</td>
                                         <td>{teamMedianBlueTwo[0].medTeleOpShootHalf}</td>
                                         <td>{teamMedianBlueTwo[0].medTeleOpShootLittle}</td>
-                                        <td>{teamMedianBlueTwo[0].medTeleOpFeedHumanMajority}</td>
-                                        <td>{teamMedianBlueTwo[0].medTeleOpFeedHumanLittle}</td>
+                                        <td>{teamMedianBlueTwo[0].medTeleOpPassNeutralAlliance}</td>
+                                        <td>{teamMedianBlueTwo[0].medTeleOpCorralls}</td>
+                                        <td>{teamMedianBlueTwo[0].medTeleOpDefenceBlocking}</td> 
+                                        <td>{teamMedianBlueTwo[0].medTeleOpDefened}</td>
                                     </tr>
                                     <tr className="bg-primary bg-opacity-10">
                                         <td>{match.blueThreeTeamNumber} ~ {teamAverageBlueThree[0].matchCount}</td>
                                         <td>{teamMedianBlueThree[0].medStartPreload}</td>
-                                        <td>{teamMedianBlueThree[0].medTeleOpPassNeutralAlliance}</td>
-                                        <td>{teamMedianBlueThree[0].medTeleOpPassOpponentNeutral}</td>
-                                        <td>{teamMedianBlueThree[0].medTeleOpPassOpponentAlliance}</td>
+                                        <td>{teamMedianBlueThree[0].medAutonIntake}</td>
+                                        <td>{teamMedianBlueThree[0].medAutonShootsFuel}</td>
                                         <td>{teamMedianBlueThree[0].medTeleOpShootMajority}</td>
                                         <td>{teamMedianBlueThree[0].medTeleOpShootHalf}</td>
                                         <td>{teamMedianBlueThree[0].medTeleOpShootLittle}</td>
-                                        <td>{teamMedianBlueThree[0].medTeleOpFeedHumanMajority}</td>
-                                        <td>{teamMedianBlueThree[0].medTeleOpFeedHumanLittle}</td>
+                                        <td>{teamMedianBlueThree[0].medTeleOpPassNeutralAlliance}</td>
+                                        <td>{teamMedianBlueThree[0].medTeleOpCorralls}</td>
+                                        <td>{teamMedianBlueThree[0].medTeleOpDefenceBlocking}</td> 
+                                        <td>{teamMedianBlueThree[0].medTeleOpDefened}</td>
                                     </tr>
                                     <tr className="bg-danger bg-opacity-10">
                                         <td>{match.redOneTeamNumber} ~ {teamAverageRedOne[0].matchCount}</td>
                                         <td>{teamMedianRedOne[0].medStartPreload}</td>
-                                        <td>{teamMedianRedOne[0].medTeleOpPassNeutralAlliance}</td>
-                                        <td>{teamMedianRedOne[0].medTeleOpPassOpponentNeutral}</td>
-                                        <td>{teamMedianRedOne[0].medTeleOpPassOpponentAlliance}</td>
+                                        <td>{teamMedianRedOne[0].medAutonIntake}</td>
+                                        <td>{teamMedianRedOne[0].medAutonShootsFuel}</td>
                                         <td>{teamMedianRedOne[0].medTeleOpShootMajority}</td>
                                         <td>{teamMedianRedOne[0].medTeleOpShootHalf}</td>
                                         <td>{teamMedianRedOne[0].medTeleOpShootLittle}</td>
-                                        <td>{teamMedianRedOne[0].medTeleOpFeedHumanMajority}</td>
-                                        <td>{teamMedianRedOne[0].medTeleOpFeedHumanLittle}</td>
+                                        <td>{teamMedianRedOne[0].medTeleOpPassNeutralAlliance}</td>
+                                        <td>{teamMedianRedOne[0].medTeleOpCorralls}</td>
+                                        <td>{teamMedianRedOne[0].medTeleOpDefenceBlocking}</td> 
+                                        <td>{teamMedianRedOne[0].medTeleOpDefened}</td>
                                     </tr>
                                     <tr className="bg-danger bg-opacity-10">
                                         <td>{match.redTwoTeamNumber} ~ {teamAverageRedTwo[0].matchCount}</td>
                                         <td>{teamMedianRedTwo[0].medStartPreload}</td>
-                                        <td>{teamMedianRedTwo[0].medTeleOpPassNeutralAlliance}</td>
-                                        <td>{teamMedianRedTwo[0].medTeleOpPassOpponentNeutral}</td>
-                                        <td>{teamMedianRedTwo[0].medTeleOpPassOpponentAlliance}</td>
+                                        <td>{teamMedianRedTwo[0].medAutonIntake}</td>
+                                        <td>{teamMedianRedTwo[0].medAutonShootsFuel}</td>
                                         <td>{teamMedianRedTwo[0].medTeleOpShootMajority}</td>
                                         <td>{teamMedianRedTwo[0].medTeleOpShootHalf}</td>
                                         <td>{teamMedianRedTwo[0].medTeleOpShootLittle}</td>
-                                        <td>{teamMedianRedTwo[0].medTeleOpFeedHumanMajority}</td>
-                                        <td>{teamMedianRedTwo[0].medTeleOpFeedHumanLittle}</td>
+                                        <td>{teamMedianRedTwo[0].medTeleOpPassNeutralAlliance}</td>
+                                        <td>{teamMedianRedTwo[0].medTeleOpCorralls}</td>
+                                        <td>{teamMedianRedTwo[0].medTeleOpDefenceBlocking}</td> 
+                                        <td>{teamMedianRedTwo[0].medTeleOpDefened}</td>
                                     </tr>
                                     <tr className="bg-danger bg-opacity-10">
                                         <td>{match.redThreeTeamNumber} ~ {teamAverageRedThree[0].matchCount}</td>
                                         <td>{teamMedianRedThree[0].medStartPreload}</td>
-                                        <td>{teamMedianRedThree[0].medTeleOpPassNeutralAlliance}</td>
-                                        <td>{teamMedianRedThree[0].medTeleOpPassOpponentNeutral}</td>
-                                        <td>{teamMedianRedThree[0].medTeleOpPassOpponentAlliance}</td>
+                                        <td>{teamMedianRedThree[0].medAutonIntake}</td>
+                                        <td>{teamMedianRedThree[0].medAutonShootsFuel}</td>
                                         <td>{teamMedianRedThree[0].medTeleOpShootMajority}</td>
                                         <td>{teamMedianRedThree[0].medTeleOpShootHalf}</td>
                                         <td>{teamMedianRedThree[0].medTeleOpShootLittle}</td>
-                                        <td>{teamMedianRedThree[0].medTeleOpFeedHumanMajority}</td>
-                                        <td>{teamMedianRedThree[0].medTeleOpFeedHumanLittle}</td>
+                                        <td>{teamMedianRedThree[0].medTeleOpPassNeutralAlliance}</td>
+                                        <td>{teamMedianRedThree[0].medTeleOpCorralls}</td>
+                                        <td>{teamMedianRedThree[0].medTeleOpDefenceBlocking}</td> 
+                                        <td>{teamMedianRedThree[0].medTeleOpDefened}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -308,111 +333,83 @@ const Matchdetails = () => {
                             <table className="table"> 
                                 <thead>
                                     <tr>
-                                        <th>Team Number</th>
-                                        <th>Blocking</th>
-                                        <th>Stealling</th>
-                                        <th>Climbs L1</th>
-                                        <th>Climbs L2</th>
-                                        <th>Climbs L3</th>
-                                        <th>Climb Left</th>
-                                        <th>Climb Center</th>
-                                        <th>Climb Right</th>
+                                        <th>Team<br/>Number</th>
+                                        <th>Climb<br/>Level 1</th>
+                                        <th>Climb<br/>Level 2</th>
+                                        <th>Climb<br/>Level 3</th>
                                         <th>Under Trench</th>
                                         <th>Over Bump</th>
-                                        <th>Disabled Mechanically</th>
-                                        <th>Stuck on Field Element</th>
+                                        <th>Disabled<br/>Mechanically</th>
+                                        <th>Stuck of<br/>Field Element</th>
+                                        <th>Parts broken</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr className="bg-primary bg-opacity-10">
                                         <td>{match.blueOneTeamNumber} ~ {teamAverageBlueOne[0].matchCount}</td>
-                                        <td>{teamMedianBlueOne[0].medTeleOpDefenceBlocking}</td>
-                                        <td>{teamMedianBlueOne[0].medTeleOpDefenceStealling}</td>
                                         <td>{teamMedianBlueOne[0].medPostClimbLevelOne}</td>
                                         <td>{teamMedianBlueOne[0].medPostClimbLevelTwo}</td>
                                         <td>{teamMedianBlueOne[0].medPostClimbLevelThree}</td>
-                                        <td>{teamMedianBlueOne[0].medPostClimbLevelLeft}</td>
-                                        <td>{teamMedianBlueOne[0].medPostClimbLevelCenter}</td>
-                                        <td>{teamMedianBlueOne[0].medPostClimbLevelRight}</td>
                                         <td>{teamMedianBlueOne[0].medPostUnderTrench}</td>
                                         <td>{teamMedianBlueOne[0].medPostOverBump}</td>
                                         <td>{teamMedianBlueOne[0].medPostDisabledMechanically}</td>
                                         <td>{teamMedianBlueOne[0].medPostStuckOnFieldElement}</td>
+                                        <td>{teamMedianBlueOne[0].medPostPartBroken}</td>
                                     </tr>
                                     <tr className="bg-primary bg-opacity-10">
                                         <td>{match.blueTwoTeamNumber} ~ {teamAverageBlueTwo[0].matchCount}</td>
-                                        <td>{teamMedianBlueTwo[0].medTeleOpDefenceBlocking}</td>
-                                        <td>{teamMedianBlueTwo[0].medTeleOpDefenceStealling}</td>
                                         <td>{teamMedianBlueTwo[0].medPostClimbLevelOne}</td>
                                         <td>{teamMedianBlueTwo[0].medPostClimbLevelTwo}</td>
                                         <td>{teamMedianBlueTwo[0].medPostClimbLevelThree}</td>
-                                        <td>{teamMedianBlueTwo[0].medPostClimbLevelLeft}</td>
-                                        <td>{teamMedianBlueTwo[0].medPostClimbLevelCenter}</td>
-                                        <td>{teamMedianBlueTwo[0].medPostClimbLevelRight}</td>
                                         <td>{teamMedianBlueTwo[0].medPostUnderTrench}</td>
                                         <td>{teamMedianBlueTwo[0].medPostOverBump}</td>
                                         <td>{teamMedianBlueTwo[0].medPostDisabledMechanically}</td>
                                         <td>{teamMedianBlueTwo[0].medPostStuckOnFieldElement}</td>
+                                        <td>{teamMedianBlueTwo[0].medPostPartBroken}</td>
                                     </tr>
                                     <tr className="bg-primary bg-opacity-10">
                                         <td>{match.blueThreeTeamNumber} ~ {teamAverageBlueThree[0].matchCount}</td>
-                                        <td>{teamMedianBlueThree[0].medTeleOpDefenceBlocking}</td>
-                                        <td>{teamMedianBlueThree[0].medTeleOpDefenceStealling}</td>
                                         <td>{teamMedianBlueThree[0].medPostClimbLevelOne}</td>
                                         <td>{teamMedianBlueThree[0].medPostClimbLevelTwo}</td>
                                         <td>{teamMedianBlueThree[0].medPostClimbLevelThree}</td>
-                                        <td>{teamMedianBlueThree[0].medPostClimbLevelLeft}</td>
-                                        <td>{teamMedianBlueThree[0].medPostClimbLevelCenter}</td>
-                                        <td>{teamMedianBlueThree[0].medPostClimbLevelRight}</td>
                                         <td>{teamMedianBlueThree[0].medPostUnderTrench}</td>
                                         <td>{teamMedianBlueThree[0].medPostOverBump}</td>
                                         <td>{teamMedianBlueThree[0].medPostDisabledMechanically}</td>
                                         <td>{teamMedianBlueThree[0].medPostStuckOnFieldElement}</td>
+                                        <td>{teamMedianBlueThree[0].medPostPartBroken}</td>
                                     </tr>
                                     <tr className="bg-danger bg-opacity-10">
                                         <td>{match.redOneTeamNumber} ~ {teamAverageRedOne[0].matchCount}</td>
-                                        <td>{teamMedianRedOne[0].medTeleOpDefenceBlocking}</td>
-                                        <td>{teamMedianRedOne[0].medTeleOpDefenceStealling}</td>
                                         <td>{teamMedianRedOne[0].medPostClimbLevelOne}</td>
                                         <td>{teamMedianRedOne[0].medPostClimbLevelTwo}</td>
                                         <td>{teamMedianRedOne[0].medPostClimbLevelThree}</td>
-                                        <td>{teamMedianRedOne[0].medPostClimbLevelLeft}</td>
-                                        <td>{teamMedianRedOne[0].medPostClimbLevelCenter}</td>
-                                        <td>{teamMedianRedOne[0].medPostClimbLevelRight}</td>
                                         <td>{teamMedianRedOne[0].medPostUnderTrench}</td>
                                         <td>{teamMedianRedOne[0].medPostOverBump}</td>
                                         <td>{teamMedianRedOne[0].medPostDisabledMechanically}</td>
                                         <td>{teamMedianRedOne[0].medPostStuckOnFieldElement}</td>
+                                        <td>{teamMedianRedOne[0].medPostPartBroken}</td>
                                     </tr>
                                     <tr className="bg-danger bg-opacity-10">
                                         <td>{match.redTwoTeamNumber} ~ {teamAverageRedTwo[0].matchCount}</td>
-                                        <td>{teamMedianRedTwo[0].medTeleOpDefenceBlocking}</td>
-                                        <td>{teamMedianRedTwo[0].medTeleOpDefenceStealling}</td>
                                         <td>{teamMedianRedTwo[0].medPostClimbLevelOne}</td>
                                         <td>{teamMedianRedTwo[0].medPostClimbLevelTwo}</td>
                                         <td>{teamMedianRedTwo[0].medPostClimbLevelThree}</td>
-                                        <td>{teamMedianRedTwo[0].medPostClimbLevelLeft}</td>
-                                        <td>{teamMedianRedTwo[0].medPostClimbLevelCenter}</td>
-                                        <td>{teamMedianRedTwo[0].medPostClimbLevelRight}</td>
                                         <td>{teamMedianRedTwo[0].medPostUnderTrench}</td>
                                         <td>{teamMedianRedTwo[0].medPostOverBump}</td>
                                         <td>{teamMedianRedTwo[0].medPostDisabledMechanically}</td>
                                         <td>{teamMedianRedTwo[0].medPostStuckOnFieldElement}</td>
+                                        <td>{teamMedianRedTwo[0].medPostPartBroken}</td>
                                     </tr>
                                     <tr className="bg-danger bg-opacity-10">
                                         <td>{match.redThreeTeamNumber} ~ {teamAverageRedThree[0].matchCount}</td>
-                                        <td>{teamMedianRedThree[0].medTeleOpDefenceBlocking}</td>
-                                        <td>{teamMedianRedThree[0].medTeleOpDefenceStealling}</td>
                                         <td>{teamMedianRedThree[0].medPostClimbLevelOne}</td>
                                         <td>{teamMedianRedThree[0].medPostClimbLevelTwo}</td>
                                         <td>{teamMedianRedThree[0].medPostClimbLevelThree}</td>
-                                        <td>{teamMedianRedThree[0].medPostClimbLevelLeft}</td>
-                                        <td>{teamMedianRedThree[0].medPostClimbLevelCenter}</td>
-                                        <td>{teamMedianRedThree[0].medPostClimbLevelRight}</td>
                                         <td>{teamMedianRedThree[0].medPostUnderTrench}</td>
                                         <td>{teamMedianRedThree[0].medPostOverBump}</td>
                                         <td>{teamMedianRedThree[0].medPostDisabledMechanically}</td>
                                         <td>{teamMedianRedThree[0].medPostStuckOnFieldElement}</td>
+                                        <td>{teamMedianRedThree[0].medPostPartBroken}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -424,90 +421,97 @@ const Matchdetails = () => {
                             <table className="table"> 
                                 <thead>
                                     <tr>
-                                        <th>Team Number</th>
-                                        <th>Has Preload</th>
-                                        <th>Pass Neutral to Alliance</th>
-                                        <th>Pass Opponent to Neutral</th>
-                                        <th>Pass Opponent to Alliance</th>
-                                        <th>Shoot Majority</th>
-                                        <th>Shoot Half</th>
-                                        <th>Shoot Little</th>
-                                        <th>Feeds Human Lots</th>
-                                        <th>Feeds Human Little</th>
+                                        <th>Team<br/>Number</th>
+                                        <th>Preload</th>
+                                        <th>Auton Intake</th>
+                                        <th>Auton<br/>Shoots Fuel</th>
+                                        <th>Shoots<br/>Fuel Majority</th>
+                                        <th>Shoots<br/>Fuel Half</th>
+                                        <th>Shoots<br/>Fuel Little</th>
+                                        <th>Passing</th>
+                                        <th>Corralls</th>
+                                        <th>Defense</th>
+                                        <th>Defended</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr className="bg-primary bg-opacity-10">
                                         <td>{match.blueOneTeamNumber} ~ {teamAverageBlueOne[0].matchCount}</td>
                                         <td>{teamAverageBlueOne[0].avgStartPreload}</td>
-                                        <td>{teamAverageBlueOne[0].avgTeleOpPassNeutralAlliance}</td>
-                                        <td>{teamAverageBlueOne[0].avgTeleOpPassOpponentNeutral}</td>
-                                        <td>{teamAverageBlueOne[0].avgTeleOpPassOpponentAlliance}</td>
+                                        <td>{teamAverageBlueOne[0].avgAutonIntakes}</td>
+                                        <td>{teamAverageBlueOne[0].avgAutonShootsFuel}</td>
                                         <td>{teamAverageBlueOne[0].avgTeleOpShootMajority}</td>
                                         <td>{teamAverageBlueOne[0].avgTeleOpShootHalf}</td>
                                         <td>{teamAverageBlueOne[0].avgTeleOpShootLittle}</td>
-                                        <td>{teamAverageBlueOne[0].avgTeleOpFeedHumanMajority}</td>
-                                        <td>{teamAverageBlueOne[0].avgTeleOpFeedHumanLittle}</td>
+                                        <td>{teamAverageBlueOne[0].avgTeleOpPassNeutralAlliance}</td>
+                                        <td>{teamAverageBlueOne[0].avgTeleOpCorralls}</td>
+                                        <td>{teamAverageBlueOne[0].avgTeleOpDefenceBlocking}</td> 
+                                        <td>{teamAverageBlueOne[0].avgTeleOpDefened}</td>
                                     </tr>
                                     <tr className="bg-primary bg-opacity-10">
                                         <td>{match.blueTwoTeamNumber} ~ {teamAverageBlueTwo[0].matchCount}</td>
                                         <td>{teamAverageBlueTwo[0].avgStartPreload}</td>
-                                        <td>{teamAverageBlueTwo[0].avgTeleOpPassNeutralAlliance}</td>
-                                        <td>{teamAverageBlueTwo[0].avgTeleOpPassOpponentNeutral}</td>
-                                        <td>{teamAverageBlueTwo[0].avgTeleOpPassOpponentAlliance}</td>
+                                        <td>{teamAverageBlueTwo[0].avgAutonIntakes}</td>
+                                        <td>{teamAverageBlueTwo[0].avgAutonShootsFuel}</td>
                                         <td>{teamAverageBlueTwo[0].avgTeleOpShootMajority}</td>
                                         <td>{teamAverageBlueTwo[0].avgTeleOpShootHalf}</td>
                                         <td>{teamAverageBlueTwo[0].avgTeleOpShootLittle}</td>
-                                        <td>{teamAverageBlueTwo[0].avgTeleOpFeedHumanMajority}</td>
-                                        <td>{teamAverageBlueTwo[0].avgTeleOpFeedHumanLittle}</td>
+                                        <td>{teamAverageBlueTwo[0].avgTeleOpPassNeutralAlliance}</td>
+                                        <td>{teamAverageBlueTwo[0].avgTeleOpCorralls}</td>
+                                        <td>{teamAverageBlueTwo[0].avgTeleOpDefenceBlocking}</td> 
+                                        <td>{teamAverageBlueTwo[0].avgTeleOpDefened}</td>
                                     </tr>
                                     <tr className="bg-primary bg-opacity-10">
                                         <td>{match.blueThreeTeamNumber} ~ {teamAverageBlueThree[0].matchCount}</td>
                                         <td>{teamAverageBlueThree[0].avgStartPreload}</td>
-                                        <td>{teamAverageBlueThree[0].avgTeleOpPassNeutralAlliance}</td>
-                                        <td>{teamAverageBlueThree[0].avgTeleOpPassOpponentNeutral}</td>
-                                        <td>{teamAverageBlueThree[0].avgTeleOpPassOpponentAlliance}</td>
+                                        <td>{teamAverageBlueThree[0].avgAutonIntakes}</td>
+                                        <td>{teamAverageBlueThree[0].avgAutonShootsFuel}</td>
                                         <td>{teamAverageBlueThree[0].avgTeleOpShootMajority}</td>
                                         <td>{teamAverageBlueThree[0].avgTeleOpShootHalf}</td>
                                         <td>{teamAverageBlueThree[0].avgTeleOpShootLittle}</td>
-                                        <td>{teamAverageBlueThree[0].avgTeleOpFeedHumanMajority}</td>
-                                        <td>{teamAverageBlueThree[0].avgTeleOpFeedHumanLittle}</td>
+                                        <td>{teamAverageBlueThree[0].avgTeleOpPassNeutralAlliance}</td>
+                                        <td>{teamAverageBlueThree[0].avgTeleOpCorralls}</td>
+                                        <td>{teamAverageBlueThree[0].avgTeleOpDefenceBlocking}</td> 
+                                        <td>{teamAverageBlueThree[0].avgTeleOpDefened}</td>
                                     </tr>
                                     <tr className="bg-danger bg-opacity-10">
                                         <td>{match.redOneTeamNumber} ~ {teamAverageRedOne[0].matchCount}</td>
                                         <td>{teamAverageRedOne[0].avgStartPreload}</td>
-                                        <td>{teamAverageRedOne[0].avgTeleOpPassNeutralAlliance}</td>
-                                        <td>{teamAverageRedOne[0].avgTeleOpPassOpponentNeutral}</td>
-                                        <td>{teamAverageRedOne[0].avgTeleOpPassOpponentAlliance}</td>
+                                        <td>{teamAverageRedOne[0].avgAutonIntakes}</td>
+                                        <td>{teamAverageRedOne[0].avgAutonShootsFuel}</td>
                                         <td>{teamAverageRedOne[0].avgTeleOpShootMajority}</td>
                                         <td>{teamAverageRedOne[0].avgTeleOpShootHalf}</td>
                                         <td>{teamAverageRedOne[0].avgTeleOpShootLittle}</td>
-                                        <td>{teamAverageRedOne[0].avgTeleOpFeedHumanMajority}</td>
-                                        <td>{teamAverageRedOne[0].avgTeleOpFeedHumanLittle}</td>
+                                        <td>{teamAverageRedOne[0].avgTeleOpPassNeutralAlliance}</td>
+                                        <td>{teamAverageRedOne[0].avgTeleOpCorralls}</td>
+                                        <td>{teamAverageRedOne[0].avgTeleOpDefenceBlocking}</td> 
+                                        <td>{teamAverageRedOne[0].avgTeleOpDefened}</td>
                                     </tr>
                                     <tr className="bg-danger bg-opacity-10">
                                         <td>{match.redTwoTeamNumber} ~ {teamAverageRedTwo[0].matchCount}</td>
                                         <td>{teamAverageRedTwo[0].avgStartPreload}</td>
-                                        <td>{teamAverageRedTwo[0].avgTeleOpPassNeutralAlliance}</td>
-                                        <td>{teamAverageRedTwo[0].avgTeleOpPassOpponentNeutral}</td>
-                                        <td>{teamAverageRedTwo[0].avgTeleOpPassOpponentAlliance}</td>
+                                        <td>{teamAverageRedTwo[0].avgAutonIntakes}</td>
+                                        <td>{teamAverageRedTwo[0].avgAutonShootsFuel}</td>
                                         <td>{teamAverageRedTwo[0].avgTeleOpShootMajority}</td>
                                         <td>{teamAverageRedTwo[0].avgTeleOpShootHalf}</td>
                                         <td>{teamAverageRedTwo[0].avgTeleOpShootLittle}</td>
-                                        <td>{teamAverageRedTwo[0].avgTeleOpFeedHumanMajority}</td>
-                                        <td>{teamAverageRedTwo[0].avgTeleOpFeedHumanLittle}</td>
+                                        <td>{teamAverageRedTwo[0].avgTeleOpPassNeutralAlliance}</td>
+                                        <td>{teamAverageRedTwo[0].avgTeleOpCorralls}</td>
+                                        <td>{teamAverageRedTwo[0].avgTeleOpDefenceBlocking}</td> 
+                                        <td>{teamAverageRedTwo[0].avgTeleOpDefened}</td>
                                     </tr>
                                     <tr className="bg-danger bg-opacity-10">
                                         <td>{match.redThreeTeamNumber} ~ {teamAverageRedThree[0].matchCount}</td>
                                         <td>{teamAverageRedThree[0].avgStartPreload}</td>
-                                        <td>{teamAverageRedThree[0].avgTeleOpPassNeutralAlliance}</td>
-                                        <td>{teamAverageRedThree[0].avgTeleOpPassOpponentNeutral}</td>
-                                        <td>{teamAverageRedThree[0].avgTeleOpPassOpponentAlliance}</td>
+                                        <td>{teamAverageRedThree[0].avgAutonIntakes}</td>
+                                        <td>{teamAverageRedThree[0].avgAutonShootsFuel}</td>
                                         <td>{teamAverageRedThree[0].avgTeleOpShootMajority}</td>
                                         <td>{teamAverageRedThree[0].avgTeleOpShootHalf}</td>
                                         <td>{teamAverageRedThree[0].avgTeleOpShootLittle}</td>
-                                        <td>{teamAverageRedThree[0].avgTeleOpFeedHumanMajority}</td>
-                                        <td>{teamAverageRedThree[0].avgTeleOpFeedHumanLittle}</td>
+                                        <td>{teamAverageRedThree[0].avgTeleOpPassNeutralAlliance}</td>
+                                        <td>{teamAverageRedThree[0].avgTeleOpCorralls}</td>
+                                        <td>{teamAverageRedThree[0].avgTeleOpDefenceBlocking}</td> 
+                                        <td>{teamAverageRedThree[0].avgTeleOpDefened}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -516,111 +520,83 @@ const Matchdetails = () => {
                             <table className="table"> 
                                 <thead>
                                     <tr>
-                                        <th>Team Number</th>
-                                        <th>Blocking</th>
-                                        <th>Stealling</th>
-                                        <th>Climbs L1</th>
-                                        <th>Climbs L2</th>
-                                        <th>Climbs L3</th>
-                                        <th>Climb Left</th>
-                                        <th>Climb Center</th>
-                                        <th>Climb Right</th>
+                                        <th>Team<br/>Number</th>
+                                        <th>Climb<br/>Level 1</th>
+                                        <th>Climb<br/>Level 2</th>
+                                        <th>Climb<br/>Level 3</th>
                                         <th>Under Trench</th>
                                         <th>Over Bump</th>
-                                        <th>Disabled Mechanically</th>
-                                        <th>Stuck on Field Element</th>
+                                        <th>Disabled<br/>Mechanically</th>
+                                        <th>Stuck of<br/>Field Element</th>
+                                        <th>Parts broken</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr className="bg-primary bg-opacity-10">
                                         <td>{match.blueOneTeamNumber} ~ {teamAverageBlueOne[0].matchCount}</td>
-                                        <td>{teamAverageBlueOne[0].avgTeleOpDefenceBlocking}</td>
-                                        <td>{teamAverageBlueOne[0].avgTeleOpDefenceStealling}</td>
                                         <td>{teamAverageBlueOne[0].avgPostClimbLevelOne}</td>
                                         <td>{teamAverageBlueOne[0].avgPostClimbLevelTwo}</td>
                                         <td>{teamAverageBlueOne[0].avgPostClimbLevelThree}</td>
-                                        <td>{teamAverageBlueOne[0].avgPostClimbLevelLeft}</td>
-                                        <td>{teamAverageBlueOne[0].avgPostClimbLevelCenter}</td>
-                                        <td>{teamAverageBlueOne[0].avgPostClimbLevelRight}</td>
                                         <td>{teamAverageBlueOne[0].avgPostUnderTrench}</td>
                                         <td>{teamAverageBlueOne[0].avgPostOverBump}</td>
                                         <td>{teamAverageBlueOne[0].avgPostDisabledMechanically}</td>
                                         <td>{teamAverageBlueOne[0].avgPostStuckOnFieldElement}</td>
+                                        <td>{teamAverageBlueOne[0].avgPostPartBroken}</td>
                                     </tr>
                                     <tr className="bg-primary bg-opacity-10">
                                         <td>{match.blueTwoTeamNumber} ~ {teamAverageBlueTwo[0].matchCount}</td>
-                                        <td>{teamAverageBlueTwo[0].avgTeleOpDefenceBlocking}</td>
-                                        <td>{teamAverageBlueTwo[0].avgTeleOpDefenceStealling}</td>
                                         <td>{teamAverageBlueTwo[0].avgPostClimbLevelOne}</td>
                                         <td>{teamAverageBlueTwo[0].avgPostClimbLevelTwo}</td>
                                         <td>{teamAverageBlueTwo[0].avgPostClimbLevelThree}</td>
-                                        <td>{teamAverageBlueTwo[0].avgPostClimbLevelLeft}</td>
-                                        <td>{teamAverageBlueTwo[0].avgPostClimbLevelCenter}</td>
-                                        <td>{teamAverageBlueTwo[0].avgPostClimbLevelRight}</td>
                                         <td>{teamAverageBlueTwo[0].avgPostUnderTrench}</td>
                                         <td>{teamAverageBlueTwo[0].avgPostOverBump}</td>
                                         <td>{teamAverageBlueTwo[0].avgPostDisabledMechanically}</td>
                                         <td>{teamAverageBlueTwo[0].avgPostStuckOnFieldElement}</td>
+                                        <td>{teamAverageBlueTwo[0].avgPostPartBroken}</td>
                                     </tr>
                                     <tr className="bg-primary bg-opacity-10">
                                         <td>{match.blueThreeTeamNumber} ~ {teamAverageBlueThree[0].matchCount}</td>
-                                        <td>{teamAverageBlueThree[0].avgTeleOpDefenceBlocking}</td>
-                                        <td>{teamAverageBlueThree[0].avgTeleOpDefenceStealling}</td>
                                         <td>{teamAverageBlueThree[0].avgPostClimbLevelOne}</td>
                                         <td>{teamAverageBlueThree[0].avgPostClimbLevelTwo}</td>
                                         <td>{teamAverageBlueThree[0].avgPostClimbLevelThree}</td>
-                                        <td>{teamAverageBlueThree[0].avgPostClimbLevelLeft}</td>
-                                        <td>{teamAverageBlueThree[0].avgPostClimbLevelCenter}</td>
-                                        <td>{teamAverageBlueThree[0].avgPostClimbLevelRight}</td>
                                         <td>{teamAverageBlueThree[0].avgPostUnderTrench}</td>
                                         <td>{teamAverageBlueThree[0].avgPostOverBump}</td>
                                         <td>{teamAverageBlueThree[0].avgPostDisabledMechanically}</td>
                                         <td>{teamAverageBlueThree[0].avgPostStuckOnFieldElement}</td>
+                                        <td>{teamAverageBlueThree[0].avgPostPartBroken}</td>
                                     </tr>
                                     <tr className="bg-danger bg-opacity-10">
                                         <td>{match.redOneTeamNumber} ~ {teamAverageRedOne[0].matchCount}</td>
-                                        <td>{teamAverageRedOne[0].avgTeleOpDefenceBlocking}</td>
-                                        <td>{teamAverageRedOne[0].avgTeleOpDefenceStealling}</td>
                                         <td>{teamAverageRedOne[0].avgPostClimbLevelOne}</td>
                                         <td>{teamAverageRedOne[0].avgPostClimbLevelTwo}</td>
                                         <td>{teamAverageRedOne[0].avgPostClimbLevelThree}</td>
-                                        <td>{teamAverageRedOne[0].avgPostClimbLevelLeft}</td>
-                                        <td>{teamAverageRedOne[0].avgPostClimbLevelCenter}</td>
-                                        <td>{teamAverageRedOne[0].avgPostClimbLevelRight}</td>
                                         <td>{teamAverageRedOne[0].avgPostUnderTrench}</td>
                                         <td>{teamAverageRedOne[0].avgPostOverBump}</td>
                                         <td>{teamAverageRedOne[0].avgPostDisabledMechanically}</td>
                                         <td>{teamAverageRedOne[0].avgPostStuckOnFieldElement}</td>
+                                        <td>{teamAverageRedOne[0].avgPostPartBroken}</td>
                                     </tr>
                                     <tr className="bg-danger bg-opacity-10">
                                         <td>{match.redTwoTeamNumber} ~ {teamAverageRedTwo[0].matchCount}</td>
-                                        <td>{teamAverageRedTwo[0].avgTeleOpDefenceBlocking}</td>
-                                        <td>{teamAverageRedTwo[0].avgTeleOpDefenceStealling}</td>
                                         <td>{teamAverageRedTwo[0].avgPostClimbLevelOne}</td>
                                         <td>{teamAverageRedTwo[0].avgPostClimbLevelTwo}</td>
                                         <td>{teamAverageRedTwo[0].avgPostClimbLevelThree}</td>
-                                        <td>{teamAverageRedTwo[0].avgPostClimbLevelLeft}</td>
-                                        <td>{teamAverageRedTwo[0].avgPostClimbLevelCenter}</td>
-                                        <td>{teamAverageRedTwo[0].avgPostClimbLevelRight}</td>
                                         <td>{teamAverageRedTwo[0].avgPostUnderTrench}</td>
                                         <td>{teamAverageRedTwo[0].avgPostOverBump}</td>
                                         <td>{teamAverageRedTwo[0].avgPostDisabledMechanically}</td>
                                         <td>{teamAverageRedTwo[0].avgPostStuckOnFieldElement}</td>
+                                        <td>{teamAverageRedTwo[0].avgPostPartBroken}</td>
                                     </tr>
                                     <tr className="bg-danger bg-opacity-10">
                                         <td>{match.redThreeTeamNumber} ~ {teamAverageRedThree[0].matchCount}</td>
-                                        <td>{teamAverageRedThree[0].avgTeleOpDefenceBlocking}</td>
-                                        <td>{teamAverageRedThree[0].avgTeleOpDefenceStealling}</td>
                                         <td>{teamAverageRedThree[0].avgPostClimbLevelOne}</td>
                                         <td>{teamAverageRedThree[0].avgPostClimbLevelTwo}</td>
                                         <td>{teamAverageRedThree[0].avgPostClimbLevelThree}</td>
-                                        <td>{teamAverageRedThree[0].avgPostClimbLevelLeft}</td>
-                                        <td>{teamAverageRedThree[0].avgPostClimbLevelCenter}</td>
-                                        <td>{teamAverageRedThree[0].avgPostClimbLevelRight}</td>
                                         <td>{teamAverageRedThree[0].avgPostUnderTrench}</td>
                                         <td>{teamAverageRedThree[0].avgPostOverBump}</td>
                                         <td>{teamAverageRedThree[0].avgPostDisabledMechanically}</td>
                                         <td>{teamAverageRedThree[0].avgPostStuckOnFieldElement}</td>
+                                        <td>{teamAverageRedThree[0].avgPostPartBroken}</td>
                                     </tr>
                                 </tbody>
                             </table>

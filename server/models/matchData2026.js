@@ -58,6 +58,7 @@ MatchData2026.init({
     teleOpDefenceStealling: DataTypes.INTEGER,
     teleOpDefenceBlocking: DataTypes.INTEGER,
     
+    teleOpDefened: DataTypes.INTEGER,
     teleOpCorralls: DataTypes.INTEGER,
 
     // Post match (use 'post' prefix)
