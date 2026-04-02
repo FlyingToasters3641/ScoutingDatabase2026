@@ -34,7 +34,15 @@ const Matchdetails = () => {
         avgPostUnderTrench: -1, 
         avgPostOverBump: -1, 
         avgPostDisabledMechanically: -1, 
-        avgPostStuckOnFieldElement: -1
+        avgPostStuckOnFieldElement: -1,
+        avgPostPartBroken: -1, 
+        avgTeleOpCorralls: -1, 
+        avgAutonNeutralZone: -1,
+        avgAutonIntake: -1,
+        avgAutonClimbLevel: -1,
+        avgAutonOutpost: -1,
+        avgAutonDepot: -1,
+        avgAutonShootsFuel: -1,
     }];
     const teamMedianDefault = [{
         medStartPreload: -1,
@@ -57,7 +65,15 @@ const Matchdetails = () => {
         medPostUnderTrench: -1, 
         medPostOverBump: -1, 
         medPostDisabledMechanically: -1, 
-        medPostStuckOnFieldElement: -1
+        medPostStuckOnFieldElement: -1,
+        medPostPartBroken: -1, 
+        medTeleOpCorralls: -1, 
+        medAutonNeutralZone: -1,
+        medAutonIntake: -1,
+        medAutonClimbLevel: -1,
+        medAutonOutpost: -1,
+        medAutonDepot: -1,
+        medAutonShootsFuel: -1,
     }];
     const [teamAverageBlueOne, setTeamAverageBlueOne] = useState(teamAverageDefault);
     const [teamMedianBlueOne, setTeamMedianBlueOne] = useState(teamMedianDefault);
