@@ -355,6 +355,17 @@ const Matchdetails = () => {
                                         <td>{teamMedianBlueOne[0].medPostDisabledMechanically}</td>
                                         <td>{teamMedianBlueOne[0].medPostStuckOnFieldElement}</td>
                                     </tr>
+                                    <tr className="bg-danger bg-opacity-10">
+                                        <td>{match.redThreeTeamNumber} ~ {teamAverageRedThree[0].matchCount}</td>
+                                        <td>{teamMedianBlueOne[0].medAutonClimbLevel}</td>
+                                        <td>{teamMedianBlueOne[0].medAutonDepot}</td>
+                                        <td>{teamMedianBlueOne[0].medAutonIntake}</td>
+                                        <td>{teamMedianBlueOne[0].medAutonNeutralZone}</td>
+                                        <td>{teamMedianBlueOne[0].medAutonOutpost}</td>
+                                        <td>{teamMedianBlueOne[0].medAutonShootsFuel}</td>
+                                        <td>{teamMedianBlueOne[0].medTeleOpCorralls}</td>
+                                        <td>{teamMedianBlueOne[0].medPostPartBroken}</td>
+                                    </tr>
                                     <tr className="bg-primary bg-opacity-10">
                                         <td>{match.blueTwoTeamNumber} ~ {teamAverageBlueTwo[0].matchCount}</td>
                                         <td>{teamMedianBlueTwo[0].medTeleOpDefenceBlocking}</td>
@@ -369,6 +380,17 @@ const Matchdetails = () => {
                                         <td>{teamMedianBlueTwo[0].medPostOverBump}</td>
                                         <td>{teamMedianBlueTwo[0].medPostDisabledMechanically}</td>
                                         <td>{teamMedianBlueTwo[0].medPostStuckOnFieldElement}</td>
+                                    </tr>
+                                    <tr className="bg-danger bg-opacity-10">
+                                        <td>{match.redThreeTeamNumber} ~ {teamAverageRedThree[0].matchCount}</td>
+                                        <td>{teamMedianBlueTwo[0].medAutonClimbLevel}</td>
+                                        <td>{teamMedianBlueTwo[0].medAutonDepot}</td>
+                                        <td>{teamMedianBlueTwo[0].medAutonIntake}</td>
+                                        <td>{teamMedianBlueTwo[0].medAutonNeutralZone}</td>
+                                        <td>{teamMedianBlueTwo[0].medAutonOutpost}</td>
+                                        <td>{teamMedianBlueTwo[0].medAutonShootsFuel}</td>
+                                        <td>{teamMedianBlueTwo[0].medTeleOpCorralls}</td>
+                                        <td>{teamMedianBlueTwo[0].medPostPartBroken}</td>
                                     </tr>
                                     <tr className="bg-primary bg-opacity-10">
                                         <td>{match.blueThreeTeamNumber} ~ {teamAverageBlueThree[0].matchCount}</td>
@@ -386,6 +408,17 @@ const Matchdetails = () => {
                                         <td>{teamMedianBlueThree[0].medPostStuckOnFieldElement}</td>
                                     </tr>
                                     <tr className="bg-danger bg-opacity-10">
+                                        <td>{match.redThreeTeamNumber} ~ {teamAverageRedThree[0].matchCount}</td>
+                                        <td>{teamMedianBlueThree[0].medAutonClimbLevel}</td>
+                                        <td>{teamMedianBlueThree[0].medAutonDepot}</td>
+                                        <td>{teamMedianBlueThree[0].medAutonIntake}</td>
+                                        <td>{teamMedianBlueThree[0].medAutonNeutralZone}</td>
+                                        <td>{teamMedianBlueThree[0].medAutonOutpost}</td>
+                                        <td>{teamMedianBlueThree[0].medAutonShootsFuel}</td>
+                                        <td>{teamMedianBlueThree[0].medTeleOpCorralls}</td>
+                                        <td>{teamMedianBlueThree[0].medPostPartBroken}</td>
+                                    </tr>
+                                    <tr className="bg-danger bg-opacity-10">
                                         <td>{match.redOneTeamNumber} ~ {teamAverageRedOne[0].matchCount}</td>
                                         <td>{teamMedianRedOne[0].medTeleOpDefenceBlocking}</td>
                                         <td>{teamMedianRedOne[0].medTeleOpDefenceStealling}</td>
@@ -399,6 +432,17 @@ const Matchdetails = () => {
                                         <td>{teamMedianRedOne[0].medPostOverBump}</td>
                                         <td>{teamMedianRedOne[0].medPostDisabledMechanically}</td>
                                         <td>{teamMedianRedOne[0].medPostStuckOnFieldElement}</td>
+                                    </tr>
+                                    <tr className="bg-danger bg-opacity-10">
+                                        <td>{match.redThreeTeamNumber} ~ {teamAverageRedThree[0].matchCount}</td>
+                                        <td>{teamMedianRedOne[0].medAutonClimbLevel}</td>
+                                        <td>{teamMedianRedOne[0].medAutonDepot}</td>
+                                        <td>{teamMedianRedOne[0].medAutonIntake}</td>
+                                        <td>{teamMedianRedOne[0].medAutonNeutralZone}</td>
+                                        <td>{teamMedianRedOne[0].medAutonOutpost}</td>
+                                        <td>{teamMedianRedOne[0].medAutonShootsFuel}</td>
+                                        <td>{teamMedianRedOne[0].medTeleOpCorralls}</td>
+                                        <td>{teamMedianRedOne[0].medPostPartBroken}</td>
                                     </tr>
                                     <tr className="bg-danger bg-opacity-10">
                                         <td>{match.redTwoTeamNumber} ~ {teamAverageRedTwo[0].matchCount}</td>
@@ -417,6 +461,17 @@ const Matchdetails = () => {
                                     </tr>
                                     <tr className="bg-danger bg-opacity-10">
                                         <td>{match.redThreeTeamNumber} ~ {teamAverageRedThree[0].matchCount}</td>
+                                        <td>{teamMedianRedTwo[0].medAutonClimbLevel}</td>
+                                        <td>{teamMedianRedTwo[0].medAutonDepot}</td>
+                                        <td>{teamMedianRedTwo[0].medAutonIntake}</td>
+                                        <td>{teamMedianRedTwo[0].medAutonNeutralZone}</td>
+                                        <td>{teamMedianRedTwo[0].medAutonOutpost}</td>
+                                        <td>{teamMedianRedTwo[0].medAutonShootsFuel}</td>
+                                        <td>{teamMedianRedTwo[0].medTeleOpCorralls}</td>
+                                        <td>{teamMedianRedTwo[0].medPostPartBroken}</td>
+                                    </tr>
+                                    <tr className="bg-danger bg-opacity-10">
+                                        <td>{match.redThreeTeamNumber} ~ {teamAverageRedThree[0].matchCount}</td>
                                         <td>{teamMedianRedThree[0].medTeleOpDefenceBlocking}</td>
                                         <td>{teamMedianRedThree[0].medTeleOpDefenceStealling}</td>
                                         <td>{teamMedianRedThree[0].medPostClimbLevelOne}</td>
@@ -429,6 +484,17 @@ const Matchdetails = () => {
                                         <td>{teamMedianRedThree[0].medPostOverBump}</td>
                                         <td>{teamMedianRedThree[0].medPostDisabledMechanically}</td>
                                         <td>{teamMedianRedThree[0].medPostStuckOnFieldElement}</td>
+                                    </tr>
+                                    <tr className="bg-danger bg-opacity-10">
+                                        <td>{match.redThreeTeamNumber} ~ {teamAverageRedThree[0].matchCount}</td>
+                                        <td>{teamMedianRedThree[0].medAutonClimbLevel}</td>
+                                        <td>{teamMedianRedThree[0].medAutonDepot}</td>
+                                        <td>{teamMedianRedThree[0].medAutonIntake}</td>
+                                        <td>{teamMedianRedThree[0].medAutonNeutralZone}</td>
+                                        <td>{teamMedianRedThree[0].medAutonOutpost}</td>
+                                        <td>{teamMedianRedThree[0].medAutonShootsFuel}</td>
+                                        <td>{teamMedianRedThree[0].medTeleOpCorralls}</td>
+                                        <td>{teamMedianRedThree[0].medPostPartBroken}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -465,6 +531,18 @@ const Matchdetails = () => {
                                         <td>{teamAverageBlueOne[0].avgTeleOpFeedHumanMajority}</td>
                                         <td>{teamAverageBlueOne[0].avgTeleOpFeedHumanLittle}</td>
                                     </tr>
+                                    <tr className="bg-danger bg-opacity-10">
+                                        <td>{match.redThreeTeamNumber} ~ {teamAverageRedThree[0].matchCount}</td>
+                                        <td>{teamAverageBlueOne[0].avgStartPreload}</td>
+                                        <td>{teamAverageBlueOne[0].avgAutonClimbLevel}</td>
+                                        <td>{teamAverageBlueOne[0].avgAutonDepot}</td>
+                                        <td>{teamAverageBlueOne[0].avgAutonIntake}</td>
+                                        <td>{teamAverageBlueOne[0].avgAutonNeutralZone}</td>
+                                        <td>{teamAverageBlueOne[0].avgAutonOutpost}</td>
+                                        <td>{teamAverageBlueOne[0].avgAutonShootsFuel}</td>
+                                        <td>{teamAverageBlueOne[0].avgTeleOpCorralls}</td>
+                                        <td>{teamAverageBlueOne[0].avgPostPartBroken}</td>
+                                    </tr>
                                     <tr className="bg-primary bg-opacity-10">
                                         <td>{match.blueTwoTeamNumber} ~ {teamAverageBlueTwo[0].matchCount}</td>
                                         <td>{teamAverageBlueTwo[0].avgStartPreload}</td>
@@ -476,6 +554,18 @@ const Matchdetails = () => {
                                         <td>{teamAverageBlueTwo[0].avgTeleOpShootLittle}</td>
                                         <td>{teamAverageBlueTwo[0].avgTeleOpFeedHumanMajority}</td>
                                         <td>{teamAverageBlueTwo[0].avgTeleOpFeedHumanLittle}</td>
+                                    </tr>
+                                    <tr className="bg-danger bg-opacity-10">
+                                        <td>{match.redThreeTeamNumber} ~ {teamAverageRedThree[0].matchCount}</td>
+                                        <td>{teamAverageBlueTwo[0].avgStartPreload}</td>
+                                        <td>{teamAverageBlueTwo[0].avgAutonClimbLevel}</td>
+                                        <td>{teamAverageBlueTwo[0].avgAutonDepot}</td>
+                                        <td>{teamAverageBlueTwo[0].avgAutonIntake}</td>
+                                        <td>{teamAverageBlueTwo[0].avgAutonNeutralZone}</td>
+                                        <td>{teamAverageBlueTwo[0].avgAutonOutpost}</td>
+                                        <td>{teamAverageBlueTwo[0].avgAutonShootsFuel}</td>
+                                        <td>{teamAverageBlueTwo[0].avgTeleOpCorralls}</td>
+                                        <td>{teamAverageBlueTwo[0].avgPostPartBroken}</td>
                                     </tr>
                                     <tr className="bg-primary bg-opacity-10">
                                         <td>{match.blueThreeTeamNumber} ~ {teamAverageBlueThree[0].matchCount}</td>
@@ -490,6 +580,18 @@ const Matchdetails = () => {
                                         <td>{teamAverageBlueThree[0].avgTeleOpFeedHumanLittle}</td>
                                     </tr>
                                     <tr className="bg-danger bg-opacity-10">
+                                        <td>{match.redThreeTeamNumber} ~ {teamAverageRedThree[0].matchCount}</td>
+                                        <td>{teamAverageBlueThree[0].avgStartPreload}</td>
+                                        <td>{teamAverageBlueThree[0].avgAutonClimbLevel}</td>
+                                        <td>{teamAverageBlueThree[0].avgAutonDepot}</td>
+                                        <td>{teamAverageBlueThree[0].avgAutonIntake}</td>
+                                        <td>{teamAverageBlueThree[0].avgAutonNeutralZone}</td>
+                                        <td>{teamAverageBlueThree[0].avgAutonOutpost}</td>
+                                        <td>{teamAverageBlueThree[0].avgAutonShootsFuel}</td>
+                                        <td>{teamAverageBlueThree[0].avgTeleOpCorralls}</td>
+                                        <td>{teamAverageBlueThree[0].avgPostPartBroken}</td>
+                                    </tr>
+                                    <tr className="bg-danger bg-opacity-10">
                                         <td>{match.redOneTeamNumber} ~ {teamAverageRedOne[0].matchCount}</td>
                                         <td>{teamAverageRedOne[0].avgStartPreload}</td>
                                         <td>{teamAverageRedOne[0].avgTeleOpPassNeutralAlliance}</td>
@@ -500,6 +602,18 @@ const Matchdetails = () => {
                                         <td>{teamAverageRedOne[0].avgTeleOpShootLittle}</td>
                                         <td>{teamAverageRedOne[0].avgTeleOpFeedHumanMajority}</td>
                                         <td>{teamAverageRedOne[0].avgTeleOpFeedHumanLittle}</td>
+                                    </tr>
+                                    <tr className="bg-danger bg-opacity-10">
+                                        <td>{match.redThreeTeamNumber} ~ {teamAverageRedThree[0].matchCount}</td>
+                                        <td>{teamAverageRedOne[0].avgStartPreload}</td>
+                                        <td>{teamAverageRedOne[0].avgAutonClimbLevel}</td>
+                                        <td>{teamAverageRedOne[0].avgAutonDepot}</td>
+                                        <td>{teamAverageRedOne[0].avgAutonIntake}</td>
+                                        <td>{teamAverageRedOne[0].avgAutonNeutralZone}</td>
+                                        <td>{teamAverageRedOne[0].avgAutonOutpost}</td>
+                                        <td>{teamAverageRedOne[0].avgAutonShootsFuel}</td>
+                                        <td>{teamAverageRedOne[0].avgTeleOpCorralls}</td>
+                                        <td>{teamAverageRedOne[0].avgPostPartBroken}</td>
                                     </tr>
                                     <tr className="bg-danger bg-opacity-10">
                                         <td>{match.redTwoTeamNumber} ~ {teamAverageRedTwo[0].matchCount}</td>
@@ -515,6 +629,18 @@ const Matchdetails = () => {
                                     </tr>
                                     <tr className="bg-danger bg-opacity-10">
                                         <td>{match.redThreeTeamNumber} ~ {teamAverageRedThree[0].matchCount}</td>
+                                        <td>{teamAverageRedTwo[0].avgStartPreload}</td>
+                                        <td>{teamAverageRedTwo[0].avgAutonClimbLevel}</td>
+                                        <td>{teamAverageRedTwo[0].avgAutonDepot}</td>
+                                        <td>{teamAverageRedTwo[0].avgAutonIntake}</td>
+                                        <td>{teamAverageRedTwo[0].avgAutonNeutralZone}</td>
+                                        <td>{teamAverageRedTwo[0].avgAutonOutpost}</td>
+                                        <td>{teamAverageRedTwo[0].avgAutonShootsFuel}</td>
+                                        <td>{teamAverageRedTwo[0].avgTeleOpCorralls}</td>
+                                        <td>{teamAverageRedTwo[0].avgPostPartBroken}</td>
+                                    </tr>
+                                    <tr className="bg-danger bg-opacity-10">
+                                        <td>{match.redThreeTeamNumber} ~ {teamAverageRedThree[0].matchCount}</td>
                                         <td>{teamAverageRedThree[0].avgStartPreload}</td>
                                         <td>{teamAverageRedThree[0].avgTeleOpPassNeutralAlliance}</td>
                                         <td>{teamAverageRedThree[0].avgTeleOpPassOpponentNeutral}</td>
@@ -524,6 +650,18 @@ const Matchdetails = () => {
                                         <td>{teamAverageRedThree[0].avgTeleOpShootLittle}</td>
                                         <td>{teamAverageRedThree[0].avgTeleOpFeedHumanMajority}</td>
                                         <td>{teamAverageRedThree[0].avgTeleOpFeedHumanLittle}</td>
+                                    </tr>
+                                    <tr className="bg-danger bg-opacity-10">
+                                        <td>{match.redThreeTeamNumber} ~ {teamAverageRedThree[0].matchCount}</td>
+                                        <td>{teamAverageRedThree[0].avgStartPreload}</td>
+                                        <td>{teamAverageRedThree[0].avgAutonClimbLevel}</td>
+                                        <td>{teamAverageRedThree[0].avgAutonDepot}</td>
+                                        <td>{teamAverageRedThree[0].avgAutonIntake}</td>
+                                        <td>{teamAverageRedThree[0].avgAutonNeutralZone}</td>
+                                        <td>{teamAverageRedThree[0].avgAutonOutpost}</td>
+                                        <td>{teamAverageRedThree[0].avgAutonShootsFuel}</td>
+                                        <td>{teamAverageRedThree[0].avgTeleOpCorralls}</td>
+                                        <td>{teamAverageRedThree[0].avgPostPartBroken}</td>
                                     </tr>
                                 </tbody>
                             </table>
