@@ -35,7 +35,16 @@ const Team = () => {
         medPostUnderTrench: -1, 
         medPostOverBump: -1, 
         medPostDisabledMechanically: -1, 
-        medPostStuckOnFieldElement: -1
+        medPostStuckOnFieldElement: -1,
+        medPostPartBroken: -1, 
+        medTeleOpCorralls: -1, 
+        medAutonNeutralZone: -1,
+        medAutonIntake: -1,
+        medAutonClimbLevel: -1,
+        medAutonOutpost: -1,
+        medAutonDepot: -1,
+        medAutonShootsFuel: -1,
+        medTeleOpDefened: -1,
     }];
     const teamAverageDefault = [{
         avgStartTrenchLeft: -1,
@@ -68,6 +77,15 @@ const Team = () => {
         avgPostNotThere: -1,
         avgPostDisabledMechanically: -1,
         avgPostStuckOnFieldElement: -1,
+        avgPostPartBroken: -1, 
+        avgTeleOpCorralls: -1, 
+        avgAutonNeutralZone: -1,
+        avgAutonIntakes: -1,
+        avgAutonClimbLevel: -1,
+        avgAutonOutpost: -1,
+        avgAutonDepot: -1,
+        avgAutonShootsFuel: -1,
+        avgTeleOpDefened: -1,
     }];
     const [teamAverage, setTeamAverage] = useState(teamAverageDefault);
     const [teamMedian, setTeamMedian] = useState(teamMedianDefault);
@@ -158,38 +176,55 @@ const Team = () => {
                                         <td>{teamAverage[0].avgStartBumpLeft}</td>
                                         <td>{teamAverage[0].avgStartHub}</td>
                                         <td>{teamAverage[0].avgStartBumpRight}</td>
-                                        <td>{teamAverage[0].avgStartTrenchRight}</td>
                                     </tr>
                                 </tbody>
                             </table>
                         )}
 
-                        <table className="table">
-                            <thead>
+                        {isMedian ? (
+                            <table className="table">
+                                <thead>
                                     <tr>
-                                        <th>Match Key</th>
-                                        <th>Action 1</th>
-                                        <th>Action 2</th>
-                                        <th>Action 3</th>
-                                        <th>Action 4</th>
-                                        <th>Action 5</th>
-                                        <th>Action 6</th>
+                                        <th>Shoots</th>
+                                        <th>Intakes</th>
+                                        <th>Climb</th>
+                                        <th>Outpost</th>
+                                        <th>Neutral Zone</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {matchdata.map(matchdata => (
-                                        <tr key= {matchdata.teamNumber} className="bg-secondary bg-opacity-10">
-                                            <td>{matchdata.matchKey}</td>
-                                            <td>{matchdata.autonOne}</td>
-                                            <td>{matchdata.autonTwo}</td>
-                                            <td>{matchdata.autonThree}</td>
-                                            <td>{matchdata.autonFour}</td>
-                                            <td>{matchdata.autonFive}</td>
-                                            <td>{matchdata.autonSix}</td>
-                                        </tr>
-                                    ))}
+                                    <tr className="bg-secondary bg-opacity-10">
+                                        <td>{teamMedian[0].medAutonShootsFuel}</td>
+                                        <td>{teamMedian[0].medAutonIntake}</td>
+                                        <td>{teamMedian[0].medAutonClimb}</td>
+                                        <td>{teamMedian[0].medAutonOutpost}</td>
+                                        <td>{teamMedian[0].medAutonNeutralZone}</td>
+                                    </tr>
                                 </tbody>
                             </table>
+                        ):(
+                            <table className="table">
+                                <thead>
+                                    <tr>
+                                        <th>Shoots</th>
+                                        <th>Intakes</th>
+                                        <th>Climb</th>
+                                        <th>Outpost</th>
+                                        <th>Neutral Zone</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr className="bg-secondary bg-opacity-10">
+                                        <td>{teamAverage[0].avgAutonShootsFuel}</td>
+                                        <td>{teamAverage[0].avgAutonIntakes}</td>
+                                        <td>{teamAverage[0].avgAutonClimb}</td>
+                                        <td>{teamAverage[0].avgAutonOutpost}</td>
+                                        <td>{teamAverage[0].avgAutonNeutralZone}</td>
+                                        <td>{teamAverage[0].avgStartTrenchRight}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        )}
                         </Col>
                     </Row>
                     <Row>
@@ -204,16 +239,14 @@ const Team = () => {
                                         <table className="table">
                                         <thead>
                                                 <tr>
-                                                    <th>Neutral to Alliance</th>
-                                                    <th>Opposing to Neutral</th>
-                                                    <th>Opposing to Alliance</th>
+                                                    <th>Passing</th>
+                                                    <th>Corralling</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr className="bg-secondary bg-opacity-10">
                                                     <td>{teamMedian[0].medTeleOpPassNeutralAlliance}</td>
-                                                    <td>{teamMedian[0].medTeleOpPassOpponentNeutral}</td>
-                                                    <td>{teamMedian[0].medTeleOpPassOpponentAlliance}</td>
+                                                    <td>{teamMedian[0].medTeleOpCorralls}</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -221,16 +254,14 @@ const Team = () => {
                                     <table className="table">
                                         <thead>
                                                 <tr>
-                                                    <th>Neutral to Alliance</th>
-                                                    <th>Opposing to Neutral</th>
-                                                    <th>Opposing to Alliance</th>
+                                                    <th>Passing</th>
+                                                    <th>Corralling</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr className="bg-secondary bg-opacity-10">
                                                     <td>{teamAverage[0].avgTeleOpPassNeutralAlliance}</td>
-                                                    <td>{teamAverage[0].avgTeleOpPassOpponentNeutral}</td>
-                                                    <td>{teamAverage[0].avgTeleOpPassOpponentAlliance}</td>
+                                                    <td>{teamAverage[0].avgTeleOpCorralls}</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -311,16 +342,16 @@ const Team = () => {
                                             <td>{teamMedian[0].medPostDisabledMechanically}</td>
                                         </tr>
                                         <tr className="bg-secondary bg-opacity-10">
+                                            <td>Part Broken</td>
+                                            <td>{teamMedian[0].medPostPartBroken}</td>
+                                        </tr>
+                                        <tr className="bg-secondary bg-opacity-10">
                                             <td>Stuck on Field Element</td>
                                             <td>{teamMedian[0].medPostStuckOnFieldElement}</td>
                                         </tr>
                                         <tr className="bg-secondary bg-opacity-10">
-                                            <td>Feed Human Lots</td>
+                                            <td>Feeds Outpost</td>
                                             <td>{teamMedian[0].medTeleOpFeedHumanMajority}</td>
-                                        </tr>
-                                        <tr className="bg-secondary bg-opacity-10">
-                                            <td>Feed Human Little</td>
-                                            <td>{teamMedian[0].medTeleOpFeedHumanLittle}</td>
                                         </tr>
                                         <tr className="bg-secondary bg-opacity-10">
                                             <td>Defence Stealling</td>
@@ -329,6 +360,10 @@ const Team = () => {
                                         <tr className="bg-secondary bg-opacity-10">
                                             <td>Defence Blocking</td>
                                             <td>{teamMedian[0].medTeleOpDefenceBlocking}</td>
+                                        </tr>
+                                        <tr className="bg-secondary bg-opacity-10">
+                                            <td>Defended</td>
+                                            <td>{teamMedian[0].medTeleOpDefened}</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -358,24 +393,24 @@ const Team = () => {
                                             <td>{teamAverage[0].avgPostDisabledMechanically}</td>
                                         </tr>
                                         <tr className="bg-secondary bg-opacity-10">
+                                            <td>Part Broken</td>
+                                            <td>{teamAverage[0].avgPostPartBroken}</td>
+                                        </tr>
+                                        <tr className="bg-secondary bg-opacity-10">
                                             <td>Stuck on Field Element</td>
                                             <td>{teamAverage[0].avgPostStuckOnFieldElement}</td>
                                         </tr>
                                         <tr className="bg-secondary bg-opacity-10">
-                                            <td>Feed Human Lots</td>
+                                            <td>Feeds Outpost</td>
                                             <td>{teamAverage[0].avgTeleOpFeedHumanMajority}</td>
                                         </tr>
                                         <tr className="bg-secondary bg-opacity-10">
-                                            <td>Feed Human Little</td>
-                                            <td>{teamAverage[0].avgTeleOpFeedHumanLittle}</td>
-                                        </tr>
-                                        <tr className="bg-secondary bg-opacity-10">
-                                            <td>Defence Stealling</td>
-                                            <td>{teamAverage[0].avgTeleOpDefenceStealling}</td>
-                                        </tr>
-                                        <tr className="bg-secondary bg-opacity-10">
-                                            <td>Defence Blocking</td>
+                                            <td>Defending</td>
                                             <td>{teamAverage[0].avgTeleOpDefenceBlocking}</td>
+                                        </tr>
+                                        <tr className="bg-secondary bg-opacity-10">
+                                            <td>Defended</td>
+                                            <td>{teamAverage[0].avgTeleOpDefened}</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -389,29 +424,21 @@ const Team = () => {
                                     <thead>
                                         <tr>
                                             <th>Level</th>
-                                            <th>Left</th>
-                                            <th>Center</th>
-                                            <th>Right</th>
+                                            <th>Median</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr className="bg-secondary bg-opacity-10">
                                             <td>L3</td>
                                             <td>{teamMedian[0].medPostClimbLevelThreeLeft}</td>
-                                            <td>{teamMedian[0].medPostClimbLevelThreeCenter}</td>
-                                            <td>{teamMedian[0].medPostClimbLevelThreeRight}</td>
                                         </tr>
                                         <tr className="bg-secondary bg-opacity-10">
                                             <td>L2</td>
                                             <td>{teamMedian[0].medPostClimbLevelTwoLeft}</td>
-                                            <td>{teamMedian[0].medPostClimbLevelTwoCenter}</td>
-                                            <td>{teamMedian[0].medPostClimbLevelTwoRight}</td>
                                         </tr>
                                         <tr className="bg-secondary bg-opacity-10">
                                             <td>L1</td>
                                             <td>{teamMedian[0].medPostClimbLevelOneLeft}</td>
-                                            <td>{teamMedian[0].medPostClimbLevelOneCenter}</td>
-                                            <td>{teamMedian[0].medPostClimbLevelOneRight}</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -420,29 +447,21 @@ const Team = () => {
                                     <thead>
                                         <tr>
                                             <th>Level</th>
-                                            <th>Left</th>
-                                            <th>Center</th>
-                                            <th>Right</th>
+                                            <th>Average</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr className="bg-secondary bg-opacity-10">
                                             <td>L3</td>
                                             <td>{teamAverage[0].avgPostClimbLevelThreeLeft}</td>
-                                            <td>{teamAverage[0].avgPostClimbLevelThreeCenter}</td>
-                                            <td>{teamAverage[0].avgPostClimbLevelThreeRight}</td>
                                         </tr>
                                         <tr className="bg-secondary bg-opacity-10">
                                             <td>L2</td>
                                             <td>{teamAverage[0].avgPostClimbLevelTwoLeft}</td>
-                                            <td>{teamAverage[0].avgPostClimbLevelTwoCenter}</td>
-                                            <td>{teamAverage[0].avgPostClimbLevelTwoRight}</td>
                                         </tr>
                                         <tr className="bg-secondary bg-opacity-10">
                                             <td>L1</td>
                                             <td>{teamAverage[0].avgPostClimbLevelOneLeft}</td>
-                                            <td>{teamAverage[0].avgPostClimbLevelOneCenter}</td>
-                                            <td>{teamAverage[0].avgPostClimbLevelOneRight}</td>
                                         </tr>
                                     </tbody>
                                 </table>
