@@ -176,6 +176,7 @@ const Team = () => {
                                         <td>{teamAverage[0].avgStartBumpLeft}</td>
                                         <td>{teamAverage[0].avgStartHub}</td>
                                         <td>{teamAverage[0].avgStartBumpRight}</td>
+                                        <td>{teamAverage[0].avgStartTrenchRight}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -220,7 +221,6 @@ const Team = () => {
                                         <td>{teamAverage[0].avgAutonClimb}</td>
                                         <td>{teamAverage[0].avgAutonOutpost}</td>
                                         <td>{teamAverage[0].avgAutonNeutralZone}</td>
-                                        <td>{teamAverage[0].avgStartTrenchRight}</td>
                                     </tr>
                                 </tbody>
                             </table>
