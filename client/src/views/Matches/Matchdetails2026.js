@@ -44,6 +44,9 @@ const Matchdetails = () => {
         avgAutonDepot: -1,
         avgAutonShootsFuel: -1,
         avgTeleOpDefened: -1,
+        avgPostClimbLevelOneLeft: -1,
+        avgPostClimbLevelTwoLeft: -1,
+        avgPostClimbLevelThreeLeft: -1,
     }];
     const teamMedianDefault = [{
         medStartPreload: -1,
@@ -76,6 +79,9 @@ const Matchdetails = () => {
         medAutonDepot: -1,
         medAutonShootsFuel: -1,
         medTeleOpDefened: -1,
+        medPostClimbLevelOneLeft: -1,
+        medPostClimbLevelTwoLeft: -1,
+        medPostClimbLevelThreeLeft: -1,
     }];
     const [teamAverageBlueOne, setTeamAverageBlueOne] = useState(teamAverageDefault);
     const [teamMedianBlueOne, setTeamMedianBlueOne] = useState(teamMedianDefault);
@@ -347,9 +353,9 @@ const Matchdetails = () => {
                                 <tbody>
                                     <tr className="bg-primary bg-opacity-10">
                                         <td>{match.blueOneTeamNumber} ~ {teamAverageBlueOne[0].matchCount}</td>
-                                        <td>{teamMedianBlueOne[0].medPostClimbLevelOne}</td>
-                                        <td>{teamMedianBlueOne[0].medPostClimbLevelTwo}</td>
-                                        <td>{teamMedianBlueOne[0].medPostClimbLevelThree}</td>
+                                        <td>{teamMedianBlueOne[0].medPostClimbLevelOneLeft}</td>
+                                        <td>{teamMedianBlueOne[0].medPostClimbLevelTwoLeft}</td>
+                                        <td>{teamMedianBlueOne[0].medPostClimbLevelThreeLeft}</td>
                                         <td>{teamMedianBlueOne[0].medPostUnderTrench}</td>
                                         <td>{teamMedianBlueOne[0].medPostOverBump}</td>
                                         <td>{teamMedianBlueOne[0].medPostDisabledMechanically}</td>
@@ -358,9 +364,9 @@ const Matchdetails = () => {
                                     </tr>
                                     <tr className="bg-primary bg-opacity-10">
                                         <td>{match.blueTwoTeamNumber} ~ {teamAverageBlueTwo[0].matchCount}</td>
-                                        <td>{teamMedianBlueTwo[0].medPostClimbLevelOne}</td>
-                                        <td>{teamMedianBlueTwo[0].medPostClimbLevelTwo}</td>
-                                        <td>{teamMedianBlueTwo[0].medPostClimbLevelThree}</td>
+                                        <td>{teamMedianBlueTwo[0].medPostClimbLevelOneLeft}</td>
+                                        <td>{teamMedianBlueTwo[0].medPostClimbLevelTwoLeft}</td>
+                                        <td>{teamMedianBlueTwo[0].medPostClimbLevelThreeLeft}</td>
                                         <td>{teamMedianBlueTwo[0].medPostUnderTrench}</td>
                                         <td>{teamMedianBlueTwo[0].medPostOverBump}</td>
                                         <td>{teamMedianBlueTwo[0].medPostDisabledMechanically}</td>
@@ -369,9 +375,9 @@ const Matchdetails = () => {
                                     </tr>
                                     <tr className="bg-primary bg-opacity-10">
                                         <td>{match.blueThreeTeamNumber} ~ {teamAverageBlueThree[0].matchCount}</td>
-                                        <td>{teamMedianBlueThree[0].medPostClimbLevelOne}</td>
-                                        <td>{teamMedianBlueThree[0].medPostClimbLevelTwo}</td>
-                                        <td>{teamMedianBlueThree[0].medPostClimbLevelThree}</td>
+                                        <td>{teamMedianBlueThree[0].medPostClimbLevelOneLeft}</td>
+                                        <td>{teamMedianBlueThree[0].medPostClimbLevelTwoLeft}</td>
+                                        <td>{teamMedianBlueThree[0].medPostClimbLevelThreeLeft}</td>
                                         <td>{teamMedianBlueThree[0].medPostUnderTrench}</td>
                                         <td>{teamMedianBlueThree[0].medPostOverBump}</td>
                                         <td>{teamMedianBlueThree[0].medPostDisabledMechanically}</td>
@@ -380,9 +386,9 @@ const Matchdetails = () => {
                                     </tr>
                                     <tr className="bg-danger bg-opacity-10">
                                         <td>{match.redOneTeamNumber} ~ {teamAverageRedOne[0].matchCount}</td>
-                                        <td>{teamMedianRedOne[0].medPostClimbLevelOne}</td>
-                                        <td>{teamMedianRedOne[0].medPostClimbLevelTwo}</td>
-                                        <td>{teamMedianRedOne[0].medPostClimbLevelThree}</td>
+                                        <td>{teamMedianRedOne[0].medPostClimbLevelOneLeft}</td>
+                                        <td>{teamMedianRedOne[0].medPostClimbLevelTwoLeft}</td>
+                                        <td>{teamMedianRedOne[0].medPostClimbLevelThreeLeft}</td>
                                         <td>{teamMedianRedOne[0].medPostUnderTrench}</td>
                                         <td>{teamMedianRedOne[0].medPostOverBump}</td>
                                         <td>{teamMedianRedOne[0].medPostDisabledMechanically}</td>
@@ -391,9 +397,9 @@ const Matchdetails = () => {
                                     </tr>
                                     <tr className="bg-danger bg-opacity-10">
                                         <td>{match.redTwoTeamNumber} ~ {teamAverageRedTwo[0].matchCount}</td>
-                                        <td>{teamMedianRedTwo[0].medPostClimbLevelOne}</td>
-                                        <td>{teamMedianRedTwo[0].medPostClimbLevelTwo}</td>
-                                        <td>{teamMedianRedTwo[0].medPostClimbLevelThree}</td>
+                                        <td>{teamMedianRedTwo[0].medPostClimbLevelOneLeft}</td>
+                                        <td>{teamMedianRedTwo[0].medPostClimbLevelTwoLeft}</td>
+                                        <td>{teamMedianRedTwo[0].medPostClimbLevelThreeLeft}</td>
                                         <td>{teamMedianRedTwo[0].medPostUnderTrench}</td>
                                         <td>{teamMedianRedTwo[0].medPostOverBump}</td>
                                         <td>{teamMedianRedTwo[0].medPostDisabledMechanically}</td>
@@ -402,9 +408,9 @@ const Matchdetails = () => {
                                     </tr>
                                     <tr className="bg-danger bg-opacity-10">
                                         <td>{match.redThreeTeamNumber} ~ {teamAverageRedThree[0].matchCount}</td>
-                                        <td>{teamMedianRedThree[0].medPostClimbLevelOne}</td>
-                                        <td>{teamMedianRedThree[0].medPostClimbLevelTwo}</td>
-                                        <td>{teamMedianRedThree[0].medPostClimbLevelThree}</td>
+                                        <td>{teamMedianRedThree[0].medPostClimbLevelOneLeft}</td>
+                                        <td>{teamMedianRedThree[0].medPostClimbLevelTwoLeft}</td>
+                                        <td>{teamMedianRedThree[0].medPostClimbLevelThreeLeft}</td>
                                         <td>{teamMedianRedThree[0].medPostUnderTrench}</td>
                                         <td>{teamMedianRedThree[0].medPostOverBump}</td>
                                         <td>{teamMedianRedThree[0].medPostDisabledMechanically}</td>
@@ -534,9 +540,9 @@ const Matchdetails = () => {
                                 <tbody>
                                     <tr className="bg-primary bg-opacity-10">
                                         <td>{match.blueOneTeamNumber} ~ {teamAverageBlueOne[0].matchCount}</td>
-                                        <td>{teamAverageBlueOne[0].avgPostClimbLevelOne}</td>
-                                        <td>{teamAverageBlueOne[0].avgPostClimbLevelTwo}</td>
-                                        <td>{teamAverageBlueOne[0].avgPostClimbLevelThree}</td>
+                                        <td>{teamAverageBlueOne[0].avgPostClimbLevelOneLeft}</td>
+                                        <td>{teamAverageBlueOne[0].avgPostClimbLevelTwoLeft}</td>
+                                        <td>{teamAverageBlueOne[0].avgPostClimbLevelThreeLeft}</td>
                                         <td>{teamAverageBlueOne[0].avgPostUnderTrench}</td>
                                         <td>{teamAverageBlueOne[0].avgPostOverBump}</td>
                                         <td>{teamAverageBlueOne[0].avgPostDisabledMechanically}</td>
@@ -545,9 +551,9 @@ const Matchdetails = () => {
                                     </tr>
                                     <tr className="bg-primary bg-opacity-10">
                                         <td>{match.blueTwoTeamNumber} ~ {teamAverageBlueTwo[0].matchCount}</td>
-                                        <td>{teamAverageBlueTwo[0].avgPostClimbLevelOne}</td>
-                                        <td>{teamAverageBlueTwo[0].avgPostClimbLevelTwo}</td>
-                                        <td>{teamAverageBlueTwo[0].avgPostClimbLevelThree}</td>
+                                        <td>{teamAverageBlueTwo[0].avgPostClimbLevelOneLeft}</td>
+                                        <td>{teamAverageBlueTwo[0].avgPostClimbLevelTwoLeft}</td>
+                                        <td>{teamAverageBlueTwo[0].avgPostClimbLevelThreeLeft}</td>
                                         <td>{teamAverageBlueTwo[0].avgPostUnderTrench}</td>
                                         <td>{teamAverageBlueTwo[0].avgPostOverBump}</td>
                                         <td>{teamAverageBlueTwo[0].avgPostDisabledMechanically}</td>
@@ -556,9 +562,9 @@ const Matchdetails = () => {
                                     </tr>
                                     <tr className="bg-primary bg-opacity-10">
                                         <td>{match.blueThreeTeamNumber} ~ {teamAverageBlueThree[0].matchCount}</td>
-                                        <td>{teamAverageBlueThree[0].avgPostClimbLevelOne}</td>
-                                        <td>{teamAverageBlueThree[0].avgPostClimbLevelTwo}</td>
-                                        <td>{teamAverageBlueThree[0].avgPostClimbLevelThree}</td>
+                                        <td>{teamAverageBlueThree[0].avgPostClimbLevelOneLeft}</td>
+                                        <td>{teamAverageBlueThree[0].avgPostClimbLevelTwoLeft}</td>
+                                        <td>{teamAverageBlueThree[0].avgPostClimbLevelThreeLeft}</td>
                                         <td>{teamAverageBlueThree[0].avgPostUnderTrench}</td>
                                         <td>{teamAverageBlueThree[0].avgPostOverBump}</td>
                                         <td>{teamAverageBlueThree[0].avgPostDisabledMechanically}</td>
@@ -567,9 +573,9 @@ const Matchdetails = () => {
                                     </tr>
                                     <tr className="bg-danger bg-opacity-10">
                                         <td>{match.redOneTeamNumber} ~ {teamAverageRedOne[0].matchCount}</td>
-                                        <td>{teamAverageRedOne[0].avgPostClimbLevelOne}</td>
-                                        <td>{teamAverageRedOne[0].avgPostClimbLevelTwo}</td>
-                                        <td>{teamAverageRedOne[0].avgPostClimbLevelThree}</td>
+                                        <td>{teamAverageRedOne[0].avgPostClimbLevelOneLeft}</td>
+                                        <td>{teamAverageRedOne[0].avgPostClimbLevelTwoLeft}</td>
+                                        <td>{teamAverageRedOne[0].avgPostClimbLevelThreeLeft}</td>
                                         <td>{teamAverageRedOne[0].avgPostUnderTrench}</td>
                                         <td>{teamAverageRedOne[0].avgPostOverBump}</td>
                                         <td>{teamAverageRedOne[0].avgPostDisabledMechanically}</td>
@@ -578,9 +584,9 @@ const Matchdetails = () => {
                                     </tr>
                                     <tr className="bg-danger bg-opacity-10">
                                         <td>{match.redTwoTeamNumber} ~ {teamAverageRedTwo[0].matchCount}</td>
-                                        <td>{teamAverageRedTwo[0].avgPostClimbLevelOne}</td>
-                                        <td>{teamAverageRedTwo[0].avgPostClimbLevelTwo}</td>
-                                        <td>{teamAverageRedTwo[0].avgPostClimbLevelThree}</td>
+                                        <td>{teamAverageRedTwo[0].avgPostClimbLevelOneLeft}</td>
+                                        <td>{teamAverageRedTwo[0].avgPostClimbLevelTwoLeft}</td>
+                                        <td>{teamAverageRedTwo[0].avgPostClimbLevelThreeLeft}</td>
                                         <td>{teamAverageRedTwo[0].avgPostUnderTrench}</td>
                                         <td>{teamAverageRedTwo[0].avgPostOverBump}</td>
                                         <td>{teamAverageRedTwo[0].avgPostDisabledMechanically}</td>
@@ -589,9 +595,9 @@ const Matchdetails = () => {
                                     </tr>
                                     <tr className="bg-danger bg-opacity-10">
                                         <td>{match.redThreeTeamNumber} ~ {teamAverageRedThree[0].matchCount}</td>
-                                        <td>{teamAverageRedThree[0].avgPostClimbLevelOne}</td>
-                                        <td>{teamAverageRedThree[0].avgPostClimbLevelTwo}</td>
-                                        <td>{teamAverageRedThree[0].avgPostClimbLevelThree}</td>
+                                        <td>{teamAverageRedThree[0].avgPostClimbLevelOneLeft}</td>
+                                        <td>{teamAverageRedThree[0].avgPostClimbLevelTwoLeft}</td>
+                                        <td>{teamAverageRedThree[0].avgPostClimbLevelThreeLeft}</td>
                                         <td>{teamAverageRedThree[0].avgPostUnderTrench}</td>
                                         <td>{teamAverageRedThree[0].avgPostOverBump}</td>
                                         <td>{teamAverageRedThree[0].avgPostDisabledMechanically}</td>

@@ -222,12 +222,7 @@ const Dataimport = () => {
                 prepData.autonShootsFuel = 0;
             }
 
-            if (matchData.tPC === true) {
-                prepData.teleOpCorralls = 1;
-            }
-            else {
-                prepData.teleOpCorralls = 0;
-            }
+            prepData.teleOpCorralls = matchData.tPC;
 
 
             if (matchData.tFH === 1) {

@@ -721,6 +721,14 @@ app.get('/api/v1/matchData/2026/:eventkey/team/:ids/median', async (req, res) =>
     medPostDisabledMechanically: median(getFieldValues('postDisabledMechanically')),
     medPostStuckOnFieldElement: median(getFieldValues('postStuckFieldElement')),
     medTeleOpDefened: median(getFieldValues('teleOpDefened')),
+    medTeleOpCorralls: median(getFieldValues('teleOpCorralls')),
+    medPostPartBroken: median(getFieldValues('postPartBroken')),
+    medAutonNeutralZone: median(getFieldValues('autonNeutralZone')),
+    medAutonClimbLevel: median(getFieldValues('autonClimbLevel')),
+    medAutonOutpost: median(getFieldValues('autonOutpost')),
+    medAutonDepot: median(getFieldValues('autonDepot')),
+    medAutonIntake: median(getFieldValues('autonIntakes')),
+    medAutonShootsFuel: median(getFieldValues('autonShootsFuel')),
   }]);
 });
 
