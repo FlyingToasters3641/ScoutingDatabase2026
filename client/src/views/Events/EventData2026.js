@@ -115,13 +115,15 @@ const Eventdata = () => {
                                 { data: 'teamNumber' },
                                 { data: 'matchCount' },
                                 { data: 'medStartPreload', searchable: false, },
+                                { data: 'medAutonShootsFuel', searchable: false, },
                                 { data: 'medTeleOpPassNeutralAlliance', searchable: false, },
-                                { data: 'medTeleOpPassOpponentAlliance', searchable: false, },
+                                { data: 'medTeleOpCorralls', searchable: false, },
                                 { data: 'medTeleOpShootMajority', searchable: false, },
                                 { data: 'medTeleOpShootHalf', searchable: false, },
                                 { data: 'medTeleOpFeedHumanMajority', searchable: false, },
-                                { data: 'medTeleOpDefenceStealling', searchable: false, },
                                 { data: 'medTeleOpDefenceBlocking', searchable: false, },
+                                { data: 'medPostDisabledMechanically', searchable: false, },
+                                { data: 'medPostPartBroken', searchable: false, },
                                 { data: 'medPostUnderTrench', searchable: false, },
                                 { data: 'medPostOverBump', searchable: false, }
                             ],
@@ -133,13 +135,15 @@ const Eventdata = () => {
                             <th>Team Number</th>
                             <th>Total Matches</th>
                             <th>Is Preloaded</th>
-                            <th>Passes from Neutral to Alliance Zone</th>
-                            <th>Passes from Opposing to Alliance Zone</th>
+                            <th>Auton Fuel Shots</th>
+                            <th>Launched Fuel</th>
+                            <th>Corralls Fuel</th>
                             <th>Shoots Majority of Fuel in Hub</th>
                             <th>Shoots About Half of Fuel in Hub</th>
-                            <th>Feeds Human Player a lot</th>
-                            <th>Defence via Stealing</th>
-                            <th>Defence via Blocking</th>
+                            <th>Feeds Human Player</th>
+                            <th>Is Defending</th>
+                            <th>Disabled Mechanically</th>
+                            <th>Part Broken</th>
                             <th>Goes Under Trench</th>
                             <th>Goes Over Bump</th>
                         </tr>
@@ -156,13 +160,15 @@ const Eventdata = () => {
                             { data: 'teamNumber' },
                             { data: 'matchCount' },
                             { data: 'avgStartPreload', searchable: false, },
+                            { data: 'avgAutonShootsFuel', searchable: false, },
                             { data: 'avgTeleOpPassNeutralAlliance', searchable: false, },
-                            { data: 'avgTeleOpPassOpponentAlliance', searchable: false, },
+                            { data: 'avgTeleOpCorralls', searchable: false, },
                             { data: 'avgTeleOpShootMajority', searchable: false, },
                             { data: 'avgTeleOpShootHalf', searchable: false, },
                             { data: 'avgTeleOpFeedHumanMajority', searchable: false, },
-                            { data: 'avgTeleOpDefenceStealling', searchable: false, },
                             { data: 'avgTeleOpDefenceBlocking', searchable: false, },
+                            { data: 'avgPostDisabledMechanically', searchable: false, },
+                            { data: 'avgPostPartBroken', searchable: false, },
                             { data: 'avgPostUnderTrench', searchable: false, },
                             { data: 'avgPostOverBump', searchable: false, }
                         ],
@@ -174,13 +180,15 @@ const Eventdata = () => {
                             <th>Team Number</th>
                             <th>Total Matches</th>
                             <th>Is Preloaded</th>
-                            <th>Passes from Neutral to Alliance Zone</th>
-                            <th>Passes from Opposing to Alliance Zone</th>
+                            <th>Auton Fuel Shots</th>
+                            <th>Launched Fuel</th>
+                            <th>Corralls Fuel</th>
                             <th>Shoots Majority of Fuel in Hub</th>
                             <th>Shoots About Half of Fuel in Hub</th>
-                            <th>Feeds Human Player a lot</th>
-                            <th>Defence via Stealing</th>
-                            <th>Defence via Blocking</th>
+                            <th>Feeds Human Player</th>
+                            <th>Is Defending</th>
+                            <th>Disabled Mechanically</th>
+                            <th>Part Broken</th>
                             <th>Goes Under Trench</th>
                             <th>Goes Over Bump</th>
                         </tr>

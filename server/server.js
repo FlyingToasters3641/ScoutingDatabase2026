@@ -530,6 +530,11 @@ app.get('/api/v1/matchData/2026/eventkey/:id/exclude/:exclude', async (req, res)
         [Sequelize.literal('ROUND(AVG(teleOpDefenceBlocking), 2)'), 'avgTeleOpDefenceBlocking'],
         [Sequelize.literal('ROUND(AVG(postUnderTrench), 2)'), 'avgPostUnderTrench'],
         [Sequelize.literal('ROUND(AVG(postOverBump), 2)'), 'avgPostOverBump'],
+        [Sequelize.literal('ROUND(AVG(autonShootsFuel), 2)'), 'avgAutonShootsFuel'],
+        [Sequelize.literal('ROUND(AVG(teleOpCorralls), 2)'), 'avgTeleOpCorralls'],
+        [Sequelize.literal('ROUND(AVG(postDisabledMechanically), 2)'), 'avgPostDisabledMechanically'],
+        [Sequelize.literal('ROUND(AVG(postPartBroken), 2)'), 'avgPostPartBroken'],
+
       ],
       where: {
         eventKey: req.params.id,
@@ -583,6 +588,10 @@ app.get('/api/v1/matchData/2026/eventkey/:id/exclude/:exclude/median', async (re
         medTeleOpDefenceBlocking: median(getFieldValues('teleOpDefenceBlocking')),
         medPostUnderTrench: median(getFieldValues('postUnderTrench')),
         medPostOverBump: median(getFieldValues('postOverBump')),
+        medAutonShootsFuel: median(getFieldValues('autonShootsFuel')),
+        medTeleOpCorralls: median(getFieldValues('teleOpCorralls')),
+        medPostDisabledMechanically: median(getFieldValues('postDisabledMechanically')),
+        medPostPartBroken: median(getFieldValues('postPartBroken')),
 
       };
     });
