@@ -197,7 +197,7 @@ const Team = () => {
                                     <tr className="bg-secondary bg-opacity-10">
                                         <td>{teamMedian[0].medAutonShootsFuel}</td>
                                         <td>{teamMedian[0].medAutonIntake}</td>
-                                        <td>{teamMedian[0].medAutonClimb}</td>
+                                        <td>{teamMedian[0].medAutonClimbLevel}</td>
                                         <td>{teamMedian[0].medAutonOutpost}</td>
                                         <td>{teamMedian[0].medAutonNeutralZone}</td>
                                     </tr>
@@ -218,7 +218,7 @@ const Team = () => {
                                     <tr className="bg-secondary bg-opacity-10">
                                         <td>{teamAverage[0].avgAutonShootsFuel}</td>
                                         <td>{teamAverage[0].avgAutonIntakes}</td>
-                                        <td>{teamAverage[0].avgAutonClimb}</td>
+                                        <td>{teamAverage[0].avgAutonClimbLevel}</td>
                                         <td>{teamAverage[0].avgAutonOutpost}</td>
                                         <td>{teamAverage[0].avgAutonNeutralZone}</td>
                                     </tr>
@@ -354,11 +354,7 @@ const Team = () => {
                                             <td>{teamMedian[0].medTeleOpFeedHumanMajority}</td>
                                         </tr>
                                         <tr className="bg-secondary bg-opacity-10">
-                                            <td>Defence Stealling</td>
-                                            <td>{teamMedian[0].medTeleOpDefenceStealling}</td>
-                                        </tr>
-                                        <tr className="bg-secondary bg-opacity-10">
-                                            <td>Defence Blocking</td>
+                                            <td>Defending</td>
                                             <td>{teamMedian[0].medTeleOpDefenceBlocking}</td>
                                         </tr>
                                         <tr className="bg-secondary bg-opacity-10">
