@@ -323,10 +323,8 @@ const Eventdetail = () => {
                 </Col>
             </Row>
             <Row>
-                <Col>
-                    <hr></hr>
-                    <p>Event Year: {appData.currentEventYear}; Event Key: {appData.currentEventKey}; Event Id (serverDV): {appData.currentEventID}; <em><b>{appData.name}</b></em></p>
-                </Col>
+                <hr></hr>
+
             </Row>
             <Row>
                 <Col md={1}>&nbsp;</Col>
@@ -661,6 +659,19 @@ const Eventdetail = () => {
                     </Row> 
                 </Col>
             </Row>
+                <footer>
+                    <Row>
+                        <Row>
+                            <Col>
+                                <hr></hr>
+                            </Col>
+                        </Row>
+                        <Col>
+                            <p>Powered By <a href="https://www.thebluealliance.com/" target="_blank" rel="noopener noreferrer">The Blue Alliance</a></p>
+                            <p>Event Year: {appData.currentEventYear}; Event Key: {appData.currentEventKey}; Event Id (serverDV): {appData.currentEventID}; <em><b>{appData.name}</b></em></p>
+                        </Col>
+                    </Row>
+                </footer>
         </Container>
     );
 }

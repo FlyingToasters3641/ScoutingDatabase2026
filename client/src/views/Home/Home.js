@@ -67,9 +67,19 @@ const Home = () => {
                     </table>
                 </Col>
             </Row>
-            <Row>
-                <Col><p>Currently Selected: {appData.name}</p></Col>
-            </Row>
+             <footer>
+                <Row>
+                    <Row>
+                        <Col>
+                            <hr></hr>
+                        </Col>
+                    </Row>
+                    <Col>
+                        <p>Powered By <a href="https://www.thebluealliance.com/" target="_blank" rel="noopener noreferrer">The Blue Alliance</a></p>
+                        <p>Event Year: {appData.currentEventYear}; Event Key: {appData.currentEventKey}; Event Id (serverDV): {appData.currentEventID}; <em><b>{appData.name}</b></em></p>
+                    </Col>
+                </Row>
+            </footer>
         </Container>
     );
 }

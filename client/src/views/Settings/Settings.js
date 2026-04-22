@@ -39,7 +39,7 @@ import { Container, Row, Col, Modal } from "react-bootstrap";
              <Row>
                  <Col md={1}><BackButton /></Col>
                  <Col md={11}> 
-                     <h1>Hamburger Menu</h1>
+                     <h2>Hamburger Menu</h2>
                  </Col>
                  <hr></hr>
              </Row>

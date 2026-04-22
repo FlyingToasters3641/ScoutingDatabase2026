@@ -217,7 +217,7 @@ const Eventimport = () => {
         <Container>
             <Row>
                 <Col md={1}><BackButton /></Col>
-                <Col md={11}><h1>Event Import</h1></Col>
+                <Col md={11}><h2>Event Import</h2></Col>
                 <hr></hr>
             </Row>
             <Row>
@@ -279,6 +279,18 @@ const Eventimport = () => {
                     </form>
                 </Col>
             </Row>
+                <footer>
+                    <Row>
+                        <Row>
+                            <Col>
+                                <hr></hr>
+                            </Col>
+                        </Row>
+                        <Col>
+                            <p>Powered By <a href="https://www.thebluealliance.com/" target="_blank" rel="noopener noreferrer">The Blue Alliance</a></p>
+                        </Col>
+                    </Row>
+                </footer>
         </Container>
     );
 
