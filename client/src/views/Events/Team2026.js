@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from 'axios';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import BackButton from '../common/BackButton';
 import { APP_DATABASE_URL } from "../../constant/constant";
 import { Col, Container, Row } from "react-bootstrap";
 import { AppContext } from "../common/AppContext.js";
 import { InputSwitch } from 'primereact/inputswitch';
+import "./Buttons.css";
+import { RiEyeLine } from "react-icons/ri";
 
 const Team = () => {
     const { appData, setAppData } = useContext(AppContext);
@@ -470,6 +472,7 @@ const Team = () => {
                 <Col md={2}>
                     <h2>Team Information</h2>
                     <hr></hr>
+                    <p><a href={`https://www.thebluealliance.com/team/${team.teamNumber}/2026`} target="_blank" rel="noopener noreferrer"><button type="button" class="btn btn-tba" ><RiEyeLine /> View on TBA</button></a></p>
                     <h5>Team Number:</h5>
                     <p>{team.teamNumber}</p>
                     <h5>Team Name:</h5>
@@ -489,5 +492,4 @@ const Team = () => {
         </Container>
     );
 }
-
 export default Team;

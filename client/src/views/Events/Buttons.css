@@ -1,0 +1,21 @@
+.btn-tba {
+  color: #fff;
+  background-color: #3f51b5;
+  border-color: #3f51b5;
+}
+.btn-tba:hover {
+  color: #fff;
+  background-color: #1C2379;
+  border-color: #1C2379;
+}
+.btn-tba:focus {
+  box-shadow: 0 0 0 0.2rem rgba(28, 35, 121, 0.5);
+}
+.btn-tba:not(:disabled):not(.disabled):active {
+  color: #fff;
+  background-color: #1C2379;
+  border-color: #1C2379;
+}
+.btn-tba:not(:disabled):not(.disabled):active:focuss {
+  box-shadow: 0 0 0 0.2rem rgba(28, 35, 121, 0.5);
+}
