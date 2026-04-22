@@ -5,7 +5,7 @@ import { AppContext } from "../common/AppContext.js";
 import { Container, Row, Col, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { APP_DATABASE_URL } from "../../constant/constant";
 import BackButton from '../common/BackButton';
-import { RiTrophyLine, RiAddCircleLine, RiAlertLine } from "react-icons/ri";
+import { RiTrophyLine, RiAddCircleLine, RiAlertLine, RiEyeLine } from "react-icons/ri";
 import { MdOutlinePreview } from "react-icons/md";
 import DataTable from '../../components/DataTableNetBase.js';
 import { ListBox } from 'primereact/listbox';
@@ -13,6 +13,7 @@ import { Dropdown } from 'primereact/dropdown';
 import { Dialog } from 'primereact/dialog';
 import { Chips } from 'primereact/chips';
 import './Events.css'; // Import the custom CSS file
+import "./Buttons.css";
 
 const Eventdetail = () => {
     const { appData } = useContext(AppContext);
@@ -330,6 +331,8 @@ const Eventdetail = () => {
             <Row>
                 <Col md={1}>&nbsp;</Col>
                 <Col md={11} style={tdRight}>
+                    <a href={`https://www.thebluealliance.com/event/${appData.currentEventKey}`} target="_blank" rel="noopener noreferrer"><button type="button" class="btn btn-tba" ><RiEyeLine /> View on TBA</button></a>
+                    &nbsp;
                     {renderEventDataByYear(`${appData.currentEventYear}`)}
                     &nbsp;
                     {renderDataByYear(`${appData.currentEventYear}`)}
