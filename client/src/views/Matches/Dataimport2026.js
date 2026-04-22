@@ -215,13 +215,7 @@ const Dataimport = () => {
                 prepData.autonIntakes = 0;
             }
 
-            if (matchData.aSF === true) {
-                prepData.autonShootsFuel = 1;
-            }
-            else {
-                prepData.autonShootsFuel = 0;
-            }
-
+            prepData.autonShootsFuel = matchData.aSF;
             prepData.teleOpCorralls = matchData.tPC;
 
 
