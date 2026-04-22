@@ -213,8 +213,7 @@ const Matchdetails = () => {
                                 <th>Red 1</th>
                                 <th>Red 2</th>
                                 <th>Red 3</th>
-                                <th>Mode Switch</th>
-                                <th>Mode</th>
+                                <th>{isMedian ? "Median" : "Average"}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -227,7 +226,6 @@ const Matchdetails = () => {
                                 <td className="bg-danger bg-opacity-10"><Link to={`/team2026/?teamId=${arrayLookup(match.redTwoTeamNumber, team, "teamNumber", "id")}`}>{match.redTwoTeamNumber}</Link> ~ {teamAverageRedTwo[0].matchCount}</td>
                                 <td className="bg-danger bg-opacity-10"><Link to={`/team2026    /?teamId=${arrayLookup(match.redThreeTeamNumber, team, "teamNumber", "id")}`}>{match.redThreeTeamNumber}</Link> ~ {teamAverageRedThree[0].matchCount}</td>
                                 <td><InputSwitch checked={isMedian} onChange={(e) => setIsMedian(e.value)} /></td>
-                                <td>{isMedian ? "Median" : "Average"}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -618,6 +616,19 @@ const Matchdetails = () => {
                     </Col>
                 </Row>
             )}
+            <footer>
+                <Row>
+                    <Row>
+                        <Col>
+                            <hr></hr>
+                        </Col>
+                    </Row>
+                    <Col>
+                        <p>Powered By <a href="https://www.thebluealliance.com/" target="_blank" rel="noopener noreferrer">The Blue Alliance</a></p>
+                        <p>Event Year: {appData.currentEventYear}; Event Key: {appData.currentEventKey}; Event Id (serverDV): {appData.currentEventID}; <em><b>{appData.name}</b></em></p>
+                    </Col>
+                </Row>
+            </footer>
         </Container>
     );
 }

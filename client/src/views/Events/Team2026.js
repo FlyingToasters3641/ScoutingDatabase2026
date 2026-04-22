@@ -127,7 +127,7 @@ const Team = () => {
         <Container>
             <Row>
                 <Col md={1}><BackButton /></Col>
-                <Col md={11}><h1> {team.teamNumber} - {team.nickname} - {appData.currentEventKey}</h1></Col>
+                <Col md={11}><h2> {team.teamNumber} - {team.nickname} - {appData.currentEventKey}</h2></Col>
             </Row>
             <Row><hr></hr></Row>
             <Row>
@@ -489,6 +489,19 @@ const Team = () => {
                     <h6><InputSwitch checked={isMedian} onChange={(e) => setIsMedian(e.value)} /> {isMedian ? "Median" : "Average"}</h6>
                 </Col>
             </Row>
+                <footer>
+                    <Row>
+                        <Row>
+                            <Col>
+                                <hr></hr>
+                            </Col>
+                        </Row>
+                        <Col>
+                            <p>Powered By <a href="https://www.thebluealliance.com/" target="_blank" rel="noopener noreferrer">The Blue Alliance</a></p>
+                            <p>Event Year: {appData.currentEventYear}; Event Key: {appData.currentEventKey}; Event Id (serverDV): {appData.currentEventID}; <em><b>{appData.name}</b></em></p>
+                        </Col>
+                    </Row>
+                </footer>
         </Container>
     );
 }

@@ -731,10 +731,9 @@ const Dataimport = () => {
             <Row>
                 <Col md={1}><BackButton /></Col>
                 <Col md={11}> 
-                    <h1>Import Scouting Data 2026</h1>
+                    <h2>Import Scouting Data 2026</h2>
                 </Col>
                 <hr></hr>
-                <p>Event Year: {appData.currentEventYear}; Event Key: {appData.currentEventKey}; Event Id (serverDV): {appData.currentEventID};</p>
             </Row>
             <Row>
                 <Col><ProgressBar variant="success" now={progressBarStatus}/></Col>
@@ -754,6 +753,19 @@ const Dataimport = () => {
                     <p>SHA1:<br></br><textarea value={scannedDataSHA1} className="resizable-textarea" /></p>
                 </Col>
             </Row>
+                <footer>
+                    <Row>
+                        <Row>
+                            <Col>
+                                <hr></hr>
+                            </Col>
+                        </Row>
+                        <Col>
+                            <p>Powered By <a href="https://www.thebluealliance.com/" target="_blank" rel="noopener noreferrer">The Blue Alliance</a></p>
+                            <p>Event Year: {appData.currentEventYear}; Event Key: {appData.currentEventKey}; Event Id (serverDV): {appData.currentEventID}; <em><b>{appData.name}</b></em></p>
+                        </Col>
+                    </Row>
+                </footer>
         </Container>
     );
 }
