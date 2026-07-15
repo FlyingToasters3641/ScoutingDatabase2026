@@ -224,7 +224,7 @@ const Matchdetails = () => {
                                 <td className="bg-primary bg-opacity-10"><Link to={`/team2026/?teamId=${arrayLookup(match.blueThreeTeamNumber, team, "teamNumber", "id")}`}>{match.blueThreeTeamNumber}</Link> ~ {teamAverageBlueThree[0].matchCount}</td>
                                 <td className="bg-danger bg-opacity-10"><Link to={`/team2026/?teamId=${arrayLookup(match.redOneTeamNumber, team, "teamNumber", "id")}`}>{match.redOneTeamNumber}</Link> ~ {teamAverageRedOne[0].matchCount}</td>
                                 <td className="bg-danger bg-opacity-10"><Link to={`/team2026/?teamId=${arrayLookup(match.redTwoTeamNumber, team, "teamNumber", "id")}`}>{match.redTwoTeamNumber}</Link> ~ {teamAverageRedTwo[0].matchCount}</td>
-                                <td className="bg-danger bg-opacity-10"><Link to={`/team2026    /?teamId=${arrayLookup(match.redThreeTeamNumber, team, "teamNumber", "id")}`}>{match.redThreeTeamNumber}</Link> ~ {teamAverageRedThree[0].matchCount}</td>
+                                <td className="bg-danger bg-opacity-10"><Link to={`/team2026/?teamId=${arrayLookup(match.redThreeTeamNumber, team, "teamNumber", "id")}`}>{match.redThreeTeamNumber}</Link> ~ {teamAverageRedThree[0].matchCount}</td>
                                 <td><InputSwitch checked={isMedian} onChange={(e) => setIsMedian(e.value)} /></td>
                             </tr>
                         </tbody>
